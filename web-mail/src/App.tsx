@@ -1,9 +1,11 @@
-import { useState } from "react";
+import React from "react";
+import { Outlet } from "react-router-dom";
 
-function App() {
+function App(): JSX.Element {
   return (
-    <div className="App">
-      <h1>Hello world</h1>
+    <div>
+      <h1>App</h1>
+      <Outlet />
     </div>
   );
 }
