@@ -1,15 +1,15 @@
 import instance from ".";
 
-type User = {
+type UserType = {
   name: string;
   surname: string;
   email: string;
   avatar?: string;
 };
 
-export type Email = {
-  author: User;
-  to: User[];
+export type EmailType = {
+  author: UserType;
+  to: UserType[];
   title: string;
   text: string;
   bookmark: boolean;
@@ -20,7 +20,7 @@ export type Email = {
 };
 
 export default {
-  async getEmails(path: string): Promise<Email[]> {
+  async getEmails(path: string): Promise<EmailType[]> {
     try {
       return (await instance.get(path)).data;
     } catch (error) {

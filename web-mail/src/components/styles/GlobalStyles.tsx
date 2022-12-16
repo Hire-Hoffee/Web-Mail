@@ -1,11 +1,16 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
-const GlobalStyles = createGlobalStyle`
+import { ThemeType } from "./theme";
+
+const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
   ${reset}
 
   html {
     font-family: Arial, Helvetica, sans-serif;
+  }
+  body {
+    background-color: ${({ theme }) => theme.colors.body};
   }
 `;
 
