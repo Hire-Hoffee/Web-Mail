@@ -31,7 +31,13 @@ const controllers = {
 
       const result = filterData(query);
 
-      res.writeHead(200, { "Content-Type": "application/json" });
+      const headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET",
+        "Content-Type": "application/json",
+      };
+
+      res.writeHead(200, headers);
       res.end(JSON.stringify(result));
     } catch (error) {
       console.log(error);
