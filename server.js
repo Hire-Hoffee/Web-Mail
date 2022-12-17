@@ -1,5 +1,7 @@
 const http = require("http");
 const db = require("./db.json");
+const path = require("path");
+const fs = require("fs").promises;
 
 const utils = {
   folderDict: {
@@ -49,9 +51,10 @@ const controllers = {
       throw new Error("Unexpected error occurred");
     }
   },
-  getOneMailController: (req, res, query) => {
+  getOneMailController: async (req, res, query) => {
     try {
-      const result = utils.lightData().filter((letter) => letter.title === decodeURI(query));
+      const bigFile = JSON.parse(await fs.readFile(path.resolve("./db.json")));
+      const result = bigFile.find((letter) => letter.title === decodeURI(query));
 
       const headers = {
         "Access-Control-Allow-Origin": "*",
@@ -68,7 +71,7 @@ const controllers = {
   },
 };
 
-const requestListener = function (req, res) {
+const requestListener = async function (req, res) {
   try {
     console.log(`${req.httpVersion} ${req.method} ${req.url}`);
 
@@ -77,7 +80,7 @@ const requestListener = function (req, res) {
       controllers.getDataController(req, res, folder);
     } else if (req.url.match(/\/api\/email\//i) && req.method === "GET") {
       const email = req.url.split("/")[3];
-      controllers.getOneMailController(req, res, email);
+      await controllers.getOneMailController(req, res, email);
     } else {
       res.writeHead(404, { "Content-Type": "application/json" });
       res.end(

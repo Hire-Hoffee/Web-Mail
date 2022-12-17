@@ -4,7 +4,7 @@ import { ThemeType } from "./themes";
 const FlexContainer = styled.div<{ theme: ThemeType }>`
   display: flex;
   align-items: center;
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
 `;
 
