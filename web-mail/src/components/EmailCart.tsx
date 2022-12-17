@@ -95,6 +95,7 @@ function EmailCart(email: EmailType) {
                 })}
           </span>
         </div>
+        <hr />
       </StyledEmailsCart>
     </Link>
   );

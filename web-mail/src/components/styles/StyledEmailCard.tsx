@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const StyledEmailCart = styled.main`
   background-color: ${({ theme }) => theme.colors.header};
+  position: relative;
   height: 48px;
   padding-left: 12px;
   padding-right: 12px;
@@ -33,6 +34,16 @@ const StyledEmailCart = styled.main`
     transition: 0.4s;
     border-radius: 12px;
     cursor: pointer;
+  }
+  hr {
+    position: absolute;
+    height: 1px;
+    border: none;
+    width: 95%;
+    right: 5px;
+    background-color: ${({ theme }) => theme.colors.selected};
+    bottom: 0;
+    margin: auto;
   }
 `;
 
