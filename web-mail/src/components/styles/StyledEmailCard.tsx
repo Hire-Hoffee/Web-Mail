@@ -6,6 +6,7 @@ const StyledEmailCart = styled.main`
   padding-left: 12px;
   padding-right: 12px;
   font-size: 15px;
+  transition: 0.4s;
   .avatar {
     width: 32px;
     height: 32px;
@@ -26,6 +27,13 @@ const StyledEmailCart = styled.main`
   grid-column-gap: 1px;
   grid-row-gap: 0px;
   align-items: center;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.selected};
+    transition: 0.4s;
+    border-radius: 12px;
+    cursor: pointer;
+  }
 `;
 
 export default StyledEmailCart;

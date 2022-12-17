@@ -18,6 +18,22 @@ const StyledNavbar = styled.nav<{ theme: ThemeType }>`
     cursor: pointer;
     transition: 0.2s;
   }
+  @media (max-width: 768px) {
+    width: 36px;
+    .hiddenBtn {
+      display: none;
+    }
+    button {
+      width: fit-content;
+      background-color: transparent;
+      border: none;
+    }
+  }
+  @media (min-width: 768px) {
+    .hiddenIMG {
+      display: none;
+    }
+  }
   button:hover {
     opacity: 0.6;
     transition: 0.2s;

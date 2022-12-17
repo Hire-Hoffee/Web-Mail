@@ -11,11 +11,15 @@ import DraftsSVG from "./styles/svgs/DraftsSVG";
 import SpamSVG from "./styles/svgs/SpamSVG";
 import TrashSVG from "./styles/svgs/TrashSVG";
 import PlusSVG from "./styles/svgs/PlusSVG";
+import writeLetter from "../assets/images/writeLetter.svg";
 
 function Navbar(): JSX.Element {
   return (
     <StyledNavbar>
-      <button>Написать письмо</button>
+      <button>
+        <img className="hiddenIMG" src={writeLetter} alt="write_icon" />
+        <span className="hiddenBtn">Написать письмо</span>
+      </button>
       <ul>
         <NavRoute to="inbox" svgComponent={<InboxSVG />} name="Входящие" />
         <NavRoute to="important" svgComponent={<ImportantSVG />} name="Важное" />
