@@ -26,13 +26,19 @@ const StyledSVG = styled.div<{ theme: ThemeType }>`
       fill: ${({ theme }) => theme.colors.text.primary};
     }
   }
+  @media (max-width: 768px) {
+    .hidden {
+      display: none;
+    }
+    padding-right: 0px;
+  }
 `;
 
-function ThemeSwitcher() {
+function ThemeSwitcher(): JSX.Element {
   const theme = useAppSelector((state) => state.utils.theme);
   const dispatch = useAppDispatch();
 
-  function changeTheme() {
+  function changeTheme(): void {
     if (theme === "white") {
       dispatch(changeThemeState("black"));
       localStorage.setItem("theme", "black");
@@ -62,7 +68,7 @@ function ThemeSwitcher() {
         <rect x="13.3" y="17.1998" width="2.5" height="2.5" rx="1.25" fill="#2C2D2E" />
         <rect x="15.6" y="13.7998" width="2.5" height="2.5" rx="1.25" fill="#2C2D2E" />
       </svg>
-      <div>Тема: {theme === "white" ? "светлая" : "темная"}</div>
+      <div className="hidden">Тема: {theme === "white" ? "светлая" : "темная"}</div>
     </StyledSVG>
   );
 }

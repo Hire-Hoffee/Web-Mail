@@ -9,11 +9,13 @@ import InboxPage from "../pages/InboxPage";
 import SentPage from "../pages/SentPage";
 import SpamPage from "../pages/SpamPage";
 import TrashPage from "../pages/TrashPage";
+import ErrorComponent from "../components/ErrorComponent";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorComponent />,
     children: [
       {
         path: "archive",
