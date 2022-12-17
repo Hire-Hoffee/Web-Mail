@@ -3,16 +3,18 @@ import StyledEmailsContainer from "../components/styles/StyledEmailsContainer";
 import EmailCart from "../components/EmailCart";
 import { EmailType } from "../services/apiRequests";
 import { getEmails } from "../services/apiRequests";
+import { useParams } from "react-router-dom";
 
-function ArchivePage(): JSX.Element {
+function EmailsListPage() {
   const [emails, setEmails] = useState<EmailType[] | null>(null);
+  const { folder } = useParams();
 
   useEffect(() => {
     (async () => {
-      const result = await getEmails("/archive");
+      const result = await getEmails("/" + folder);
       setEmails(result);
     })();
-  }, []);
+  }, [folder]);
 
   return (
     <StyledEmailsContainer>
@@ -37,4 +39,4 @@ function ArchivePage(): JSX.Element {
   );
 }
 
-export default ArchivePage;
+export default EmailsListPage;
