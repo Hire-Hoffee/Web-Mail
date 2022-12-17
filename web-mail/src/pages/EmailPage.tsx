@@ -95,6 +95,12 @@ function EmailPage(): JSX.Element {
       {email?.doc?.img ? (
         <div>
           <img className="bigIMG" src={email?.doc?.img} alt="doc" />
+          <div className="downloadIMG">
+            {Object.keys(email?.doc).length} объект{" "}
+            <a href={email?.doc?.img} download="doc.png">
+              Скачать
+            </a>
+          </div>
         </div>
       ) : (
         ""

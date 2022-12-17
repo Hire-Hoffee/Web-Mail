@@ -74,6 +74,16 @@ const StyledEmailPage = styled(StyledEmailsContainer)`
     height: 190px;
     border-radius: 12px;
   }
+  .downloadIMG {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    a {
+      color: #005bd1;
+    }
+    a:hover {
+      opacity: 0.8;
+    }
+  }
 `;
 
 export default StyledEmailPage;
