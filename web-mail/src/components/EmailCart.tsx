@@ -83,7 +83,16 @@ function EmailCart(email: EmailType) {
         <div>{email.flag in flagDict ? <img src={flagDict[email.flag]} alt="flag" /> : false}</div>
         <div>
           <span className="textLighter fontSmall">
-            {new Date(email.date).toLocaleDateString("ru-RU", { month: "short", day: "numeric" })}
+            {new Date(email.date).getFullYear() < new Date().getFullYear()
+              ? new Date(email.date).toLocaleDateString("ru-RU", {
+                  month: "numeric",
+                  day: "numeric",
+                  year: "numeric",
+                })
+              : new Date(email.date).toLocaleDateString("ru-RU", {
+                  month: "short",
+                  day: "numeric",
+                })}
           </span>
         </div>
       </StyledEmailsCart>

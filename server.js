@@ -30,6 +30,11 @@ const controllers = {
       }
 
       const result = filterData(query);
+      result.sort((a, b) => {
+        a = new Date(a.date).getTime();
+        b = new Date(b.date).getTime();
+        return b - a;
+      });
 
       const headers = {
         "Access-Control-Allow-Origin": "*",
