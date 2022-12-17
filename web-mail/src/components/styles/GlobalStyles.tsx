@@ -13,6 +13,10 @@ const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
     background-color: ${({ theme }) => theme.colors.body};
     color:  ${({ theme }) => theme.colors.text.primary};
   }
+  a {
+    text-decoration: none;
+    color: unset;
+  }
 `;
 
 export default GlobalStyles;

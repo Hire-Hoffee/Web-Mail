@@ -28,3 +28,11 @@ export const getEmails = async (path: string): Promise<EmailType[]> => {
     throw error;
   }
 };
+
+export const getOneMail = async (path: string): Promise<[EmailType]> => {
+  try {
+    return (await instance.get(path)).data;
+  } catch (error) {
+    throw error;
+  }
+};

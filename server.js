@@ -44,18 +44,42 @@ const controllers = {
       throw new Error("Unexpected error occurred");
     }
   },
+  getOneMailController: (req, res, query) => {
+    try {
+      const result = utils.lightData().filter((letter) => letter.title === decodeURI(query));
+
+      const headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET",
+        "Content-Type": "application/json",
+      };
+
+      res.writeHead(200, headers);
+      res.end(JSON.stringify(result));
+    } catch (error) {
+      console.log(error);
+      throw new Error("Unexpected error occurred");
+    }
+  },
 };
 
 const requestListener = function (req, res) {
   try {
     console.log(`${req.httpVersion} ${req.method} ${req.url}`);
 
-    if (req.url.match(/\/api\/\w+/) && req.method === "GET") {
+    if (req.url.match(/^\/api\/\w+$/) && req.method === "GET") {
       const folder = req.url.split("/")[2];
       controllers.getDataController(req, res, folder);
+    } else if (req.url.match(/\/api\/email\//i) && req.method === "GET") {
+      const email = req.url.split("/")[3];
+      controllers.getOneMailController(req, res, email);
     } else {
       res.writeHead(404, { "Content-Type": "application/json" });
-      res.end(JSON.stringify({ message: "Route Not Found: Use the api/[folderName] endpoint" }));
+      res.end(
+        JSON.stringify({
+          message: "Route Not Found: Use the api/[folderName] or api/email/[emailTitle] endpoint",
+        })
+      );
     }
   } catch (error) {
     console.log(error);

@@ -22,7 +22,7 @@ const StyledEmailCart = styled.main`
     font-weight: bold;
   }
   display: grid;
-  grid-template-columns: 40px 200px 40px 1fr 40px 60px;
+  grid-template-columns: 20px 40px 200px 40px 1fr 40px 60px;
   grid-template-rows: 1fr;
   grid-column-gap: 1px;
   grid-row-gap: 0px;

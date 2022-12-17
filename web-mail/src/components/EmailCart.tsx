@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import StyledEmailsCart from "./styles/StyledEmailCard";
 import { EmailType } from "../services/apiRequests";
+import { Link } from "react-router-dom";
 
 import defaultAvatar from "../assets/images/defaultAvatar.png";
 import bookmarkIcon from "../assets/images/bookmarkIcon.svg";
@@ -11,6 +12,7 @@ import orders from "../assets/images/orders.svg";
 import tickets from "../assets/images/tickets.svg";
 import registrations from "../assets/images/registrations.svg";
 import travelings from "../assets/images/travelings.svg";
+import blueDot from "../assets/images/blueDot.svg";
 
 function EmailCart(email: EmailType) {
   const [size, setSize] = useState<number>(
@@ -30,6 +32,7 @@ function EmailCart(email: EmailType) {
 
   useEffect(() => {
     window.addEventListener("resize", setStringLength);
+
     return () => {
       window.removeEventListener("resize", setStringLength);
     };
@@ -45,37 +48,46 @@ function EmailCart(email: EmailType) {
   };
 
   return (
-    <StyledEmailsCart>
-      <div>
-        <img src={email.author.avatar || defaultAvatar} alt="avatar" className="avatar" />
-      </div>
-      <div>
-        <p className={email.read === false ? "unread" : ""}>
-          {email.author.name} {email.author.surname}
-        </p>
-      </div>
-      <div>
-        {email.bookmark ? (
-          <img src={bookmarkIcon} alt="status" />
-        ) : email.important ? (
-          <img src={importantIcon} alt="status" />
-        ) : (
-          false
-        )}
-      </div>
-      <div>
-        <p>
-          <span className={email.read === false ? "unread" : ""}>{resize(email.title) + ".."}</span>
-          <span className="textLighter">{resize(email.text) + ".."}</span>
-        </p>
-      </div>
-      <div>{email.flag in flagDict ? <img src={flagDict[email.flag]} alt="flag" /> : false}</div>
-      <div>
-        <span className="textLighter fontSmall">
-          {new Date(email.date).toLocaleDateString("ru-RU", { month: "short", day: "numeric" })}
-        </span>
-      </div>
-    </StyledEmailsCart>
+    <Link to={"/email/" + email.title}>
+      <StyledEmailsCart>
+        <div>{email.read === false ? <img src={blueDot} alt="status" /> : ""}</div>
+        <div>
+          <img src={email.author.avatar || defaultAvatar} alt="avatar" className="avatar" />
+        </div>
+        <div>
+          <p className={email.read === false ? "unread" : ""}>
+            {email.author.name} {email.author.surname}
+          </p>
+        </div>
+        <div>
+          {email.bookmark ? (
+            <img src={bookmarkIcon} alt="status" />
+          ) : email.important ? (
+            <img src={importantIcon} alt="status" />
+          ) : email.bookmark && email.important ? (
+            <div>
+              <img src={bookmarkIcon} alt="status" /> <img src={importantIcon} alt="status" />
+            </div>
+          ) : (
+            false
+          )}
+        </div>
+        <div>
+          <p>
+            <span className={email.read === false ? "unread" : ""}>
+              {resize(email.title) + ".."}
+            </span>
+            <span className="textLighter">{resize(email.text) + ".."}</span>
+          </p>
+        </div>
+        <div>{email.flag in flagDict ? <img src={flagDict[email.flag]} alt="flag" /> : false}</div>
+        <div>
+          <span className="textLighter fontSmall">
+            {new Date(email.date).toLocaleDateString("ru-RU", { month: "short", day: "numeric" })}
+          </span>
+        </div>
+      </StyledEmailsCart>
+    </Link>
   );
 }
 
