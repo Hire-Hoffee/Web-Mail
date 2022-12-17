@@ -16,15 +16,15 @@ export type EmailType = {
   important: boolean;
   read: boolean;
   folder: string;
+  date: string;
+  flag: string;
   doc?: { img: string };
 };
 
-export default {
-  async getEmails(path: string): Promise<EmailType[]> {
-    try {
-      return (await instance.get(path)).data;
-    } catch (error) {
-      throw error;
-    }
-  },
+export const getEmails = async (path: string): Promise<EmailType[]> => {
+  try {
+    return (await instance.get(path)).data;
+  } catch (error) {
+    throw error;
+  }
 };

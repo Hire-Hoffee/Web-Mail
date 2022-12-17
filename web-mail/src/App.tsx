@@ -11,7 +11,7 @@ import Navbar from "./components/Navbar";
 
 function App(): JSX.Element {
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={whiteTheme}>
       <GlobalStyles />
       <Header />
       <StyledContainer>
