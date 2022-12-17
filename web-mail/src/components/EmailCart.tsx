@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import StyledEmailsCart from "./styles/StyledEmailCard";
 import { EmailType } from "../services/apiRequests";
 
@@ -13,6 +13,28 @@ import registrations from "../assets/images/registrations.svg";
 import travelings from "../assets/images/travelings.svg";
 
 function EmailCart(email: EmailType) {
+  const [size, setSize] = useState<number>(
+    Math.round(window.innerWidth > 1000 ? window.innerWidth / 30 : window.innerWidth / 70)
+  );
+
+  const setStringLength = () => {
+    const strLength: number = Math.round(
+      window.innerWidth > 1000 ? window.innerWidth / 30 : window.innerWidth / 70
+    );
+    setSize(strLength);
+  };
+
+  const resize = (str: string): string => {
+    return str.slice(0, size);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", setStringLength);
+    return () => {
+      window.removeEventListener("resize", setStringLength);
+    };
+  }, []);
+
   const flagDict: any = {
     Заказы: orders,
     Финансы: finances,
@@ -43,10 +65,8 @@ function EmailCart(email: EmailType) {
       </div>
       <div>
         <p>
-          <span className={email.read === false ? "unread" : ""}>
-            {email.title.slice(0, 30) + "..."}{" "}
-          </span>
-          <span className="textLighter">{email.text.slice(0, 70) + "..."}</span>
+          <span className={email.read === false ? "unread" : ""}>{resize(email.title) + ".."}</span>
+          <span className="textLighter">{resize(email.text) + ".."}</span>
         </p>
       </div>
       <div>{email.flag in flagDict ? <img src={flagDict[email.flag]} alt="flag" /> : false}</div>
