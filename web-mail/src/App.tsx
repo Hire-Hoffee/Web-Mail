@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import GlobalStyles from "./components/styles/GlobalStyles";
 import { ThemeProvider } from "styled-components";
 import { whiteTheme, darkTheme } from "./components/styles/themes";
@@ -16,10 +16,14 @@ import { changeThemeState } from "./store/utilsSlice";
 function App(): JSX.Element {
   const theme = useAppSelector((state) => state.utils.theme);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (localStorage.getItem("theme")) {
       dispatch(changeThemeState(localStorage.getItem("theme") || "white"));
+    }
+    if (window.location.pathname === "/") {
+      return navigate("/inbox");
     }
   }, []);
 
