@@ -4,6 +4,7 @@ import EmailCart from "../components/EmailCart";
 import { EmailType } from "../services/apiRequests";
 import { getEmails } from "../services/apiRequests";
 import { useParams } from "react-router-dom";
+import NotFoundEmails from "../components/NotFoundEmails";
 
 function EmailsListPage() {
   const [emails, setEmails] = useState<EmailType[] | null>(null);
@@ -18,23 +19,27 @@ function EmailsListPage() {
 
   return (
     <StyledEmailsContainer>
-      {emails?.map((item) => {
-        return (
-          <EmailCart
-            author={item.author}
-            folder={item.folder}
-            bookmark={item.bookmark}
-            date={item.date}
-            to={item.to}
-            title={item.title}
-            important={item.important}
-            text={item.text}
-            read={item.read}
-            flag={item.flag}
-            key={item.date}
-          />
-        );
-      })}
+      {emails?.length === 0 ? (
+        <NotFoundEmails />
+      ) : (
+        emails?.map((item) => {
+          return (
+            <EmailCart
+              author={item.author}
+              folder={item.folder}
+              bookmark={item.bookmark}
+              date={item.date}
+              to={item.to}
+              title={item.title}
+              important={item.important}
+              text={item.text}
+              read={item.read}
+              flag={item.flag}
+              key={item.date}
+            />
+          );
+        })
+      )}
     </StyledEmailsContainer>
   );
 }
