@@ -19,7 +19,6 @@ export const utilsSlice = createSlice({
     },
     changeLoadingStatus: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
-      console.log(state.isLoading);
     },
   },
 });
