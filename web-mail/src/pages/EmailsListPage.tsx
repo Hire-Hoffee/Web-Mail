@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { useAppSelector } from "../store/hooks";
+
 import StyledEmailsContainer from "../components/styles/StyledEmailsContainer";
 import EmailCart from "../components/EmailCart";
 import { EmailType } from "../services/apiRequests";
 import { getEmails } from "../services/apiRequests";
 import { useParams } from "react-router-dom";
 import NotFoundEmails from "../components/NotFoundEmails";
+import LoadingComponent from "../components/LoadingComponent";
 
 function EmailsListPage() {
   const [emails, setEmails] = useState<EmailType[] | null>(null);
   const { folder } = useParams();
+  const isLoading = useAppSelector((state) => state.utils.isLoading);
 
   useEffect(() => {
     (async () => {
@@ -19,7 +23,9 @@ function EmailsListPage() {
 
   return (
     <StyledEmailsContainer>
-      {emails?.length === 0 ? (
+      {isLoading ? (
+        <LoadingComponent />
+      ) : emails?.length === 0 ? (
         <NotFoundEmails />
       ) : (
         emails?.map((item) => {
