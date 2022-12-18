@@ -4,7 +4,7 @@ import FlexContainer from "./styles/FlexContainer";
 import { Link, useParams, useNavigate } from "react-router-dom";
 
 import LogoSVG from "./styles/svgs/LogoSVG";
-import ArrowLeftSVG from "./styles/svgs/arrowLeftSVG";
+import LeftArrowSVG from "./styles/svgs/LeftArrowSVG";
 
 function Header(): JSX.Element {
   const { title } = useParams();
@@ -18,7 +18,7 @@ function Header(): JSX.Element {
             <LogoSVG />
           ) : (
             <div onClick={() => navigate(-1)}>
-              <ArrowLeftSVG />
+              <LeftArrowSVG />
               <p>Вернуться</p>
             </div>
           )}

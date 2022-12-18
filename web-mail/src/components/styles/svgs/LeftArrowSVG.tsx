@@ -1,7 +1,7 @@
 import React from "react";
 import StyledSVG from "../StyledSVG";
 
-function ArrowLeftSVG() {
+function LeftArrowSVG() {
   return (
     <StyledSVG>
       <svg
@@ -22,4 +22,4 @@ function ArrowLeftSVG() {
   );
 }
 
-export default ArrowLeftSVG;
+export default LeftArrowSVG;
