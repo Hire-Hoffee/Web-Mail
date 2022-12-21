@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "../App";
+import App from "@/App";
 
-import ErrorComponent from "../components/ErrorComponent";
-import EmailsListPage from "../pages/EmailsListPage";
-import EmailPage from "../pages/EmailPage";
+import ErrorComponent from "@/components/ErrorComponent";
+import EmailsListPage from "@/pages/EmailsListPage";
+import EmailPage from "@/pages/EmailPage";
 
 const router = createBrowserRouter([
   {

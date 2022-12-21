@@ -1,4 +1,4 @@
-import { store } from "../store";
+import { store } from "@/store";
 import { AxiosRequestConfig, AxiosResponse } from "axios";
 
 const requestInterceptor = (config: AxiosRequestConfig): AxiosRequestConfig => {

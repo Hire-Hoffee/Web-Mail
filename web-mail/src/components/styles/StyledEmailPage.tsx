@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ThemeType } from "./themes";
 import StyledEmailsContainer from "./StyledEmailsContainer";
 
 const StyledEmailPage = styled(StyledEmailsContainer)`

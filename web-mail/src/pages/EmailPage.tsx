@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
-import StyledEmailPage from "../components/styles/StyledEmailPage";
-import { getOneMail } from "../services/apiRequests";
-import { EmailType } from "../services/apiRequests";
+import StyledEmailPage from "@/components/styles/StyledEmailPage";
+import { getOneMail } from "@/services/apiRequests";
+import EmailType from "@/types/emailType";
 import { useParams } from "react-router-dom";
-import { useAppSelector } from "../store/hooks";
+import { useAppSelector } from "@/store/hooks";
 
-import defaultAvatar from "../assets/images/defaultAvatar.png";
-import bookmarkIcon from "../assets/images/bookmarkIcon.svg";
-import importantIcon from "../assets/images/importantIcon.svg";
-import billings from "../assets/images/billings.svg";
-import finances from "../assets/images/finances.svg";
-import orders from "../assets/images/orders.svg";
-import tickets from "../assets/images/tickets.svg";
-import registrations from "../assets/images/registrations.svg";
-import travelings from "../assets/images/travelings.svg";
-import blueDot from "../assets/images/blueDot.svg";
-import LoadingComponent from "../components/LoadingComponent";
+import defaultAvatar from "@/assets/images/defaultAvatar.png";
+import bookmarkIcon from "@/assets/images/bookmarkIcon.svg";
+import importantIcon from "@/assets/images/importantIcon.svg";
+import billings from "@/assets/images/billings.svg";
+import finances from "@/assets/images/finances.svg";
+import orders from "@/assets/images/orders.svg";
+import tickets from "@/assets/images/tickets.svg";
+import registrations from "@/assets/images/registrations.svg";
+import travelings from "@/assets/images/travelings.svg";
+import blueDot from "@/assets/images/blueDot.svg";
+import LoadingComponent from "@/components/LoadingComponent";
 
 function EmailPage(): JSX.Element {
   const [email, setEmail] = useState<EmailType | null>(null);

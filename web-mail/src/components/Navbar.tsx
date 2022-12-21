@@ -11,7 +11,7 @@ import DraftsSVG from "./styles/svgs/DraftsSVG";
 import SpamSVG from "./styles/svgs/SpamSVG";
 import TrashSVG from "./styles/svgs/TrashSVG";
 import PlusSVG from "./styles/svgs/PlusSVG";
-import writeLetter from "../assets/images/writeLetter.svg";
+import writeLetter from "@/assets/images/writeLetter.svg";
 
 function Navbar(): JSX.Element {
   return (

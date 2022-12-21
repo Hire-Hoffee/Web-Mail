@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import StyledEmailsCart from "./styles/StyledEmailCard";
-import { EmailType } from "../services/apiRequests";
+import EmailType from "@/types/emailType";
 import { Link } from "react-router-dom";
 
-import defaultAvatar from "../assets/images/defaultAvatar.png";
-import bookmarkIcon from "../assets/images/bookmarkIcon.svg";
-import importantIcon from "../assets/images/importantIcon.svg";
-import billings from "../assets/images/billings.svg";
-import finances from "../assets/images/finances.svg";
-import orders from "../assets/images/orders.svg";
-import tickets from "../assets/images/tickets.svg";
-import registrations from "../assets/images/registrations.svg";
-import travelings from "../assets/images/travelings.svg";
-import blueDot from "../assets/images/blueDot.svg";
+import defaultAvatar from "@/assets/images/defaultAvatar.png";
+import bookmarkIcon from "@/assets/images/bookmarkIcon.svg";
+import importantIcon from "@/assets/images/importantIcon.svg";
+import billings from "@/assets/images/billings.svg";
+import finances from "@/assets/images/finances.svg";
+import orders from "@/assets/images/orders.svg";
+import tickets from "@/assets/images/tickets.svg";
+import registrations from "@/assets/images/registrations.svg";
+import travelings from "@/assets/images/travelings.svg";
+import blueDot from "@/assets/images/blueDot.svg";
 
 function EmailCart(email: EmailType) {
   const [size, setSize] = useState<number>(

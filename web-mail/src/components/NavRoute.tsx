@@ -1,11 +1,6 @@
 import React from "react";
 import StyledNav from "./styles/StyledNav";
-
-type NavProps = {
-  to: string;
-  svgComponent: JSX.Element;
-  name: string;
-};
+import { NavProps } from "@/types/otherTypes";
 
 function NavRoute({ to, svgComponent, name }: NavProps): JSX.Element {
   return (

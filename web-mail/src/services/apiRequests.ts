@@ -1,25 +1,5 @@
 import instance from ".";
-
-type UserType = {
-  name: string;
-  surname: string;
-  email: string;
-  avatar?: string;
-};
-
-export type EmailType = {
-  author: UserType;
-  to: UserType[];
-  title: string;
-  text: string;
-  bookmark: boolean;
-  important: boolean;
-  read: boolean;
-  folder: string;
-  date: string;
-  flag: string;
-  doc?: { img: string };
-};
+import EmailType from "@/types/emailType";
 
 export const getEmails = async (path: string): Promise<EmailType[]> => {
   try {

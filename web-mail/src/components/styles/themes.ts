@@ -1,15 +1,4 @@
-export type ThemeType = {
-  colors: {
-    body: string;
-    header: string;
-    selected: string;
-    text: {
-      primary: string;
-      secondary: string;
-    };
-    logo: string;
-  };
-};
+import ThemeType from "@/types/themeType";
 
 const whiteTheme: ThemeType = {
   colors: {

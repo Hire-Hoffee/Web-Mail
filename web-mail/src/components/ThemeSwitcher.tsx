@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { ThemeType } from "./styles/themes";
+import ThemeType from "@/types/themeType";
 
-import { useAppSelector, useAppDispatch } from "../store/hooks";
-import { changeThemeState } from "../store/utilsSlice";
+import { useAppSelector, useAppDispatch } from "@/store/hooks";
+import { changeThemeState } from "@/store/utilsSlice";
 
 const StyledSVG = styled.div<{ theme: ThemeType }>`
   position: fixed;

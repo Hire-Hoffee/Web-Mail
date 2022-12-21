@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ThemeType } from "./themes";
+import ThemeType from "@/types/themeType";
 
 const StyledNavbar = styled.nav<{ theme: ThemeType }>`
   width: 232px;

@@ -1,9 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-type colorTheme = {
-  theme: string | null;
-  isLoading: boolean;
-};
+import { colorTheme } from "@/types/otherTypes";
 
 const initialState: colorTheme = {
   theme: "white",

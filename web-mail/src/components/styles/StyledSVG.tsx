@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ThemeType } from "./themes";
+import ThemeType from "@/types/themeType";
 
 const StyledSVG = styled.div<{ theme: ThemeType }>`
   svg {

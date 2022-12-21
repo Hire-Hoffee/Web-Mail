@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useAppSelector } from "../store/hooks";
+import { useAppSelector } from "@/store/hooks";
 
-import StyledEmailsContainer from "../components/styles/StyledEmailsContainer";
-import EmailCart from "../components/EmailCart";
-import { EmailType } from "../services/apiRequests";
-import { getEmails } from "../services/apiRequests";
+import StyledEmailsContainer from "@/components/styles/StyledEmailsContainer";
+import EmailCart from "@/components/EmailCart";
+import EmailType from "@/types/emailType";
+import { getEmails } from "@/services/apiRequests";
 import { useParams } from "react-router-dom";
-import NotFoundEmails from "../components/NotFoundEmails";
-import LoadingComponent from "../components/LoadingComponent";
+import NotFoundEmails from "@/components/NotFoundEmails";
+import LoadingComponent from "@/components/LoadingComponent";
 
 function EmailsListPage() {
   const [emails, setEmails] = useState<EmailType[] | null>(null);
