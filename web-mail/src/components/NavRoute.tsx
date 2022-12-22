@@ -7,7 +7,7 @@ function NavRoute({ to, svgComponent, name }: NavProps): JSX.Element {
     <StyledNav to={to}>
       <li>
         <div>{svgComponent}</div>
-        <div className="hidden">{name}</div>
+        <div>{name}</div>
       </li>
     </StyledNav>
   );

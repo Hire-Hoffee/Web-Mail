@@ -17,8 +17,8 @@ function Navbar(): JSX.Element {
   return (
     <StyledNavbar>
       <button>
-        <img className="hiddenIMG" src={writeLetter} alt="write_icon" />
-        <span className="hiddenBtn">Написать письмо</span>
+        <img src={writeLetter} alt="write_icon" />
+        <span>Написать письмо</span>
       </button>
       <ul>
         <NavRoute to="inbox" svgComponent={<InboxSVG />} name="Входящие" />

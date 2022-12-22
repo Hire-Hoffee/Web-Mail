@@ -7,6 +7,7 @@ const StyledNavbar = styled.nav<{ theme: ThemeType }>`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   button {
     width: 200px;
     height: 36px;
@@ -18,9 +19,10 @@ const StyledNavbar = styled.nav<{ theme: ThemeType }>`
     cursor: pointer;
     transition: 0.2s;
   }
+
   @media (max-width: 768px) {
     width: 36px;
-    .hiddenBtn {
+    span:last-child {
       display: none;
     }
     button {
@@ -29,25 +31,30 @@ const StyledNavbar = styled.nav<{ theme: ThemeType }>`
       border: none;
     }
   }
+
   @media (min-width: 768px) {
-    .hiddenIMG {
+    img:first-child {
       display: none;
     }
   }
+
   button:hover {
     opacity: 0.6;
     transition: 0.2s;
   }
+
   hr {
     height: 1px;
     width: 100%;
     background: rgba(0, 16, 61, 0.12);
     border: none;
   }
+
   p {
     margin-left: 12px;
     color: ${({ theme }) => theme.colors.text.secondary};
   }
+
   .active li {
     font-weight: bold;
     background-color: ${({ theme }) => theme.colors.selected};

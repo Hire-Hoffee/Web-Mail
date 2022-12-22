@@ -10,11 +10,12 @@ const StyledEmailPage = styled(StyledEmailsContainer)`
   padding-right: 32px;
   position: relative;
 
-  .header {
+  & > div:first-child {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 60px;
+
     h1 {
       font-size: 24px;
       font-weight: bold;
@@ -25,62 +26,80 @@ const StyledEmailPage = styled(StyledEmailsContainer)`
       align-items: center;
     }
   }
-  .user {
+
+  & > div:nth-child(2) {
     margin-bottom: 8px;
     height: 60px;
     position: relative;
     display: flex;
     align-items: center;
+
     img {
       margin-right: 12px;
     }
   }
-  .user__info {
+
+  & > div:nth-child(2) div:nth-child(3) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    .user__info__name {
-      font-size: 15px;
-    }
-    .user__info__date {
-      font-size: 13px;
-      img {
-        position: absolute;
-        top: -2px;
+
+    div:nth-child(1) {
+      span:first-child {
+        font-size: 15px;
+      }
+      span:nth-child(2) {
+        font-size: 13px;
+      }
+      span:nth-child(3) {
+        img {
+          position: absolute;
+          top: -2px;
+        }
       }
     }
-    .emailTo {
+
+    div:last-child {
       font-size: 13px;
       color: #87898f;
       margin-top: 5px;
     }
   }
-  .avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 100%;
+
+  & > div:nth-child(2) div:nth-child(2) {
+    img {
+      width: 32px;
+      height: 32px;
+      border-radius: 100%;
+    }
   }
-  .email_text {
+
+  & > div:last-child {
     padding-top: 16px;
     padding-bottom: 16px;
+
     p {
       line-height: 1.5rem;
       font-size: 15px;
     }
   }
-  .bigIMG {
-    width: 256px;
-    height: 190px;
-    border-radius: 12px;
-  }
-  .downloadIMG {
-    margin-top: 8px;
-    margin-bottom: 8px;
-    a {
-      color: #005bd1;
+
+  & > div:nth-child(3) {
+    img {
+      width: 256px;
+      height: 190px;
+      border-radius: 12px;
     }
-    a:hover {
-      opacity: 0.8;
+
+    div {
+      margin-top: 8px;
+      margin-bottom: 8px;
+      a {
+        color: #005bd1;
+      }
+      a:hover {
+        opacity: 0.8;
+      }
     }
   }
 `;

@@ -52,7 +52,7 @@ function EmailCart(email: EmailType) {
       <StyledEmailsCart>
         <div>{email.read === false ? <img src={blueDot} alt="status" /> : ""}</div>
         <div>
-          <img src={email.author.avatar || defaultAvatar} alt="avatar" className="avatar" />
+          <img src={email.author.avatar || defaultAvatar} alt="avatar" />
         </div>
         <div>
           <p className={email.read === false ? "unread" : ""}>
@@ -77,12 +77,12 @@ function EmailCart(email: EmailType) {
             <span className={email.read === false ? "unread" : ""}>
               {resize(email.title) + ".."}
             </span>
-            <span className="textLighter">{resize(email.text) + ".."}</span>
+            <span>{resize(email.text) + ".."}</span>
           </p>
         </div>
         <div>{email.flag in flagDict ? <img src={flagDict[email.flag]} alt="flag" /> : false}</div>
         <div>
-          <span className="textLighter fontSmall">
+          <span>
             {new Date(email.date).getFullYear() < new Date().getFullYear()
               ? new Date(email.date).toLocaleDateString("ru-RU", {
                   month: "numeric",

@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { ThemeType } from "../themes";
+import ThemeType from "@/types/themeType";
 
 const StyledSVG = styled.div<{ theme: ThemeType }>`
   svg {
     width: 96px;
     height: 32px;
     margin-left: 16px;
+
     path:last-child {
       fill: ${({ theme }) => theme.colors.logo};
     }

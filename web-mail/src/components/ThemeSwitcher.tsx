@@ -12,12 +12,15 @@ const StyledSVG = styled.div<{ theme: ThemeType }>`
   align-items: center;
   margin-bottom: 10px;
   padding-right: 15px;
+
   &:hover {
     background-color: ${({ theme }) => theme.colors.selected};
     border-radius: 8px;
     transition: 0.4s;
   }
+
   cursor: pointer;
+
   svg {
     path {
       stroke: ${({ theme }) => theme.colors.text.primary};
@@ -26,6 +29,7 @@ const StyledSVG = styled.div<{ theme: ThemeType }>`
       fill: ${({ theme }) => theme.colors.text.primary};
     }
   }
+
   @media (max-width: 768px) {
     .hidden {
       display: none;

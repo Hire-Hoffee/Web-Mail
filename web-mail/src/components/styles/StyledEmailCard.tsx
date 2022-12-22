@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledEmailCart = styled.main`
+const StyledEmailCart = styled.div`
   background-color: ${({ theme }) => theme.colors.header};
   position: relative;
   height: 48px;
@@ -8,20 +8,30 @@ const StyledEmailCart = styled.main`
   padding-right: 12px;
   font-size: 15px;
   transition: 0.4s;
-  .avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 100%;
+
+  div:nth-child(2) {
+    img {
+      width: 32px;
+      height: 32px;
+      border-radius: 100%;
+    }
   }
-  .textLighter {
-    color: #87898f;
+  div:nth-child(5) {
+    span:last-child {
+      color: #87898f;
+    }
   }
-  .fontSmall {
-    font-size: 13px;
+  div:nth-child(7) {
+    span {
+      color: #87898f;
+      font-size: 13px;
+    }
   }
+
   .unread {
     font-weight: bold;
   }
+
   display: grid;
   grid-template-columns: 20px 40px 200px 40px 1fr 40px 60px;
   grid-template-rows: 1fr;
@@ -35,6 +45,7 @@ const StyledEmailCart = styled.main`
     border-radius: 12px;
     cursor: pointer;
   }
+
   hr {
     position: absolute;
     height: 1px;
