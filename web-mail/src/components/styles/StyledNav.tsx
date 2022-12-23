@@ -22,7 +22,6 @@ const StyledNav = styled(NavLink)`
   @media (max-width: 768px) {
     li {
       width: 100%;
-
       div:nth-child(even) {
         display: none;
       }
