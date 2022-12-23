@@ -83,13 +83,11 @@ const controllers = {
       throw new Error("Unexpected error occurred");
     }
   },
-  sendStatic: async (req, res) => {
-    let filePath = req.url;
-
-    if (filePath == "/") {
-      filePath = "./index.html";
+  sendStaticController: async (req, res, filePath) => {
+    if (filePath == "/" || !filePath.match(/\/assets\//)) {
+      filePath = "./dist/index.html";
     } else {
-      filePath = "." + req.url;
+      filePath = "./dist" + req.url;
     }
 
     let extname = String(path.extname(filePath)).toLowerCase();
@@ -100,21 +98,14 @@ const controllers = {
       ".json": "application/json",
       ".png": "image/png",
       ".jpg": "image/jpg",
-      ".gif": "image/gif",
       ".svg": "image/svg+xml",
-      ".wav": "audio/wav",
-      ".mp4": "video/mp4",
-      ".woff": "application/font-woff",
       ".ttf": "application/font-ttf",
-      ".eot": "application/vnd.ms-fontobject",
-      ".otf": "application/font-otf",
-      ".wasm": "application/wasm",
       ".ico": "image/x-icon",
     };
-
     let contentType = mimeTypes[extname] || "application/octet-stream";
 
     const result = await fs.readFile(filePath);
+
     res.writeHead(200, { "Content-Type": contentType });
     res.end(result, "utf-8");
   },
@@ -124,6 +115,10 @@ const reqListener = async function (req, res) {
   try {
     console.log(`${req.httpVersion} ${req.method} ${req.url}`);
 
+    if (req.url.match(/^\/(?!api)/) && req.method === "GET") {
+      await controllers.sendStaticController(req, res, req.url);
+      return;
+    }
     if (req.url.match(/^\/api\/\w+$/) && req.method === "GET") {
       const folder = req.url.split("/")[2];
       controllers.getDataController(req, res, folder);
@@ -134,18 +129,11 @@ const reqListener = async function (req, res) {
       await controllers.getOneMailController(req, res, email);
       return;
     }
-    if (req.url.match(/^\/$/) || (req.url.match(/\/assets\//) && req.method === "GET")) {
-      controllers.sendStatic(req, res);
-      return;
-    }
 
     res.writeHead(404, { "Content-Type": "application/json" });
-    res.end(
-      JSON.stringify({ message: "Use the api/[folderName] or api/email/[emailTitle] endpoint" })
-    );
+    res.end(JSON.stringify({ message: "Use the api/[data] or /inbox endpoint" }));
   } catch (error) {
     console.log(error);
-
     res.writeHead(500, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ message: "Unexpected error occurred" }));
   }
