@@ -44,8 +44,15 @@ const controllers = {
         "Content-Type": "application/json",
       };
 
-      res.writeHead(200, headers);
-      res.end(JSON.stringify(result));
+      if (result) {
+        res.writeHead(200, headers);
+        res.end(JSON.stringify(result));
+        return;
+      }
+
+      res.writeHead(404, headers);
+      res.end(JSON.stringify({ message: "Not found" }));
+      return;
     } catch (error) {
       console.log(error);
       throw new Error("Unexpected error occurred");
@@ -62,8 +69,15 @@ const controllers = {
         "Content-Type": "application/json",
       };
 
-      res.writeHead(200, headers);
-      res.end(JSON.stringify(result));
+      if (result) {
+        res.writeHead(200, headers);
+        res.end(JSON.stringify(result));
+        return;
+      }
+
+      res.writeHead(404, headers);
+      res.end(JSON.stringify({ message: "Not found" }));
+      return;
     } catch (error) {
       console.log(error);
       throw new Error("Unexpected error occurred");
@@ -115,8 +129,8 @@ const reqListener = async function (req, res) {
       controllers.getDataController(req, res, folder);
       return;
     }
-    if (req.url.match(/\/api\/email\//i) && req.method === "GET") {
-      const email = req.url.split("/")[3];
+    if (req.url.match(/\/api\/email\?title/i) && req.method === "GET") {
+      const email = req.url.split("=")[1];
       await controllers.getOneMailController(req, res, email);
       return;
     }

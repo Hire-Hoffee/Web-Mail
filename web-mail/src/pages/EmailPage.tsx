@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { getOneMail } from "@/services/apiRequests";
 import EmailType from "@/types/emailType";
 
@@ -10,11 +10,11 @@ import LoadingComponent from "@/components/LoadingComponent";
 
 function EmailPage(): JSX.Element {
   const [email, setEmail] = useState<EmailType | null>(null);
-  const { title } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     (async () => {
-      const result = await getOneMail("/email/" + title);
+      const result = await getOneMail("/email?title=" + searchParams.get("title"));
       setEmail(result);
     })();
   }, []);

@@ -48,7 +48,7 @@ function EmailCart(email: EmailType) {
   };
 
   return (
-    <Link to={"/email/" + email.title}>
+    <Link to={"/email?title=" + email.title}>
       <StyledEmailsCart>
         <div>{email.read === false ? <img src={blueDot} alt="status" /> : ""}</div>
         <div>
