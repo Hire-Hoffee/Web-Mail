@@ -1,0 +1,28 @@
+{
+  "name": "web-mail",
+  "version": "1.0.0",
+  "description": "react web-mail application for vk cup 2022",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hire-Hoffee/Web-Mail.git"
+  },
+  "keywords": [
+    "vk cup",
+    "react",
+    "node js",
+    "axios",
+    "web mail",
+    "styled-components"
+  ],
+  "author": "HireHoffee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hire-Hoffee/Web-Mail/issues"
+  },
+  "homepage": "https://github.com/Hire-Hoffee/Web-Mail#readme"
+}
