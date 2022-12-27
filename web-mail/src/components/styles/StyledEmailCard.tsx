@@ -9,6 +9,10 @@ const StyledEmailCart = styled.div`
   font-size: 15px;
   transition: 0.4s;
 
+  div {
+    min-width: 0;
+  }
+
   div:nth-child(2) {
     img {
       width: 32px;
@@ -16,12 +20,22 @@ const StyledEmailCart = styled.div`
       border-radius: 100%;
     }
   }
-  div:nth-child(5) {
-    span:last-child {
-      color: #87898f;
-    }
+
+  div:nth-child(3),
+  div:nth-child(5),
+  div:nth-child(6),
+  div:nth-child(8) {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  div:nth-child(7) {
+
+  div:nth-child(6) {
+    color: #87898f;
+  }
+
+  div:nth-child(8) {
     span {
       color: #87898f;
       font-size: 13px;
@@ -33,7 +47,7 @@ const StyledEmailCart = styled.div`
   }
 
   display: grid;
-  grid-template-columns: 20px 40px 200px 40px 1fr 40px 60px;
+  grid-template-columns: 0.1fr 0.3fr 1fr 0.3fr 1.7fr 3.9fr 0.3fr 0.4fr;
   grid-template-rows: 1fr;
   grid-column-gap: 1px;
   grid-row-gap: 0px;

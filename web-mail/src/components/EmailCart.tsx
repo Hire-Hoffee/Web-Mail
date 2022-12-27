@@ -15,29 +15,6 @@ import travelings from "@/assets/images/travelings.svg";
 import blueDot from "@/assets/images/blueDot.svg";
 
 function EmailCart(email: EmailType) {
-  const [size, setSize] = useState<number>(
-    Math.round(window.innerWidth > 1000 ? window.innerWidth / 30 : window.innerWidth / 70)
-  );
-
-  const setStringLength = () => {
-    const strLength: number = Math.round(
-      window.innerWidth > 1000 ? window.innerWidth / 30 : window.innerWidth / 70
-    );
-    setSize(strLength);
-  };
-
-  const resize = (str: string): string => {
-    return str.slice(0, size);
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", setStringLength);
-
-    return () => {
-      window.removeEventListener("resize", setStringLength);
-    };
-  }, []);
-
   const flagDict: any = {
     Заказы: orders,
     Финансы: finances,
@@ -72,14 +49,8 @@ function EmailCart(email: EmailType) {
             false
           )}
         </div>
-        <div>
-          <p>
-            <span className={email.read === false ? "unread" : ""}>
-              {resize(email.title) + ".."}
-            </span>
-            <span>{resize(email.text) + ".."}</span>
-          </p>
-        </div>
+        <div className={email.read === false ? "unread" : ""}>{email.title}</div>
+        <div>{email.text}</div>
         <div>{email.flag in flagDict ? <img src={flagDict[email.flag]} alt="flag" /> : false}</div>
         <div>
           <span>
