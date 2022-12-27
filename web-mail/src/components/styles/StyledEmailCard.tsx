@@ -46,8 +46,12 @@ const StyledEmailCart = styled.div`
     font-weight: bold;
   }
 
+  @media (max-width: 768px) {
+    grid-template-columns: 20px 36px 200px 40px 200px 4fr 40px 70px;
+  }
+
   display: grid;
-  grid-template-columns: 0.1fr 0.3fr 1fr 0.3fr 1.7fr 3.9fr 0.3fr 0.4fr;
+  grid-template-columns: 20px 36px 200px 40px 1.5fr 4fr 40px 70px;
   grid-template-rows: 1fr;
   grid-column-gap: 1px;
   grid-row-gap: 0px;
