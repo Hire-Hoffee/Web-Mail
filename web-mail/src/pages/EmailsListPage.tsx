@@ -42,6 +42,7 @@ function EmailsListPage() {
               read={item.read}
               flag={item.flag}
               key={item.date}
+              doc={item.doc}
             />
           );
         })

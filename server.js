@@ -1,5 +1,4 @@
 const http = require("http");
-const db = require("./db.json");
 const path = require("path");
 const fs = require("fs").promises;
 
@@ -13,25 +12,30 @@ const utils = {
     spam: "Спам",
     trash: "Корзина",
   },
-  lightData: () => {
-    return db.map((letter) => {
-      delete letter.doc;
+  lightData: async () => {
+    const bigFile = JSON.parse(await fs.readFile(path.resolve("./db.json")));
+
+    return bigFile.map((letter) => {
+      if (letter.doc) {
+        letter.doc = true;
+      }
       return letter;
     });
   },
 };
 
 const controllers = {
-  getDataController: (req, res, query) => {
+  getDataController: async (req, res, query) => {
     try {
-      function filterData(param) {
+      async function filterData(param) {
         if (param in utils.folderDict) {
-          return utils.lightData().filter((letter) => letter.folder === utils.folderDict[param]);
+          const result = await utils.lightData();
+          return result.filter((letter) => letter.folder === utils.folderDict[param]);
         }
         return { message: "Not found" };
       }
 
-      const result = filterData(query);
+      const result = await filterData(query);
       result.sort((a, b) => {
         a = new Date(a.date).getTime();
         b = new Date(b.date).getTime();
@@ -121,7 +125,7 @@ const reqListener = async function (req, res) {
     }
     if (req.url.match(/^\/api\/\w+$/) && req.method === "GET") {
       const folder = req.url.split("/")[2];
-      controllers.getDataController(req, res, folder);
+      await controllers.getDataController(req, res, folder);
       return;
     }
     if (req.url.match(/\/api\/email\?title/i) && req.method === "GET") {

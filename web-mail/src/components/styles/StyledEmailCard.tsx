@@ -35,6 +35,11 @@ const StyledEmailCart = styled.div`
     color: #87898f;
   }
 
+  div:nth-child(7) {
+    display: flex;
+    align-items: center;
+  }
+
   div:nth-child(8) {
     span {
       color: #87898f;
@@ -51,7 +56,7 @@ const StyledEmailCart = styled.div`
   }
 
   display: grid;
-  grid-template-columns: 20px 36px 200px 40px 1.5fr 4fr 40px 70px;
+  grid-template-columns: 20px 36px 200px 40px 1.5fr 4fr 80px 70px;
   grid-template-rows: 1fr;
   grid-column-gap: 1px;
   grid-row-gap: 0px;

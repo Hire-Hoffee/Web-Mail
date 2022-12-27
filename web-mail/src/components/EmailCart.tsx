@@ -13,6 +13,7 @@ import tickets from "@/assets/images/tickets.svg";
 import registrations from "@/assets/images/registrations.svg";
 import travelings from "@/assets/images/travelings.svg";
 import blueDot from "@/assets/images/blueDot.svg";
+import StapleSVG from "./styles/svgs/stapleSVG";
 
 function EmailCart(email: EmailType) {
   const flagDict: any = {
@@ -51,7 +52,10 @@ function EmailCart(email: EmailType) {
         </div>
         <div className={email.read === false ? "unread" : ""}>{email.title}</div>
         <div>{email.text}</div>
-        <div>{email.flag in flagDict ? <img src={flagDict[email.flag]} alt="flag" /> : false}</div>
+        <div>
+          {email.flag in flagDict ? <img src={flagDict[email.flag]} alt="flag" /> : false}
+          {email.doc ? <StapleSVG /> : false}
+        </div>
         <div>
           <span>
             {new Date(email.date).getFullYear() < new Date().getFullYear()
