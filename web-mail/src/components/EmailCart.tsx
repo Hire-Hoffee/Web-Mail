@@ -13,7 +13,7 @@ import tickets from "@/assets/images/tickets.svg";
 import registrations from "@/assets/images/registrations.svg";
 import travelings from "@/assets/images/travelings.svg";
 import blueDot from "@/assets/images/blueDot.svg";
-import StapleSVG from "./styles/svgs/stapleSVG";
+import StapleSVG from "./styles/svgs/StapleSVG";
 
 function EmailCart(email: EmailType) {
   const flagDict: any = {
