@@ -20,6 +20,17 @@ const StyledEmailCart = styled.div`
       border-radius: 100%;
     }
   }
+  div:nth-child(4) {
+    display: flex;
+    justify-content: center;
+
+    img:first-child {
+      margin-right: -15px;
+    }
+    img:last-child {
+      margin-left: -15px;
+    }
+  }
 
   div:nth-child(3),
   div:nth-child(5),
@@ -38,6 +49,7 @@ const StyledEmailCart = styled.div`
   div:nth-child(7) {
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   div:nth-child(8) {

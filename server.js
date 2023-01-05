@@ -19,6 +19,9 @@ const utils = {
       if (letter.doc) {
         letter.doc = true;
       }
+      if (letter.flag === "Путешевствия") {
+        letter.flag = "Путешествия";
+      }
       return letter;
     });
   },
@@ -64,7 +67,12 @@ const controllers = {
   },
   getOneMailController: async (req, res, query) => {
     try {
-      const bigFile = JSON.parse(await fs.readFile(path.resolve("./db.json")));
+      const bigFile = JSON.parse(await fs.readFile(path.resolve("./db.json"))).map((letter) => {
+        if (letter.flag === "Путешевствия") {
+          letter.flag = "Путешествия";
+        }
+        return letter;
+      });
       const result = bigFile.find((letter) => letter.title === decodeURI(query));
 
       const headers = {

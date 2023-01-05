@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import StyledEmailsCart from "./styles/StyledEmailCard";
 import EmailType from "@/types/emailType";
 import { Link } from "react-router-dom";
@@ -38,14 +38,14 @@ function EmailCart(email: EmailType) {
           </p>
         </div>
         <div>
-          {email.bookmark ? (
+          {email.bookmark && email.important ? (
+            <>
+              <img src={bookmarkIcon} alt="status" /> <img src={importantIcon} alt="status" />
+            </>
+          ) : email.bookmark ? (
             <img src={bookmarkIcon} alt="status" />
           ) : email.important ? (
             <img src={importantIcon} alt="status" />
-          ) : email.bookmark && email.important ? (
-            <div>
-              <img src={bookmarkIcon} alt="status" /> <img src={importantIcon} alt="status" />
-            </div>
           ) : (
             false
           )}

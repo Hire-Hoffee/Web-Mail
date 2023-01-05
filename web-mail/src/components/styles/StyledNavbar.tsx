@@ -46,7 +46,7 @@ const StyledNavbar = styled.nav<{ theme: ThemeType }>`
   hr {
     height: 1px;
     width: 100%;
-    background: rgba(0, 16, 61, 0.12);
+    background: ${({ theme }) => theme.colors.selected};
     border: none;
   }
 
