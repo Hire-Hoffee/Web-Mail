@@ -92,8 +92,12 @@ const StyledEmailPage = styled(StyledEmailsContainer)`
     }
 
     div {
+      font-size: 13px;
       margin-top: 8px;
       margin-bottom: 8px;
+      span {
+        color: #87898f;
+      }
       a {
         color: #005bd1;
       }

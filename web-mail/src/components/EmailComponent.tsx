@@ -22,6 +22,12 @@ function EmailComponent(email: EmailType) {
     "Штрафы и налоги": billings,
   };
 
+  const calculateFileSize = (file: string): string => {
+    const base64str = file.split(",")[1];
+    const decodedString = window.atob(base64str);
+    return `(${Math.round(decodedString.length / 1000)}Kb)`;
+  };
+
   return (
     <>
       <div>
@@ -84,8 +90,9 @@ function EmailComponent(email: EmailType) {
             <div>
               {Object.keys(email.doc).length} объект{" "}
               <a href={email.doc?.img} download="doc.png">
-                Скачать
+                Скачать{" "}
               </a>
+              <span>{calculateFileSize(email.doc.img)}</span>
             </div>
           </>
         ) : (
