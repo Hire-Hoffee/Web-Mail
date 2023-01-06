@@ -16,9 +16,6 @@ const StyledHeader = styled.header<{ theme: ThemeType }>`
       cursor: pointer;
       margin-right: 12px;
       margin-left: 8px;
-      p {
-        margin-left: 8px;
-      }
     }
   }
 
