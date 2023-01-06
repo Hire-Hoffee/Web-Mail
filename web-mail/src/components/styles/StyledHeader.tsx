@@ -1,22 +1,20 @@
 import styled from "styled-components";
-import ThemeType from "@/types/themeType";
+import FlexContainer from "./FlexContainer";
 
-const StyledHeader = styled.header<{ theme: ThemeType }>`
+const StyledHeader = styled(FlexContainer)`
   width: 100%;
   height: 56px;
   background-color: ${({ theme }) => theme.colors.header};
+  justify-content: space-between;
 
-  div {
+  div:nth-child(2) {
+    user-select: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 12px;
+    margin-left: 8px;
     transition: 0.2s;
-    justify-content: space-between;
-    div {
-      user-select: none;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      margin-right: 12px;
-      margin-left: 8px;
-    }
   }
 
   .rotateArrow {
@@ -31,14 +29,12 @@ const StyledHeader = styled.header<{ theme: ThemeType }>`
     animation-duration: 0.2s;
     animation-fill-mode: forwards;
   }
-
   .hideFilter {
     visibility: hidden;
     animation-name: hideFilter;
     animation-duration: 0.2s;
     animation-fill-mode: forwards;
   }
-
   @keyframes showFilter {
     from {
       opacity: 0;

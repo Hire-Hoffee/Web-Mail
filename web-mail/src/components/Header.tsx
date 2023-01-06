@@ -19,30 +19,28 @@ function Header(): JSX.Element {
 
   return (
     <StyledHeader>
-      <FlexContainer>
-        {!searchParams.get("title") ? (
-          <>
-            <Link to={"/inbox"}>
-              <LogoSVG />
-            </Link>
-            <div
-              onClick={() => {
-                dispatch(changeFilterToggle(!isToggledFilter));
-              }}
-              className={isToggledFilter ? "rotateArrow" : ""}
-            >
-              <p>Фильтр</p>
-              <DownArrowSVG />
-            </div>
-            <FilterComponent />
-          </>
-        ) : (
-          <div onClick={() => navigate(-1)}>
-            <LeftArrowSVG />
-            <p>Вернуться</p>
+      {!searchParams.get("title") ? (
+        <>
+          <Link to={"/inbox"}>
+            <LogoSVG />
+          </Link>
+          <div
+            onClick={() => {
+              dispatch(changeFilterToggle(!isToggledFilter));
+            }}
+            className={isToggledFilter ? "rotateArrow" : ""}
+          >
+            <p>Фильтр</p>
+            <DownArrowSVG />
           </div>
-        )}
-      </FlexContainer>
+          <FilterComponent />
+        </>
+      ) : (
+        <div onClick={() => navigate(-1)}>
+          <LeftArrowSVG />
+          <p>Вернуться</p>
+        </div>
+      )}
     </StyledHeader>
   );
 }

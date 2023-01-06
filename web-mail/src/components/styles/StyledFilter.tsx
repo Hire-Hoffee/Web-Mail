@@ -9,8 +9,11 @@ const StyledFilter = styled.div<{ theme: ThemeType }>`
   box-shadow: 0px 4px 32px rgba(0, 16, 61, 0.16);
   border-radius: 12px;
   position: absolute;
-  right: 0;
+  right: 12px;
   top: 50px;
+  transition: 0.2s;
+  padding-top: 8px;
+  padding-bottom: 8px;
 `;
 
 export default StyledFilter;
