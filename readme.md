@@ -47,7 +47,7 @@
 
 Дизайн должен быть идентичен предоставленным макетам:
 
-https://www.figma.com/file/ajMIkpGKmGrNBbT0zlBW5e/VK-Cup-2022-(2)
+https://www.figma.com/file/TUIFDmBXvhjeqHdIv3KW7f/VK-Cup-2022-(2)
 
 #### Также с первого этапа приложение должно отображать:
 
