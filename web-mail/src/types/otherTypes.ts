@@ -9,3 +9,9 @@ export type NavProps = {
   svgComponent: JSX.Element;
   name: string;
 };
+
+export type FilterItemProp = {
+  name: string;
+  svg?: string;
+  svgComponent?: JSX.Element;
+};

@@ -3,7 +3,6 @@ import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import { changeFilterToggle } from "@/store/utilsSlice";
 
-import FlexContainer from "./styles/FlexContainer";
 import StyledHeader from "./styles/StyledHeader";
 import FilterComponent from "./FilterComponent";
 

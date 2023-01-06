@@ -25,10 +25,10 @@ const StyledEmailCart = styled.div`
     justify-content: center;
 
     img:first-child {
-      margin-right: -15px;
+      margin-right: -18px;
     }
     img:last-child {
-      margin-left: -15px;
+      margin-left: -18px;
     }
   }
 

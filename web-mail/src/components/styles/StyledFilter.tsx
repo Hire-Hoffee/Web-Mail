@@ -4,7 +4,6 @@ import ThemeType from "@/types/themeType";
 const StyledFilter = styled.div<{ theme: ThemeType }>`
   z-index: 9999;
   width: 240px;
-  height: 200px;
   background-color: ${({ theme }) => theme.colors.header};
   box-shadow: 0px 4px 32px rgba(0, 16, 61, 0.16);
   border-radius: 12px;
@@ -14,6 +13,26 @@ const StyledFilter = styled.div<{ theme: ThemeType }>`
   transition: 0.2s;
   padding-top: 8px;
   padding-bottom: 8px;
+  font-size: 15px;
+
+  li {
+    cursor: pointer;
+  }
+
+  li:hover {
+    background-color: ${({ theme }) => theme.colors.selected};
+    border-radius: 12px;
+    transition: 0.2s;
+  }
+
+  ul li:nth-child(1) {
+    display: flex;
+    align-items: center;
+    padding: 10px 4px 10px 4px;
+    p {
+      margin-left: 4px;
+    }
+  }
 `;
 
 export default StyledFilter;
