@@ -1,5 +1,5 @@
 import React from "react";
-import NotFoundStyles from "./styles/NotFoundStyles";
+import NotFoundStyles from "./styles/StyledNotFound";
 import noLetters from "@/assets/images/noLetters.png";
 import noLettersDark from "@/assets/images/noLettersDark.png";
 import { useAppSelector } from "@/store/hooks";

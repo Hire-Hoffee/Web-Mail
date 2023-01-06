@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import ThemeType from "@/types/themeType";
+import FlexContainer from "./FlexContainer";
 
-const NotFoundStyles = styled.div<{ theme: ThemeType }>`
-  display: flex;
+const StyledNotFound = styled(FlexContainer)`
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
@@ -15,4 +13,4 @@ const NotFoundStyles = styled.div<{ theme: ThemeType }>`
   }
 `;
 
-export default NotFoundStyles;
+export default StyledNotFound;
