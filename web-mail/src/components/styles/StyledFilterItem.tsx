@@ -3,7 +3,7 @@ import ThemeType from "@/types/themeType";
 
 const StyledFilterItem = styled.li<{ theme: ThemeType }>`
   padding: 10px 4px 10px 4px;
-  padding-left: 15px;
+  padding-left: 20px;
 
   div {
     display: flex;
