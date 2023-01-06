@@ -7,7 +7,8 @@ const StyledHeader = styled(FlexContainer)`
   background-color: ${({ theme }) => theme.colors.header};
   justify-content: space-between;
 
-  div:nth-child(2) {
+  div:nth-child(2),
+  span:nth-child(1) {
     user-select: none;
     display: flex;
     align-items: center;
