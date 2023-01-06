@@ -1,6 +1,7 @@
-export type colorTheme = {
+export type Utils = {
   theme: string | null;
   isLoading: boolean;
+  toggleFilter: boolean;
 };
 
 export type NavProps = {

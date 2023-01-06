@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import ThemeType from "@/types/themeType";
 
-const StyledSVG = styled.div<{ theme: ThemeType }>`
+const StyledSVG = styled.span<{ theme: ThemeType }>`
   svg {
     width: 96px;
     height: 32px;

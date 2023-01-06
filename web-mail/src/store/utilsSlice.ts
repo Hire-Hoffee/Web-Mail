@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { colorTheme } from "@/types/otherTypes";
+import { Utils } from "@/types/otherTypes";
 
-const initialState: colorTheme = {
+const initialState: Utils = {
   theme: "white",
   isLoading: false,
+  toggleFilter: false,
 };
 
 export const utilsSlice = createSlice({
@@ -16,9 +17,12 @@ export const utilsSlice = createSlice({
     changeLoadingStatus: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
     },
+    changeFilterToggle: (state, action: PayloadAction<boolean>) => {
+      state.toggleFilter = action.payload;
+    },
   },
 });
 
-export const { changeThemeState } = utilsSlice.actions;
+export const { changeThemeState, changeLoadingStatus, changeFilterToggle } = utilsSlice.actions;
 
 export default utilsSlice.reducer;

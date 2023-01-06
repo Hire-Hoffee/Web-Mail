@@ -11,7 +11,7 @@ import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
 
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
-import { changeThemeState } from "@/store/utilsSlice";
+import { changeThemeState, changeFilterToggle } from "@/store/utilsSlice";
 
 function App(): JSX.Element {
   const theme = useAppSelector((state) => state.utils.theme);
@@ -31,7 +31,11 @@ function App(): JSX.Element {
     <ThemeProvider theme={theme === "white" ? whiteTheme : darkTheme}>
       <GlobalStyles />
       <Header />
-      <StyledContainer>
+      <StyledContainer
+        onClick={() => {
+          dispatch(changeFilterToggle(false));
+        }}
+      >
         <Navbar />
         <Outlet />
         <ThemeSVG />
