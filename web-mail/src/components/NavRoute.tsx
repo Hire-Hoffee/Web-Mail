@@ -4,7 +4,7 @@ import { NavProps } from "@/types/otherTypes";
 
 function NavRoute({ to, svgComponent, name }: NavProps): JSX.Element {
   return (
-    <StyledNav to={to}>
+    <StyledNav to={to + "?letters=all"}>
       <li>
         <div>{svgComponent}</div>
         <div>{name}</div>

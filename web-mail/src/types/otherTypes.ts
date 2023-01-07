@@ -14,4 +14,5 @@ export type FilterItemProp = {
   name: string;
   svg?: string;
   svgComponent?: JSX.Element;
+  query: [string, string];
 };

@@ -13,23 +13,13 @@ const StyledFilter = styled.div`
   padding-top: 8px;
   padding-bottom: 8px;
   font-size: 15px;
-
-  li {
-    cursor: pointer;
-  }
-
-  li:hover {
-    background-color: ${({ theme }) => theme.hoveredItem};
-    border-radius: 12px;
-    transition: 0.2s;
-  }
-
-  ul li:nth-child(1) {
-    display: flex;
-    align-items: center;
-    padding: 10px 4px 10px 4px;
-    p {
-      margin-left: 4px;
+  ul {
+    li:first-child {
+      div {
+        div {
+          left: -4px;
+        }
+      }
     }
   }
 `;
