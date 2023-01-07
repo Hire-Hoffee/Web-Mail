@@ -15,7 +15,18 @@ const StyledHeader = styled(FlexContainer)`
     margin-right: 12px;
     margin-left: 8px;
     transition: 0.2s;
+    p {
+      padding-left: 15px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
   }
+  div:nth-child(2):hover {
+    background-color: ${({ theme }) => theme.hoveredNav};
+    border-radius: 8px;
+    transition: 0.2s;
+  }
+
   em:nth-child(1) {
     user-select: none;
     display: flex;

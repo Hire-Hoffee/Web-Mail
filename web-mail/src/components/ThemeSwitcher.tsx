@@ -11,11 +11,12 @@ const StyledSVG = styled.div`
   align-items: center;
   margin-bottom: 10px;
   padding-right: 15px;
+  transition: 0.2s;
 
   &:hover {
     background-color: ${({ theme }) => theme.hoveredNav};
     border-radius: 8px;
-    transition: 0.4s;
+    transition: 0.2s;
   }
 
   cursor: pointer;
