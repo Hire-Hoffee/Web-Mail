@@ -21,21 +21,25 @@ const StyledHeader = styled(FlexContainer)`
       padding-bottom: 10px;
     }
   }
-  div:nth-child(2):hover {
-    background-color: ${({ theme }) => theme.hoveredNav};
-    border-radius: 8px;
-    transition: 0.2s;
-  }
 
   em:nth-child(1) {
     user-select: none;
     display: flex;
     align-items: center;
     cursor: pointer;
-    margin-left: 28px;
+    margin-left: 20px;
+    transition: 0.2s;
     p {
       margin-left: 12px;
     }
+    padding: 8px;
+  }
+
+  div:nth-child(2):hover,
+  em:nth-child(1):hover {
+    background-color: ${({ theme }) => theme.hoveredNav};
+    border-radius: 8px;
+    transition: 0.2s;
   }
 
   .rotateArrow {
