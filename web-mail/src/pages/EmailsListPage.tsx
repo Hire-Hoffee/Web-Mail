@@ -24,6 +24,10 @@ function EmailsListPage() {
       params.push(entry);
     }
 
+    if (params.length == 0) {
+      setSearchParams({ letters: "all" });
+    }
+
     if (params.length !== 0) {
       params.forEach((param, index, array) => {
         if (param[0] === "letters" && param[1] === "all") {
