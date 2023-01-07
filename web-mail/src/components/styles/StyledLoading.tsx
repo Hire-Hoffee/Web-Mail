@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import ThemeType from "@/types/themeType";
 
-const StyledLoading = styled.span<{ theme: ThemeType }>`
+const StyledLoading = styled.span`
   position: absolute;
   display: flex;
   width: 100%;

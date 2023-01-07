@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import ThemeType from "@/types/themeType";
 
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import { changeThemeState } from "@/store/utilsSlice";
 
-const StyledSVG = styled.div<{ theme: ThemeType }>`
+const StyledSVG = styled.div`
   position: fixed;
   bottom: 0;
   display: flex;
@@ -14,7 +13,7 @@ const StyledSVG = styled.div<{ theme: ThemeType }>`
   padding-right: 15px;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.selected};
+    background-color: ${({ theme }) => theme.hoveredNav};
     border-radius: 8px;
     transition: 0.4s;
   }
@@ -23,10 +22,10 @@ const StyledSVG = styled.div<{ theme: ThemeType }>`
 
   svg {
     path {
-      stroke: ${({ theme }) => theme.colors.text.primary};
+      stroke: ${({ theme }) => theme.text.primary};
     }
     rect {
-      fill: ${({ theme }) => theme.colors.text.primary};
+      fill: ${({ theme }) => theme.text.primary};
     }
   }
 

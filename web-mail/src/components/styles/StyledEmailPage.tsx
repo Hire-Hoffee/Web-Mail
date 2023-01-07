@@ -61,7 +61,7 @@ const StyledEmailPage = styled(StyledEmailsContainer)`
 
     div:last-child {
       font-size: 13px;
-      color: #87898f;
+      color: ${({ theme }) => theme.text.secondary};
       margin-top: 5px;
     }
   }
@@ -96,7 +96,7 @@ const StyledEmailPage = styled(StyledEmailsContainer)`
       margin-top: 8px;
       margin-bottom: 8px;
       span {
-        color: #87898f;
+        color: ${({ theme }) => theme.text.secondary};
       }
       a {
         color: #005bd1;

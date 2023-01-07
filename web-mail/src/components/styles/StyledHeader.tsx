@@ -4,7 +4,7 @@ import FlexContainer from "./FlexContainer";
 const StyledHeader = styled(FlexContainer)`
   width: 100%;
   height: 56px;
-  background-color: ${({ theme }) => theme.colors.header};
+  background-color: ${({ theme }) => theme.header};
   justify-content: space-between;
 
   div:nth-child(2),

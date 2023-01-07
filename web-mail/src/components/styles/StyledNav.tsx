@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 
 const StyledNav = styled(NavLink)`
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => theme.text.primary};
 
   li:hover {
-    background-color: ${({ theme }) => theme.colors.selected};
+    background-color: ${({ theme }) => theme.hoveredNav};
     border-radius: 8px;
     transition: 0.4s;
   }

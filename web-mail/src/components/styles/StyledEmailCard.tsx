@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledEmailCart = styled.div`
-  background-color: ${({ theme }) => theme.colors.header};
+  background-color: ${({ theme }) => theme.container};
   position: relative;
   height: 48px;
   padding-left: 12px;
@@ -43,7 +43,7 @@ const StyledEmailCart = styled.div`
   }
 
   div:nth-child(6) {
-    color: #87898f;
+    color: ${({ theme }) => theme.text.secondary};
   }
 
   div:nth-child(7) {
@@ -54,7 +54,7 @@ const StyledEmailCart = styled.div`
 
   div:nth-child(8) {
     span {
-      color: #87898f;
+      color: ${({ theme }) => theme.text.secondary};
       font-size: 13px;
     }
   }
@@ -75,7 +75,7 @@ const StyledEmailCart = styled.div`
   align-items: center;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.selected};
+    background-color: ${({ theme }) => theme.hoveredItem};
     transition: 0.4s;
     border-radius: 12px;
     cursor: pointer;
@@ -87,7 +87,7 @@ const StyledEmailCart = styled.div`
     border: none;
     width: 95%;
     right: 5px;
-    background-color: ${({ theme }) => theme.colors.selected};
+    background-color: ${({ theme }) => theme.hr};
     bottom: 0;
     margin: auto;
   }

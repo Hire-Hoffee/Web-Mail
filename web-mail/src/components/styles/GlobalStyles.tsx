@@ -1,9 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
-import ThemeType from "@/types/themeType";
-
-const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
+const GlobalStyles = createGlobalStyle`
   ${reset}
 
   html {
@@ -11,8 +9,8 @@ const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
   }
 
   body {
-    background-color: ${({ theme }) => theme.colors.body};
-    color:  ${({ theme }) => theme.colors.text.primary};
+    background-color: ${({ theme }) => theme.body};
+    color:  ${({ theme }) => theme.text.primary};
   }
   
   a {

@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import ThemeType from "@/types/themeType";
 
-const StyledSVG = styled.div<{ theme: ThemeType }>`
+const StyledSVG = styled.div`
   svg {
     path {
-      fill: ${({ theme }) => theme.colors.text.secondary};
+      fill: ${({ theme }) => theme.text.primary};
     }
   }
 `;

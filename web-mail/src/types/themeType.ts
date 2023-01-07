@@ -1,13 +1,15 @@
 type ThemeType = {
-  colors: {
-    body: string;
-    header: string;
-    selected: string;
-    text: {
-      primary: string;
-      secondary: string;
-    };
-    logo: string;
+  body: string;
+  header: string;
+  container: string;
+  logo: string;
+  hoveredNav: string;
+  hoveredItem: string;
+  hr: string;
+  popup: string;
+  text: {
+    primary: string;
+    secondary: string;
   };
 };
 

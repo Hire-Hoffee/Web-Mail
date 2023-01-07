@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import ThemeType from "@/types/themeType";
 
-const FlexContainer = styled.div<{ theme: ThemeType }>`
+const FlexContainer = styled.div`
   display: flex;
   align-items: center;
   height: 100%;

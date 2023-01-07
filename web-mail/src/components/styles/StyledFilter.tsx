@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import ThemeType from "@/types/themeType";
 
-const StyledFilter = styled.div<{ theme: ThemeType }>`
+const StyledFilter = styled.div`
   z-index: 9999;
   width: 240px;
-  background-color: ${({ theme }) => theme.colors.header};
+  background-color: ${({ theme }) => theme.popup};
   box-shadow: 0px 4px 32px rgba(0, 16, 61, 0.16);
   border-radius: 12px;
   position: absolute;
@@ -20,7 +19,7 @@ const StyledFilter = styled.div<{ theme: ThemeType }>`
   }
 
   li:hover {
-    background-color: ${({ theme }) => theme.colors.selected};
+    background-color: ${({ theme }) => theme.hoveredItem};
     border-radius: 12px;
     transition: 0.2s;
   }

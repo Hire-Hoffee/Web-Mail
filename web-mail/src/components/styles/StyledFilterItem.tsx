@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import ThemeType from "@/types/themeType";
 
-const StyledFilterItem = styled.li<{ theme: ThemeType }>`
+const StyledFilterItem = styled.li`
   padding: 10px 4px 10px 4px;
   padding-left: 20px;
 

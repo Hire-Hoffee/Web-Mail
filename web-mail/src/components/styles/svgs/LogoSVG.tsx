@@ -1,15 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import ThemeType from "@/types/themeType";
 
-const StyledSVG = styled.span<{ theme: ThemeType }>`
+const StyledSVG = styled.span`
   svg {
     width: 96px;
     height: 32px;
     margin-left: 16px;
 
     path:last-child {
-      fill: ${({ theme }) => theme.colors.logo};
+      fill: ${({ theme }) => theme.logo};
     }
   }
 `;

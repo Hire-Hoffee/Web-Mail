@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import ThemeType from "@/types/themeType";
 
-const StyledEmailsContainer = styled.main<{ theme: ThemeType }>`
-  background-color: ${({ theme }) => theme.colors.header};
+const StyledEmailsContainer = styled.main`
+  background-color: ${({ theme }) => theme.container};
   position: relative;
   width: 100%;
   margin-left: 16px;

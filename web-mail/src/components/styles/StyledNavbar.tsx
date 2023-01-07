@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import ThemeType from "@/types/themeType";
 
-const StyledNavbar = styled.nav<{ theme: ThemeType }>`
+const StyledNavbar = styled.nav`
   width: 232px;
   height: 100%;
   display: flex;
@@ -46,18 +45,18 @@ const StyledNavbar = styled.nav<{ theme: ThemeType }>`
   hr {
     height: 1px;
     width: 100%;
-    background: ${({ theme }) => theme.colors.selected};
+    background: ${({ theme }) => theme.hr};
     border: none;
   }
 
   p {
     margin-left: 12px;
-    color: ${({ theme }) => theme.colors.text.secondary};
+    color: red;
   }
 
   .active li {
     font-weight: bold;
-    background-color: ${({ theme }) => theme.colors.selected};
+    background-color: ${({ theme }) => theme.hoveredNav};
     border-radius: 8px;
   }
 `;
