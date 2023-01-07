@@ -3,7 +3,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import GlobalStyles from "@/components/styles/GlobalStyles";
-import { whiteTheme, darkTheme } from "@/components/styles/themes";
+import { whiteTheme, darkTheme } from "@/themes/themes";
 import StyledContainer from "@/components/styles/StyledContainer";
 import ThemeSVG from "@/components/ThemeSwitcher";
 

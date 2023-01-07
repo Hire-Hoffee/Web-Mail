@@ -1,6 +1,6 @@
-import ThemeType from "@/types/themeType";
+import { DefaultTheme } from "styled-components";
 
-const whiteTheme: ThemeType = {
+const whiteTheme: DefaultTheme = {
   colors: {
     body: "#f6f7f8",
     selected: "#e2e5e9",
@@ -13,7 +13,7 @@ const whiteTheme: ThemeType = {
   },
 };
 
-const darkTheme: ThemeType = {
+const darkTheme: DefaultTheme = {
   colors: {
     body: "#19191a",
     header: "#232324",
