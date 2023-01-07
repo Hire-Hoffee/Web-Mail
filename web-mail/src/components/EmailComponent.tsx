@@ -57,14 +57,14 @@ function EmailComponent(email: EmailType) {
               })}
             </span>
             <span>
-              {email.bookmark ? (
+              {email.bookmark && email.important ? (
+                <>
+                  <img src={bookmarkIcon} alt="status" /> <img src={importantIcon} alt="status" />
+                </>
+              ) : email.bookmark ? (
                 <img src={bookmarkIcon} alt="status" />
               ) : email.important ? (
                 <img src={importantIcon} alt="status" />
-              ) : email.bookmark && email.important ? (
-                <div>
-                  <img src={bookmarkIcon} alt="status" /> <img src={importantIcon} alt="status" />
-                </div>
               ) : (
                 false
               )}

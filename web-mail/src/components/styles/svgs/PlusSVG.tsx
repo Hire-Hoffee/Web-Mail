@@ -1,5 +1,13 @@
 import React from "react";
-import StyledSVG from "../StyledSVG";
+import styled from "styled-components";
+
+const StyledSVG = styled.div`
+  svg {
+    path {
+      fill: ${({ theme }) => theme.text.secondary};
+    }
+  }
+`;
 
 function PlusSVG(): JSX.Element {
   return (

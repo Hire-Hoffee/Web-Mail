@@ -7,6 +7,10 @@ const StyledNavbar = styled.nav`
   flex-direction: column;
   align-items: center;
 
+  a:last-child {
+    color: ${({ theme }) => theme.text.secondary};
+  }
+
   button {
     width: 200px;
     height: 36px;

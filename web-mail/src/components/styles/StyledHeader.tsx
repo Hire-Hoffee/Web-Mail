@@ -7,8 +7,7 @@ const StyledHeader = styled(FlexContainer)`
   background-color: ${({ theme }) => theme.header};
   justify-content: space-between;
 
-  div:nth-child(2),
-  span:nth-child(1) {
+  div:nth-child(2) {
     user-select: none;
     display: flex;
     align-items: center;
@@ -16,6 +15,16 @@ const StyledHeader = styled(FlexContainer)`
     margin-right: 12px;
     margin-left: 8px;
     transition: 0.2s;
+  }
+  em:nth-child(1) {
+    user-select: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 28px;
+    p {
+      margin-left: 12px;
+    }
   }
 
   .rotateArrow {

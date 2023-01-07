@@ -34,8 +34,16 @@ const StyledEmailPage = styled(StyledEmailsContainer)`
     display: flex;
     align-items: center;
 
+    div:nth-child(1) {
+      display: flex;
+      align-items: center;
+      position: relative;
+      span {
+        margin-right: 10px;
+      }
+    }
     img {
-      margin-right: 12px;
+      margin-right: 8px;
     }
   }
 
@@ -50,12 +58,6 @@ const StyledEmailPage = styled(StyledEmailsContainer)`
       }
       span:nth-child(2) {
         font-size: 13px;
-      }
-      span:nth-child(3) {
-        img {
-          position: absolute;
-          top: -2px;
-        }
       }
     }
 

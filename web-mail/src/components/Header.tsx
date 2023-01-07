@@ -35,10 +35,10 @@ function Header(): JSX.Element {
           <FilterComponent />
         </>
       ) : (
-        <span onClick={() => navigate(-1)}>
+        <em onClick={() => navigate(-1)}>
           <LeftArrowSVG />
           <p>Вернуться</p>
-        </span>
+        </em>
       )}
     </StyledHeader>
   );
