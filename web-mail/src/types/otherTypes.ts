@@ -2,6 +2,7 @@ export type Utils = {
   theme: string | null;
   isLoading: boolean;
   toggleFilter: boolean;
+  settingsOpen: boolean | null;
 };
 
 export type NavProps = {

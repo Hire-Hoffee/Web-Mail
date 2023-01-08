@@ -5,6 +5,7 @@ const initialState: Utils = {
   theme: "white",
   isLoading: false,
   toggleFilter: false,
+  settingsOpen: null,
 };
 
 export const utilsSlice = createSlice({
@@ -20,9 +21,15 @@ export const utilsSlice = createSlice({
     changeFilterToggle: (state, action: PayloadAction<boolean>) => {
       state.toggleFilter = action.payload;
     },
+    changeSettingsOpen: (state, action: PayloadAction<boolean>) => {
+      if (!(state.settingsOpen === null && action.payload === false)) {
+        state.settingsOpen = action.payload;
+      }
+    },
   },
 });
 
-export const { changeThemeState, changeLoadingStatus, changeFilterToggle } = utilsSlice.actions;
+export const { changeThemeState, changeLoadingStatus, changeFilterToggle, changeSettingsOpen } =
+  utilsSlice.actions;
 
 export default utilsSlice.reducer;
