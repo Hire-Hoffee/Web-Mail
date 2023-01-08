@@ -21,6 +21,9 @@ function FilterItem({ name, svg, svgComponent, query }: FilterItemProp) {
       params.delete("letters");
       return setSearchParams(params.toString());
     }
+    if (value[0] === "reset") {
+      return setSearchParams();
+    }
     return setSearchParams(params.toString());
   }
 

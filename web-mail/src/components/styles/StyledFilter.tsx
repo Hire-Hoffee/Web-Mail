@@ -21,6 +21,14 @@ const StyledFilter = styled.div`
         }
       }
     }
+    div:nth-child(6) {
+      hr {
+        height: 1px;
+        width: 100%;
+        background: ${({ theme }) => theme.hr};
+        border: none;
+      }
+    }
   }
 `;
 
