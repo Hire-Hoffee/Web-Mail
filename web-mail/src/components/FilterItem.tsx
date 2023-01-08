@@ -12,21 +12,15 @@ function FilterItem({ name, svg, svgComponent, query }: FilterItemProp) {
     const url = new URL(window.location.href);
     const params = new URLSearchParams(url.search);
 
-    if (params.get(value[0]) === "all") {
-      return;
-    }
     if (params.get(value[0]) === value[1]) {
       params.delete(value[0]);
       return setSearchParams(params.toString());
     }
-
     params.append(...value);
-
     if (params.get(value[0]) !== "all") {
       params.delete("letters");
       return setSearchParams(params.toString());
     }
-
     return setSearchParams(params.toString());
   }
 

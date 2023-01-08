@@ -17,31 +17,27 @@ function EmailsListPage() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   function filterResult() {
-    const params: string[][] = [];
-    let result = defaultEmails;
+    if (defaultEmails) {
+      const params: string[][] = [];
+      let result = defaultEmails;
 
-    for (let entry of searchParams.entries()) {
-      params.push(entry);
-    }
-
-    if (params.length == 0) {
-      setSearchParams({ letters: "all" });
-    }
-
-    if (params.length !== 0) {
+      for (let entry of searchParams.entries()) {
+        params.push(entry);
+      }
+      if (params.length === 0) {
+        setSearchParams({ letters: "all" });
+        return setEmails(defaultEmails);
+      }
       params.forEach((param, index, array) => {
-        if (param[0] === "letters" && param[1] === "all") {
+        if (param[1] === "all") {
           return setSearchParams({ letters: "all" });
         }
-
-        result = result?.filter((letter: EmailType | any) => {
+        result = result.filter((letter: EmailType | any) => {
           return String(letter[array[index][0]]) === array[index][1];
         });
       });
       return setEmails(result);
     }
-
-    return setEmails(defaultEmails);
   }
 
   useEffect(() => {

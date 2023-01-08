@@ -4,6 +4,7 @@ const StyledFilterItem = styled.li`
   padding: 10px 4px 10px 4px;
   padding-left: 30px;
   cursor: pointer;
+  user-select: none;
   &:hover {
     background-color: ${({ theme }) => theme.hoveredItem};
     border-radius: 12px;
