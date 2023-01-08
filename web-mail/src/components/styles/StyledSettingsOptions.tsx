@@ -134,12 +134,17 @@ const StyledSettingsOptions = styled.section`
         background-color: #ffffff;
         svg {
           path:last-child {
-            fill: #005ff9;
+            fill: #005ff9 !important;
           }
         }
       }
       & > div:nth-child(2) {
         background-color: #000000;
+        svg {
+          path:last-child {
+            fill: #ffffff !important;
+          }
+        }
       }
       & > div:nth-child(3) {
         background-image: url(${imageBackground});
