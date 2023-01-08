@@ -16,7 +16,7 @@ import blueDot from "@/assets/images/blueDot.svg";
 import StapleSVG from "./styles/svgs/StapleSVG";
 
 function EmailCart(email: EmailType) {
-  const flagDict: any = {
+  const flagDict = {
     Заказы: orders,
     Финансы: finances,
     Регистрации: registrations,
@@ -53,7 +53,11 @@ function EmailCart(email: EmailType) {
         <div className={email.read === false ? "unread" : ""}>{email.title}</div>
         <div>{email.text}</div>
         <div>
-          {email.flag in flagDict ? <img src={flagDict[email.flag]} alt="flag" /> : false}
+          {email.flag in flagDict ? (
+            <img src={flagDict[email.flag as keyof typeof flagDict]} alt="flag" />
+          ) : (
+            false
+          )}
           {email.doc ? <StapleSVG /> : false}
         </div>
         <div>

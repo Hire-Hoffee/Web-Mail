@@ -20,6 +20,9 @@ const StyledEmailCart = styled.div`
       border-radius: 100%;
     }
   }
+  div:nth-child(3) {
+    margin-left: 5px;
+  }
   div:nth-child(4) {
     display: flex;
     justify-content: center;

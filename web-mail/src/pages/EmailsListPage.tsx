@@ -32,8 +32,8 @@ function EmailsListPage() {
         if (param[1] === "all") {
           return setSearchParams({ letters: "all" });
         }
-        result = result.filter((letter: EmailType | any) => {
-          return String(letter[array[index][0]]) === array[index][1];
+        result = result.filter((letter) => {
+          return String(letter[array[index][0] as keyof EmailType]) === array[index][1];
         });
       });
       return setEmails(result);

@@ -13,7 +13,7 @@ import travelings from "@/assets/images/travelings.svg";
 import blueDot from "@/assets/images/blueDot.svg";
 
 function EmailComponent(email: EmailType) {
-  const flagDict: any = {
+  const flagDict = {
     Заказы: orders,
     Финансы: finances,
     Регистрации: registrations,
@@ -34,7 +34,7 @@ function EmailComponent(email: EmailType) {
         <h1>{email.title}</h1>
         <div>
           {email.flag || "" in flagDict ? (
-            <img src={flagDict[email.flag || ""]} alt="flag" />
+            <img src={flagDict[(email.flag as keyof typeof flagDict) || ""]} alt="flag" />
           ) : (
             false
           )}
