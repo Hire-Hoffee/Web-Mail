@@ -15,10 +15,16 @@ const StyledHeader = styled(FlexContainer)`
     margin-right: 12px;
     margin-left: 8px;
     transition: 0.2s;
-    p {
-      padding-left: 15px;
-      padding-top: 10px;
-      padding-bottom: 10px;
+    span {
+      margin: 4px;
+    }
+    div {
+      display: flex;
+      p {
+        padding-left: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
     }
   }
 

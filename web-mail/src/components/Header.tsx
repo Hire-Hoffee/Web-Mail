@@ -9,12 +9,43 @@ import FilterComponent from "./FilterComponent";
 import LogoSVG from "./styles/svgs/LogoSVG";
 import LeftArrowSVG from "./styles/svgs/LeftArrowSVG";
 import DownArrowSVG from "./styles/svgs/DownArrowSVG";
+import StapleSVG from "./styles/svgs/StapleSVG";
+import bookmarkIcon from "@/assets/images/bookmarkIcon.svg";
+import importantIcon from "@/assets/images/importantIcon.svg";
+import blueDot from "@/assets/images/blueDot.svg";
 
 function Header(): JSX.Element {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const isToggledFilter = useAppSelector((state) => state.utils.toggleFilter);
   const dispatch = useAppDispatch();
+
+  const filterIconDict = {
+    read: <img src={blueDot} alt="icon" />,
+    bookmark: <img src={bookmarkIcon} alt="icon" />,
+    important: <img src={importantIcon} alt="icon" />,
+    doc: <StapleSVG />,
+  };
+  const filterItemNameDict = {
+    read: "Непрочитанные",
+    bookmark: "С флажком",
+    important: "Важные",
+    doc: "С вложениями",
+  };
+
+  function setFilterSearchName() {
+    const params: string[][] = [];
+    for (let entry of searchParams.entries()) {
+      params.push(entry);
+    }
+    if (params.length === 1 && params[0][0] in filterItemNameDict) {
+      return <p>{filterItemNameDict[params[0][0] as keyof typeof filterItemNameDict]}</p>;
+    }
+    if (params.length === 1 && params[0][1] === "all") {
+      return <p>Фильтр</p>;
+    }
+    return <p>Фильтры</p>;
+  }
 
   return (
     <StyledHeader>
@@ -23,14 +54,21 @@ function Header(): JSX.Element {
           <Link to={"/inbox"}>
             <LogoSVG />
           </Link>
-          <div
-            onClick={() => {
-              dispatch(changeFilterToggle(!isToggledFilter));
-            }}
-            className={isToggledFilter ? "rotateArrow" : ""}
-          >
-            <p>Фильтр</p>
-            <DownArrowSVG />
+          <div>
+            {Object.keys(filterIconDict).map((item) => {
+              return searchParams.get(item) ? (
+                <span key={item}>{filterIconDict[item as keyof typeof filterIconDict]}</span>
+              ) : (
+                false
+              );
+            })}
+            <div
+              onClick={() => dispatch(changeFilterToggle(!isToggledFilter))}
+              className={isToggledFilter ? "rotateArrow" : ""}
+            >
+              {setFilterSearchName()}
+              <DownArrowSVG />
+            </div>
           </div>
           <FilterComponent />
         </>
