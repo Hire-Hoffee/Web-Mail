@@ -14,6 +14,7 @@ function EmailsListPage() {
   const [defaultEmails, setDefaultEmails] = useState<EmailType[] | undefined>(undefined);
   const { folder } = useParams();
   const isLoading = useAppSelector((state) => state.utils.isLoading);
+  const theme = useAppSelector((state) => state.utils.theme);
   const [searchParams, setSearchParams] = useSearchParams();
 
   function filterResult() {
@@ -53,7 +54,7 @@ function EmailsListPage() {
   }, [folder]);
 
   return (
-    <StyledEmailsContainer>
+    <StyledEmailsContainer className={theme === "anime" ? "animeNotFound" : ""}>
       {isLoading ? (
         <LoadingComponent />
       ) : emails?.length === 0 ? (

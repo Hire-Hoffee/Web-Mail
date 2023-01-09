@@ -40,7 +40,7 @@ const StyledSettingsOptions = styled.section`
     }
     button:hover {
       transition: 0.2s;
-      background-color: ${({ theme }) => theme.hoveredItem};
+      background-color: ${({ theme }) => theme.hoveredNav};
     }
   }
 

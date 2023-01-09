@@ -1,9 +1,43 @@
-import { whiteTheme, darkTheme, brownTheme } from "./themes";
+import {
+  whiteTheme,
+  darkTheme,
+  brownTheme,
+  grayTheme,
+  violetTheme,
+  darkBlueTheme,
+  blueTheme,
+  pinkTheme,
+  orangeTheme,
+  greenTheme,
+  tealTheme,
+  beigeTheme,
+  creamTheme,
+  celeryTheme,
+  seaTheme,
+  purpleTheme,
+  lightGrayTheme,
+  animeTheme,
+} from "./themes";
 
 const themesDictionary = {
   white: whiteTheme,
   dark: darkTheme,
+  anime: animeTheme,
   brown: brownTheme,
+  gray: grayTheme,
+  violet: violetTheme,
+  darkBlue: darkBlueTheme,
+  blue: blueTheme,
+  pink: pinkTheme,
+  orange: orangeTheme,
+  green: greenTheme,
+  teal: tealTheme,
+  beige: beigeTheme,
+  cream: creamTheme,
+  celery: celeryTheme,
+  sea: seaTheme,
+  purple: purpleTheme,
+  lightGray: lightGrayTheme,
 };
 
 export default themesDictionary;

@@ -25,33 +25,78 @@ function ThemeSwitcher(): JSX.Element {
         <div
           className={theme === "brown" ? "chosenTheme" : ""}
           onClick={() => changeTheme("brown")}
-        >
-          1
-        </div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        ></div>
+        <div
+          className={theme === "gray" ? "chosenTheme" : ""}
+          onClick={() => changeTheme("gray")}
+        ></div>
+        <div
+          className={theme === "violet" ? "chosenTheme" : ""}
+          onClick={() => changeTheme("violet")}
+        ></div>
+        <div
+          className={theme === "darkBlue" ? "chosenTheme" : ""}
+          onClick={() => changeTheme("darkBlue")}
+        ></div>
+        <div
+          className={theme === "blue" ? "chosenTheme" : ""}
+          onClick={() => changeTheme("blue")}
+        ></div>
+        <div
+          className={theme === "pink" ? "chosenTheme" : ""}
+          onClick={() => changeTheme("pink")}
+        ></div>
+        <div
+          className={theme === "orange" ? "chosenTheme" : ""}
+          onClick={() => changeTheme("orange")}
+        ></div>
+        <div
+          className={theme === "green" ? "chosenTheme" : ""}
+          onClick={() => changeTheme("green")}
+        ></div>
+        <div
+          className={theme === "teal" ? "chosenTheme" : ""}
+          onClick={() => changeTheme("teal")}
+        ></div>
+        <div
+          className={theme === "beige" ? "chosenTheme" : ""}
+          onClick={() => changeTheme("beige")}
+        ></div>
+        <div
+          className={theme === "cream" ? "chosenTheme" : ""}
+          onClick={() => changeTheme("cream")}
+        ></div>
+        <div
+          className={theme === "celery" ? "chosenTheme" : ""}
+          onClick={() => changeTheme("celery")}
+        ></div>
+        <div
+          className={theme === "sea" ? "chosenTheme" : ""}
+          onClick={() => changeTheme("sea")}
+        ></div>
+        <div
+          className={theme === "purple" ? "chosenTheme" : ""}
+          onClick={() => changeTheme("purple")}
+        ></div>
+        <div
+          className={theme === "lightGray" ? "chosenTheme" : ""}
+          onClick={() => changeTheme("lightGray")}
+        ></div>
       </div>
       <div>
-        <div onClick={() => changeTheme("white")}>
+        <div
+          className={theme === "white" ? "chosenTheme" : ""}
+          onClick={() => changeTheme("white")}
+        >
           <LogoSVG />
         </div>
-        <div onClick={() => changeTheme("dark")}>
+        <div className={theme === "dark" ? "chosenTheme" : ""} onClick={() => changeTheme("dark")}>
           <LogoSVG />
         </div>
-        <div></div>
+        <div
+          className={theme === "anime" ? "chosenTheme" : ""}
+          onClick={() => changeTheme("anime")}
+        ></div>
       </div>
     </StyledThemeSwitcher>
   );

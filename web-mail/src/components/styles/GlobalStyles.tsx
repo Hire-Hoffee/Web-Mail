@@ -9,7 +9,11 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: ${({ theme }) => theme.body};
+    background: ${({ theme }) => theme.body};
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     color:  ${({ theme }) => theme.text.global};
 
     .showSettings {
@@ -96,6 +100,13 @@ const GlobalStyles = createGlobalStyle`
   *::-webkit-scrollbar-thumb {
     background-color: ${({ theme }) => theme.text.secondary};
     border-radius: 3px;
+  }
+
+  .animeNotFound {
+    background-color: transparent !important;
+    h1 {
+      color: #ffffff;
+    }
   }
 `;
 
