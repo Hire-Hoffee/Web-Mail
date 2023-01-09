@@ -22,7 +22,7 @@ function FilterComponent() {
         <FilterItem name="С флажком" svg={bookmarkIcon} query={["bookmark", "true"]} />
         <FilterItem name="Важные" svg={importantIcon} query={["important", "true"]} />
         <FilterItem name="С вложениями" svgComponent={<StapleSVG />} query={["doc", "true"]} />
-        {!searchParams.get("letters") ? (
+        {!(searchParams.get("letters") || String(searchParams) === "") ? (
           <div>
             <hr />
             <FilterItem name="Сбросить всё" query={["reset", "all"]} />
