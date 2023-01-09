@@ -33,7 +33,6 @@ const StyledEmailPage = styled(StyledEmailsContainer)`
     position: relative;
     display: flex;
     align-items: center;
-    margin-left: -28px;
 
     div:nth-child(1) {
       display: flex;
@@ -41,6 +40,10 @@ const StyledEmailPage = styled(StyledEmailsContainer)`
       position: relative;
       span {
         margin-right: 10px;
+      }
+      & > img {
+        position: absolute;
+        left: -28px;
       }
     }
     img {
