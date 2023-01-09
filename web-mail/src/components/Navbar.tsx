@@ -29,7 +29,7 @@ function Navbar(): JSX.Element {
         <NavRoute to="spam" svgComponent={<SpamSVG />} name="Спам" />
         <NavRoute to="trash" svgComponent={<TrashSVG />} name="Корзина" />
         <hr />
-        <NavRoute to="/" svgComponent={<PlusSVG />} name="Новая папка" />
+        <NavRoute to="/inbox" svgComponent={<PlusSVG />} name="Новая папка" />
       </ul>
     </StyledNavbar>
   );

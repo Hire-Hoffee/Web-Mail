@@ -27,7 +27,7 @@ const StyledSettingsButton = styled.div`
   }
 
   @media (max-width: 768px) {
-    .hidden {
+    & > p {
       display: none;
     }
     padding-right: 0px;

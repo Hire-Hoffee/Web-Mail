@@ -35,7 +35,7 @@ const StyledNavbar = styled.nav`
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     img:first-child {
       display: none;
     }

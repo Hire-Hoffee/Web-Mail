@@ -4,8 +4,6 @@ import StyledEmailsContainer from "./StyledEmailsContainer";
 const StyledEmailPage = styled(StyledEmailsContainer)`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 16px;
   padding-left: 32px;
   padding-right: 32px;
   position: relative;
@@ -19,6 +17,8 @@ const StyledEmailPage = styled(StyledEmailsContainer)`
     h1 {
       font-size: 24px;
       font-weight: bold;
+      margin-top: 16px;
+      margin-bottom: 16px;
     }
     div {
       font-size: 13px;
@@ -28,11 +28,12 @@ const StyledEmailPage = styled(StyledEmailsContainer)`
   }
 
   & > div:nth-child(2) {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     height: 60px;
     position: relative;
     display: flex;
     align-items: center;
+    margin-left: -28px;
 
     div:nth-child(1) {
       display: flex;

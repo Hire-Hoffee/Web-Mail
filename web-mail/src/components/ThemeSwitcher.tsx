@@ -1,6 +1,6 @@
 import React from "react";
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
-import { changeThemeState } from "@/store/utilsSlice";
+import { changeThemeState, changeSettingsOpen } from "@/store/utilsSlice";
 
 import StyledThemeSwitcher from "./styles/StyledThemeSwitcher";
 import LogoSVG from "./styles/svgs/LogoSVG";
@@ -12,6 +12,7 @@ function ThemeSwitcher(): JSX.Element {
 
   function changeTheme(themeStyle: string) {
     localStorage.setItem("theme", themeStyle);
+    dispatch(changeSettingsOpen(false));
     dispatch(changeThemeState(themeStyle));
     return;
   }
