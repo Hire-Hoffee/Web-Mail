@@ -32,7 +32,12 @@ function FilterItem({ name, svg, svgComponent, query }: FilterItemProp) {
       <div>
         {svg ? <img src={svg} alt="icon" /> : svgComponent}
         <p>{name}</p>
-        {searchParams.get(query[0]) === query[1] ? <CheckSVG /> : false}
+        {searchParams.get(query[0]) === query[1] ||
+        (String(searchParams) === "" && name === "Все письма") ? (
+          <CheckSVG />
+        ) : (
+          false
+        )}
       </div>
     </StyledFilterItem>
   );

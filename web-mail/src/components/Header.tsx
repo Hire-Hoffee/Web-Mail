@@ -41,7 +41,7 @@ function Header(): JSX.Element {
     if (params.length === 1 && params[0][0] in filterItemNameDict) {
       return <p>{filterItemNameDict[params[0][0] as keyof typeof filterItemNameDict]}</p>;
     }
-    if (params.length === 1 && params[0][1] === "all") {
+    if ((params.length === 1 && params[0][1] === "all") || params.length === 0) {
       return <p>Фильтр</p>;
     }
     return <p>Фильтры</p>;
