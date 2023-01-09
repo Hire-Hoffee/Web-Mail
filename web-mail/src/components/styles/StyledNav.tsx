@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const StyledNav = styled(NavLink)`
   text-decoration: none;
-  color: ${({ theme }) => theme.text.primary};
+  color: ${({ theme }) => theme.text.global};
 
   li:hover {
     background-color: ${({ theme }) => theme.hoveredNav};

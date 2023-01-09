@@ -9,7 +9,7 @@ function NotFoundEmails(): JSX.Element {
 
   return (
     <NotFoundStyles>
-      <img src={theme === "white" ? noLetters : noLettersDark} alt="no letters" />
+      <img src={theme === "dark" ? noLettersDark : noLetters} alt="no letters" />
       <h1>Писем нет</h1>
     </NotFoundStyles>
   );

@@ -6,7 +6,7 @@ const StyledFilterItem = styled.li`
   cursor: pointer;
   user-select: none;
   &:hover {
-    background-color: ${({ theme }) => theme.hoveredItem};
+    background-color: ${({ theme }) => theme.hoveredNav};
     border-radius: 12px;
     transition: 0.2s;
   }

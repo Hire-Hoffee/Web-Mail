@@ -6,8 +6,10 @@ type ThemeType = {
   hoveredNav: string;
   hoveredItem: string;
   hr: string;
+  hrNav: string;
   popup: string;
   text: {
+    global: string;
     primary: string;
     secondary: string;
   };

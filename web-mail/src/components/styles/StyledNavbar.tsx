@@ -49,7 +49,7 @@ const StyledNavbar = styled.nav`
   hr {
     height: 1px;
     width: 100%;
-    background: ${({ theme }) => theme.hr};
+    background: ${({ theme }) => theme.hrNav};
     border: none;
   }
 

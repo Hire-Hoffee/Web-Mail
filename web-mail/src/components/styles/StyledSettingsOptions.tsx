@@ -4,7 +4,7 @@ const StyledSettingsOptions = styled.section`
   width: 100%;
   height: 0px;
   visibility: hidden;
-  background-color: ${({ theme }) => theme.container};
+  background-color: ${({ theme }) => theme.popup};
   box-shadow: 0px -3px 48px rgba(0, 16, 61, 0.28);
   position: fixed;
   bottom: 0;
@@ -17,7 +17,7 @@ const StyledSettingsOptions = styled.section`
 
   & > div:first-child {
     border-right: 1px solid;
-    border-color: ${({ theme }) => theme.hr};
+    border-color: ${({ theme }) => theme.hrNav};
     padding: 20px 17px 20px 20px;
     display: flex;
     flex-direction: column;
@@ -26,8 +26,8 @@ const StyledSettingsOptions = styled.section`
       padding: 10px 16px 10px 16px;
       border-radius: 4px;
       border: none;
-      background-color: ${({ theme }) => theme.container};
-      color: ${({ theme }) => theme.text.primary};
+      background-color: ${({ theme }) => theme.popup};
+      color: ${({ theme }) => theme.text.global};
       transition: 0.2s;
       text-align: start;
       cursor: pointer;

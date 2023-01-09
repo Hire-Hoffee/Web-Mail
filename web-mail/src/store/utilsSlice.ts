@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Utils } from "@/types/otherTypes";
 
 const initialState: Utils = {
-  theme: "white",
+  theme: null,
   isLoading: false,
   toggleFilter: false,
   settingsOpen: null,

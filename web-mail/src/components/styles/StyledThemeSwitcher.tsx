@@ -25,6 +25,20 @@ const StyledThemeSwitcher = styled.div`
       position: relative;
     }
 
+    .chosenTheme:after {
+      content: "";
+      opacity: 1;
+      background: rgba(0, 95, 249, 0.48);
+      background-image: url(${checkMark});
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+
     div:after {
       content: "";
       opacity: 0;

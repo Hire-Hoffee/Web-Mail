@@ -7,6 +7,7 @@ const StyledEmailsContainer = styled.main`
   margin-left: 16px;
   border-radius: 12px;
   overflow: hidden;
+  color: ${({ theme }) => theme.text.primary};
 `;
 
 export default StyledEmailsContainer;

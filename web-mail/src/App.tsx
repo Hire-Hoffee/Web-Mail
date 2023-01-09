@@ -4,7 +4,8 @@ import { ThemeProvider } from "styled-components";
 
 import GlobalStyles from "@/components/styles/GlobalStyles";
 import StyledContainer from "@/components/styles/StyledContainer";
-import { whiteTheme, darkTheme } from "@/themes/themes";
+import { whiteTheme } from "@/themes/themes";
+import themesDictionary from "./themes/themesDictionary";
 
 import SettingsButton from "./components/SettingsButton";
 import SettingOptions from "./components/SettingOptions";
@@ -31,7 +32,11 @@ function App(): JSX.Element {
 
   return (
     <ThemeProvider
-      theme={theme === "white" ? whiteTheme : theme === "dark" ? darkTheme : whiteTheme}
+      theme={
+        theme && theme in themesDictionary
+          ? themesDictionary[theme as keyof typeof themesDictionary]
+          : whiteTheme
+      }
     >
       <GlobalStyles />
       <section
