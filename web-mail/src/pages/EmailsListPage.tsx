@@ -46,6 +46,9 @@ function EmailsListPage() {
   }, [searchParams]);
 
   useEffect(() => {
+    folder
+      ? (document.title = `WebMail - ${folder.charAt(0).toUpperCase() + folder.slice(1)}`)
+      : "WebMail";
     (async () => {
       const result = await getEmails("/" + folder);
       setEmails(result);

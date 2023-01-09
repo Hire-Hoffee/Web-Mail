@@ -15,6 +15,7 @@ function EmailPage(): JSX.Element {
   useEffect(() => {
     (async () => {
       const result = await getOneMail("/email?title=" + searchParams.get("title"));
+      email ? (document.title = `WebMail - ${email.title.slice(0, 20)}`) : "WebMail";
       setEmail(result);
     })();
   }, []);
