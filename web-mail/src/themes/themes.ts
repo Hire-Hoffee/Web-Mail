@@ -1,5 +1,5 @@
 import { DefaultTheme } from "styled-components";
-import animeBg from "@/assets/images/animeBg.png";
+import backgroundPicture from "@/assets/images/backgroundPicture.png";
 
 const whiteTheme: DefaultTheme = {
   body: "#f6f7f8",
@@ -36,7 +36,7 @@ const darkTheme: DefaultTheme = {
 };
 
 const animeTheme: DefaultTheme = {
-  body: `url(${animeBg})`,
+  body: `url(${backgroundPicture})`,
   header: "#6b1344",
   container: "#ffffff",
   logo: "#ffffff",
