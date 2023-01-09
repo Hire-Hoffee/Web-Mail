@@ -33,7 +33,7 @@ function Header(): JSX.Element {
     doc: "С вложениями",
   };
 
-  function setFilterSearchName() {
+  function setFilterSearchName(): JSX.Element {
     const params: string[][] = [];
     for (let entry of searchParams.entries()) {
       params.push(entry);

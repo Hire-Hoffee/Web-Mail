@@ -10,7 +10,7 @@ import importantIcon from "@/assets/images/importantIcon.svg";
 import blueDot from "@/assets/images/blueDot.svg";
 import StapleSVG from "./styles/svgs/StapleSVG";
 
-function FilterComponent() {
+function FilterComponent(): JSX.Element {
   const isToggledFilter = useAppSelector((state) => state.utils.toggleFilter);
   const [searchParams, setSearchParams] = useSearchParams();
 

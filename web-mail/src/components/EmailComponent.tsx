@@ -12,7 +12,7 @@ import registrations from "@/assets/images/registrations.svg";
 import travelings from "@/assets/images/travelings.svg";
 import blueDot from "@/assets/images/blueDot.svg";
 
-function EmailComponent(email: EmailType) {
+function EmailComponent(email: EmailType): JSX.Element {
   const flagDict = {
     Заказы: orders,
     Финансы: finances,

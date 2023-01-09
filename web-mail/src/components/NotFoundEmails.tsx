@@ -4,7 +4,7 @@ import noLetters from "@/assets/images/noLetters.png";
 import noLettersDark from "@/assets/images/noLettersDark.png";
 import { useAppSelector } from "@/store/hooks";
 
-function NotFoundEmails() {
+function NotFoundEmails(): JSX.Element {
   const theme = useAppSelector((state) => state.utils.theme);
 
   return (

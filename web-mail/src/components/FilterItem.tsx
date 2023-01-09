@@ -5,7 +5,7 @@ import StyledFilterItem from "./styles/StyledFilterItem";
 import { FilterItemProp } from "@/types/otherTypes";
 import CheckSVG from "./styles/svgs/CheckSVG";
 
-function FilterItem({ name, svg, svgComponent, query }: FilterItemProp) {
+function FilterItem({ name, svg, svgComponent, query }: FilterItemProp): JSX.Element {
   const [searchParams, setSearchParams] = useSearchParams();
 
   function changeSearchParams(value: [string, string]) {

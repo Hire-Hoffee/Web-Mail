@@ -4,7 +4,7 @@ import { useAppSelector } from "@/store/hooks";
 
 import LogoSVG from "./styles/svgs/LogoSVG";
 
-function SettingOptions() {
+function SettingOptions(): JSX.Element {
   const settingsOpen = useAppSelector((state) => state.utils.settingsOpen);
   const scrollDivRef = useRef<HTMLElement>(null);
 
@@ -14,9 +14,9 @@ function SettingOptions() {
 
   return (
     <StyledSettingsOptions
+      ref={scrollDivRef}
       onMouseEnter={() => scrollDivRef.current?.addEventListener("wheel", eventListener)}
       onMouseLeave={() => scrollDivRef.current?.removeEventListener("wheel", eventListener)}
-      ref={scrollDivRef}
       className={
         settingsOpen === true ? "showSettings" : settingsOpen === false ? "hideSettings" : ""
       }

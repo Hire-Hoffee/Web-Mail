@@ -2,7 +2,7 @@ import React from "react";
 import SpinnerSVG from "./styles/svgs/SpinnerSVG";
 import StyledLoading from "./styles/StyledLoading";
 
-function LoadingComponent() {
+function LoadingComponent(): JSX.Element {
   return (
     <StyledLoading>
       <SpinnerSVG />

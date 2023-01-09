@@ -15,7 +15,7 @@ import travelings from "@/assets/images/travelings.svg";
 import blueDot from "@/assets/images/blueDot.svg";
 import StapleSVG from "./styles/svgs/StapleSVG";
 
-function EmailCart(email: EmailType) {
+function EmailCart(email: EmailType): JSX.Element {
   const flagDict = {
     Заказы: orders,
     Финансы: finances,

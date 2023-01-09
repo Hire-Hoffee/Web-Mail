@@ -30,7 +30,7 @@ const StyledError = styled.div`
   }
 `;
 
-function ErrorComponent() {
+function ErrorComponent(): JSX.Element {
   return (
     <StyledError>
       <h1>Произошла непредвиденная ошибка :(</h1>

@@ -42,7 +42,7 @@ const StyledSettingsButton = styled.div`
   }
 `;
 
-function SettingsButton() {
+function SettingsButton(): JSX.Element {
   const settingsOpen = useAppSelector((state) => state.utils.settingsOpen);
   const dispatch = useAppDispatch();
 
