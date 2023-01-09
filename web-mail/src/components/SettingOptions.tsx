@@ -1,11 +1,19 @@
 import React, { useRef } from "react";
 import StyledSettingsOptions from "./styles/StyledSettingsOptions";
-import { useAppSelector } from "@/store/hooks";
+import { useAppSelector, useAppDispatch } from "@/store/hooks";
+import { themeSwitchOpened, langSwitchOpened } from "@/store/utilsSlice";
 
-import LogoSVG from "./styles/svgs/LogoSVG";
+import ThemeSwitcher from "./ThemeSwitcher";
+import LanguageSwitcher from "./LanguageSwitcher";
+
+import russianLang from "@/assets/images/russian.svg";
+import englishLang from "@/assets/images/english.svg";
 
 function SettingOptions(): JSX.Element {
   const settingsOpen = useAppSelector((state) => state.utils.settingsOpen);
+  const themeSwitcher = useAppSelector((state) => state.utils.themeSwitcher);
+  const langSwitcher = useAppSelector((state) => state.utils.langSwitcher);
+  const dispatch = useAppDispatch();
   const scrollDivRef = useRef<HTMLElement>(null);
 
   function eventListener(event: Event) {
@@ -22,40 +30,21 @@ function SettingOptions(): JSX.Element {
       }
     >
       <div>
-        <button>Внешний вид</button>
-        <button>Язык: Русский</button>
+        <button
+          onClick={() => dispatch(themeSwitchOpened(true))}
+          className={themeSwitcher ? "activeBtn" : ""}
+        >
+          Внешний вид
+        </button>
+        <button
+          onClick={() => dispatch(langSwitchOpened(true))}
+          className={langSwitcher ? "activeBtn" : ""}
+        >
+          Язык: Русский
+          <img src={russianLang} alt="lang_icon" />
+        </button>
       </div>
-
-      <div>
-        <h4>Настройки внешнего вида вашей почты и темы оформления</h4>
-        <div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <div>
-          <div>
-            <LogoSVG />
-          </div>
-          <div>
-            <LogoSVG />
-          </div>
-          <div></div>
-        </div>
-      </div>
+      {themeSwitcher ? <ThemeSwitcher /> : langSwitcher ? <LanguageSwitcher /> : false}
     </StyledSettingsOptions>
   );
 }

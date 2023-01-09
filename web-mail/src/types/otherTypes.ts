@@ -3,6 +3,8 @@ export type Utils = {
   isLoading: boolean;
   toggleFilter: boolean;
   settingsOpen: boolean | null;
+  themeSwitcher: boolean;
+  langSwitcher: boolean;
 };
 
 export type NavProps = {

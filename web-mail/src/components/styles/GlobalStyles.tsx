@@ -66,12 +66,12 @@ const GlobalStyles = createGlobalStyle`
         scale: 1;
       }
       to {
-        scale: 0.8;
+        scale: 0.9;
       }
     }
     @keyframes scaleUp {
       from {
-        scale: 0.8;
+        scale: 0.9;
       }
       to {
         scale: 1;

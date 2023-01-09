@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import imageBackground from "@/assets/images/imageBackground.png";
 
 const StyledSettingsOptions = styled.section`
   width: 100%;
@@ -13,7 +12,7 @@ const StyledSettingsOptions = styled.section`
   z-index: 9999;
   display: grid;
   grid-auto-columns: 1fr;
-  grid-template-columns: 0.5fr 2fr;
+  grid-template-columns: 260px 1fr;
   grid-template-rows: 1fr;
 
   & > div:first-child {
@@ -33,6 +32,11 @@ const StyledSettingsOptions = styled.section`
       text-align: start;
       cursor: pointer;
       font-size: 15px;
+      display: flex;
+      align-items: center;
+      img {
+        margin-left: 8px;
+      }
     }
     button:hover {
       transition: 0.2s;
@@ -40,124 +44,37 @@ const StyledSettingsOptions = styled.section`
     }
   }
 
-  & > div:last-child {
-    padding: 26px 46px 26px 32px;
-    h4 {
-      margin-bottom: 20px;
-      font-size: 15px;
+  .activeBtn {
+    font-weight: bold;
+    background-color: ${({ theme }) => theme.hoveredNav} !important;
+    border-radius: 8px;
+  }
+
+  .showSettingsSwitcher {
+    animation-name: showSettingsSwitcher;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+  }
+  .hideSettingsSwitcher {
+    animation-name: hideSettingsSwitcher;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes showSettingsSwitcher {
+    from {
+      opacity: 0;
     }
-
-    & > div:nth-child(2) {
-      display: grid;
-      grid-template-columns: repeat(8, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      max-width: 700px;
-
-      div {
-        width: 67.5px;
-        height: 40px;
-        margin: 6px 10px;
-        cursor: pointer;
-        transition: 0.2s;
-      }
-      div:hover {
-        filter: brightness(0.7);
-        transition: 0.2s;
-      }
-
-      & > div:nth-child(1) {
-        background-color: #4a352f;
-      }
-      & > div:nth-child(2) {
-        background-color: #424242;
-      }
-      & > div:nth-child(3) {
-        background-color: #5a355a;
-      }
-      & > div:nth-child(4) {
-        background-color: #35385a;
-      }
-      & > div:nth-child(5) {
-        background-color: #646ecb;
-      }
-      & > div:nth-child(6) {
-        background-color: #e73672;
-      }
-      & > div:nth-child(7) {
-        background-color: #f44336;
-      }
-      & > div:nth-child(8) {
-        background-color: #388e3c;
-      }
-      & > div:nth-child(9) {
-        background-color: #81d8d0;
-      }
-      & > div:nth-child(10) {
-        background-color: #e2dcd2;
-      }
-      & > div:nth-child(11) {
-        background-color: #ffebcd;
-      }
-      & > div:nth-child(12) {
-        background-color: #e7eed2;
-      }
-      & > div:nth-child(13) {
-        background-color: #d0f0f7;
-      }
-      & > div:nth-child(14) {
-        background-color: #c9d0fb;
-      }
-      & > div:nth-child(15) {
-        background-color: #ddf3ff;
-      }
-      & > div:nth-child(16) {
-        background-color: #f0f0f0;
-      }
+    to {
+      opacity: 1;
     }
-    & > div:last-child {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 1fr;
-      max-width: 420px;
-      div {
-        width: 120px;
-        height: 88px;
-        margin: 10px 10px;
-        cursor: pointer;
-        transition: 0.2s;
-      }
-      div:hover {
-        filter: brightness(0.7);
-        transition: 0.2s;
-      }
-      & > div:nth-child(1) {
-        background-color: #ffffff;
-        svg {
-          path:last-child {
-            fill: #005ff9 !important;
-          }
-        }
-      }
-      & > div:nth-child(2) {
-        background-color: #000000;
-        svg {
-          path:last-child {
-            fill: #ffffff !important;
-          }
-        }
-      }
-      & > div:nth-child(3) {
-        background-image: url(${imageBackground});
-      }
-      & > div:nth-child(1),
-      & > div:nth-child(2) {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        svg {
-          margin: 0px;
-        }
-      }
+  }
+  @keyframes hideSettingsSwitcher {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
     }
   }
 `;

@@ -6,6 +6,8 @@ const initialState: Utils = {
   isLoading: false,
   toggleFilter: false,
   settingsOpen: null,
+  themeSwitcher: true,
+  langSwitcher: false,
 };
 
 export const utilsSlice = createSlice({
@@ -26,10 +28,24 @@ export const utilsSlice = createSlice({
         state.settingsOpen = action.payload;
       }
     },
+    themeSwitchOpened: (state, action: PayloadAction<boolean>) => {
+      state.themeSwitcher = action.payload;
+      state.langSwitcher = false;
+    },
+    langSwitchOpened: (state, action: PayloadAction<boolean>) => {
+      state.langSwitcher = action.payload;
+      state.themeSwitcher = false;
+    },
   },
 });
 
-export const { changeThemeState, changeLoadingStatus, changeFilterToggle, changeSettingsOpen } =
-  utilsSlice.actions;
+export const {
+  changeThemeState,
+  changeLoadingStatus,
+  changeFilterToggle,
+  changeSettingsOpen,
+  themeSwitchOpened,
+  langSwitchOpened,
+} = utilsSlice.actions;
 
 export default utilsSlice.reducer;
