@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense } from "react";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
@@ -33,27 +33,29 @@ function App(): JSX.Element {
   }, [folder]);
 
   return (
-    <ThemeProvider
-      theme={
-        theme && theme in themesDictionary
-          ? themesDictionary[theme as keyof typeof themesDictionary]
-          : whiteTheme
-      }
-    >
-      <GlobalStyles />
-      <section
-        onClick={() => dispatch(changeSettingsOpen(false))}
-        className={settingsOpen === true ? "scaleDown" : settingsOpen === false ? "scaleUp" : ""}
+    <Suspense>
+      <ThemeProvider
+        theme={
+          theme && theme in themesDictionary
+            ? themesDictionary[theme as keyof typeof themesDictionary]
+            : whiteTheme
+        }
       >
-        <Header />
-        <StyledContainer onClick={() => dispatch(changeFilterToggle(false))}>
-          <Navbar />
-          <Outlet />
-        </StyledContainer>
-      </section>
-      <SettingsButton />
-      <SettingOptions />
-    </ThemeProvider>
+        <GlobalStyles />
+        <section
+          onClick={() => dispatch(changeSettingsOpen(false))}
+          className={settingsOpen === true ? "scaleDown" : settingsOpen === false ? "scaleUp" : ""}
+        >
+          <Header />
+          <StyledContainer onClick={() => dispatch(changeFilterToggle(false))}>
+            <Navbar />
+            <Outlet />
+          </StyledContainer>
+        </section>
+        <SettingsButton />
+        <SettingOptions />
+      </ThemeProvider>
+    </Suspense>
   );
 }
 

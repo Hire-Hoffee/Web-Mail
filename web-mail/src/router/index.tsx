@@ -1,9 +1,10 @@
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import App from "@/App";
 
-import ErrorComponent from "@/components/ErrorComponent";
-import EmailsListPage from "@/pages/EmailsListPage";
-import EmailPage from "@/pages/EmailPage";
+const ErrorComponent = lazy(() => import("@/components/ErrorComponent"));
+const EmailsListPage = lazy(() => import("@/pages/EmailsListPage"));
+const EmailPage = lazy(() => import("@/pages/EmailPage"));
 
 const router = createBrowserRouter([
   {
