@@ -45,6 +45,7 @@ const animeTheme: DefaultTheme = {
   hr: "#d8dbe2",
   hrNav: "#634572",
   popup: "#91195c",
+  svgFill: "#ffffff",
   text: {
     global: "#ffffff",
     primary: "#333333",
@@ -62,6 +63,7 @@ const brownTheme: DefaultTheme = {
   hr: "#d8dbe2",
   hrNav: "#966b5f",
   popup: "#4a352f",
+  svgFill: "#ffffff",
   text: {
     global: "#ffffff",
     primary: "#333333",
@@ -79,6 +81,7 @@ const grayTheme: DefaultTheme = {
   hr: "#d8dbe2",
   hrNav: "#282828",
   popup: "#424242",
+  svgFill: "#ffffff",
   text: {
     global: "#ffffff",
     primary: "#333333",
@@ -96,6 +99,7 @@ const violetTheme: DefaultTheme = {
   hr: "#d8dbe2",
   hrNav: "#4d2b4d",
   popup: "#5a355a",
+  svgFill: "#ffffff",
   text: {
     global: "#ffffff",
     primary: "#333333",
@@ -113,6 +117,7 @@ const darkBlueTheme: DefaultTheme = {
   hr: "#d8dbe2",
   hrNav: "#595d99",
   popup: "#35385a",
+  svgFill: "#ffffff",
   text: {
     global: "#ffffff",
     primary: "#333333",
@@ -130,6 +135,7 @@ const blueTheme: DefaultTheme = {
   hr: "#d8dbe2",
   hrNav: "#565fb0",
   popup: "#646ecb",
+  svgFill: "#ffffff",
   text: {
     global: "#ffffff",
     primary: "#333333",
@@ -147,6 +153,7 @@ const pinkTheme: DefaultTheme = {
   hr: "#d8dbe2",
   hrNav: "#cc2f63",
   popup: "#e73672",
+  svgFill: "#ffffff",
   text: {
     global: "#ffffff",
     primary: "#333333",
@@ -164,6 +171,7 @@ const orangeTheme: DefaultTheme = {
   hr: "#d8dbe2",
   hrNav: "#c1281d",
   popup: "#f44336",
+  svgFill: "#ffffff",
   text: {
     global: "#ffffff",
     primary: "#333333",
@@ -181,6 +189,7 @@ const greenTheme: DefaultTheme = {
   hr: "#d8dbe2",
   hrNav: "#3fa744",
   popup: "#388e3c",
+  svgFill: "#ffffff",
   text: {
     global: "#ffffff",
     primary: "#333333",

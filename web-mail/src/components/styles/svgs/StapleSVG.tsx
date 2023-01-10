@@ -1,17 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { svgFillProp } from "@/types/otherTypes";
 
-const StyledSVG = styled.div`
+const StyledSVG = styled.div<svgFillProp>`
   svg {
     path {
-      fill: ${({ theme }) => theme.text.primary};
+      fill: ${(props) => props.svgFill || props.theme.text.primary};
     }
   }
 `;
 
-function StapleSVG() {
+function StapleSVG({ svgFill }: svgFillProp) {
   return (
-    <StyledSVG>
+    <StyledSVG svgFill={svgFill}>
       <svg
         width="20"
         height="20"

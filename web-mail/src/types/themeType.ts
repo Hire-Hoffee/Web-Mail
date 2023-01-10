@@ -8,6 +8,7 @@ type ThemeType = {
   hr: string;
   hrNav: string;
   popup: string;
+  svgFill?: string;
   text: {
     global: string;
     primary: string;

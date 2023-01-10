@@ -1,17 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { svgFillProp } from "@/types/otherTypes";
 
-const StyledSVG = styled.div`
+const StyledSVG = styled.div<svgFillProp>`
   svg {
     path {
-      fill: ${({ theme }) => theme.text.primary};
+      fill: ${(prop) => prop.svgFill || prop.theme.text.primary};
     }
   }
 `;
 
-function SpinnerSVG() {
+function SpinnerSVG({ svgFill }: svgFillProp) {
   return (
-    <StyledSVG>
+    <StyledSVG svgFill={svgFill}>
       <svg
         className="rotate"
         version="1.1"

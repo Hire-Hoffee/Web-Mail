@@ -47,6 +47,11 @@ const StyledHeader = styled(FlexContainer)`
     border-radius: 8px;
     transition: 0.2s;
   }
+  div:nth-child(2):hover {
+    div {
+      background-color: unset;
+    }
+  }
 
   .rotateArrow {
     div {
