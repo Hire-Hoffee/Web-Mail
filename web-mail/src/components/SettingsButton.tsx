@@ -26,7 +26,7 @@ const StyledSettingsButton = styled.div`
     transition: 0.2s;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     & > p {
       display: none;
     }

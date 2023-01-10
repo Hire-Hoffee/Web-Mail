@@ -23,7 +23,7 @@ const StyledNavbar = styled.nav`
     transition: 0.2s;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     width: 36px;
     span:last-child {
       display: none;
@@ -35,7 +35,7 @@ const StyledNavbar = styled.nav`
     }
   }
 
-  @media (min-width: 769px) {
+  @media (min-width: 900px) {
     img:first-child {
       display: none;
     }

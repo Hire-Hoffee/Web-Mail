@@ -66,7 +66,7 @@ const StyledEmailCart = styled.div`
     font-weight: bold;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     grid-template-columns: 20px 36px 200px 40px 200px 4fr 40px 70px;
   }
 

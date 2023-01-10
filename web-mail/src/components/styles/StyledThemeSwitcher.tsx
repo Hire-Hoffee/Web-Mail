@@ -108,6 +108,13 @@ const StyledThemeSwitcher = styled.div`
     }
   }
 
+  @media (max-width: 1000px) {
+    & > div:nth-child(2) {
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+
   & > div:last-child {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

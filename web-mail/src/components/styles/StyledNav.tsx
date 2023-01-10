@@ -19,7 +19,7 @@ const StyledNav = styled(NavLink)`
     transition: 0.4s;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     li {
       width: 100%;
       div:nth-child(even) {

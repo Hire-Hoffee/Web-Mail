@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import GlobalStyles from "@/components/styles/GlobalStyles";
@@ -17,6 +17,7 @@ import { changeThemeState, changeFilterToggle, changeSettingsOpen } from "@/stor
 
 function App(): JSX.Element {
   const theme = useAppSelector((state) => state.utils.theme);
+  const { folder } = useParams();
   const settingsOpen = useAppSelector((state) => state.utils.settingsOpen);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -26,9 +27,10 @@ function App(): JSX.Element {
       dispatch(changeThemeState(localStorage.getItem("theme") || "white"));
     }
     if (window.location.pathname === "/") {
-      return navigate("/inbox");
+      navigate("/inbox?letters=all");
     }
-  }, []);
+    return;
+  }, [folder]);
 
   return (
     <ThemeProvider
