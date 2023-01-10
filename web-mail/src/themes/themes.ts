@@ -245,8 +245,8 @@ const celeryTheme: DefaultTheme = {
   logo: "#005FF9",
   hoveredNav: "#cdd3b9",
   hoveredItem: "#f5f5f7",
-  hr: "#838777",
-  hrNav: "#696b5e",
+  hr: "#d8dbe2",
+  hrNav: "#b5bba5",
   popup: "#e7eed2",
   text: {
     global: "#333333",
@@ -262,8 +262,8 @@ const seaTheme: DefaultTheme = {
   logo: "#005FF9",
   hoveredNav: "#c5e3e9",
   hoveredItem: "#f5f5f7",
-  hr: "#838777",
-  hrNav: "#84989c",
+  hr: "#d8dbe2",
+  hrNav: "#a5bec3",
   popup: "#d0f0f7",
   text: {
     global: "#333333",
@@ -279,8 +279,8 @@ const purpleTheme: DefaultTheme = {
   logo: "#005FF9",
   hoveredNav: "#a7acd2",
   hoveredItem: "#f5f5f7",
-  hr: "#838777",
-  hrNav: "#4d4f60",
+  hr: "#d8dbe2",
+  hrNav: "#a0a5c7",
   popup: "#c9d0fb",
   text: {
     global: "#333333",
@@ -296,7 +296,7 @@ const lightGrayTheme: DefaultTheme = {
   logo: "#005FF9",
   hoveredNav: "#d6d6d6",
   hoveredItem: "#f5f5f7",
-  hr: "#838777",
+  hr: "#d8dbe2",
   hrNav: "#d6d6d6",
   popup: "#f0f0f0",
   text: {
