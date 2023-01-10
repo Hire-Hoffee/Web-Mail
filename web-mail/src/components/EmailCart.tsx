@@ -50,15 +50,17 @@ function EmailCart(email: EmailType): JSX.Element {
             false
           )}
         </div>
-        <div className={email.read === false ? "unread" : ""}>{email.title}</div>
+        <div className={email.read === false ? "unread" : ""}>{email.title} &nbsp;</div>
         <div>{email.text}</div>
         <div>
           {email.flag in flagDict ? (
-            <img src={flagDict[email.flag as keyof typeof flagDict]} alt="flag" />
+            <span>
+              <img src={flagDict[email.flag as keyof typeof flagDict]} alt="flag" />
+            </span>
           ) : (
             false
           )}
-          {email.doc ? <StapleSVG /> : false}
+          <span>{email.doc ? <StapleSVG /> : false}</span>
         </div>
         <div>
           <span>

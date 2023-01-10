@@ -9,6 +9,20 @@ const StyledEmailCart = styled.div`
   font-size: 15px;
   transition: 0.4s;
 
+  .kek {
+    position: absolute;
+    right: 0;
+    padding-right: 100px;
+    background-color: ${({ theme }) => theme.container};
+    z-index: 999;
+    span:first-child {
+      padding-left: 16px;
+    }
+    span:last-child {
+      padding-left: 4px;
+    }
+  }
+
   div {
     min-width: 0;
   }
@@ -53,9 +67,27 @@ const StyledEmailCart = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    right: 0;
+    padding-right: 100px;
+    background-color: ${({ theme }) => theme.container};
+    z-index: 999;
+    span:first-child {
+      padding-left: 16px;
+    }
+    span:last-child {
+      padding-left: 10px;
+    }
   }
 
   div:nth-child(8) {
+    position: absolute;
+    background-color: ${({ theme }) => theme.container};
+    width: max-content !important;
+    right: 0;
+    padding-right: 12px;
+    padding-left: 16px;
+    z-index: 999;
     span {
       color: ${({ theme }) => theme.text.secondary};
       font-size: 13px;
@@ -66,16 +98,16 @@ const StyledEmailCart = styled.div`
     font-weight: bold;
   }
 
-  @media (max-width: 900px) {
-    grid-template-columns: 20px 36px 200px 40px 200px 4fr 40px 70px;
-  }
-
   display: grid;
-  grid-template-columns: 20px 36px 200px 40px 1.5fr 4fr 80px 70px;
+  grid-template-columns: 20px 36px 200px 40px max-content 1fr 50px 70px;
   grid-template-rows: 1fr;
   grid-column-gap: 1px;
   grid-row-gap: 0px;
   align-items: center;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 20px 36px 200px 40px max-content 1fr 50px 70px;
+  }
 
   &:hover {
     background-color: ${({ theme }) => theme.hoveredItem};
