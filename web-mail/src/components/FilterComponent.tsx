@@ -10,18 +10,13 @@ import importantIcon from "@/assets/images/importantIcon.svg";
 import blueDot from "@/assets/images/blueDot.svg";
 import StapleSVG from "./styles/svgs/StapleSVG";
 
-import themesDictionary from "@/themes/themesDictionary";
+import themesDictionary from "@/utils/themes/themesDictionary";
+import { chooseSVGFill } from "@/utils/functions/utilsFunctions";
 
 function FilterComponent(): JSX.Element {
   const isToggledFilter = useAppSelector((state) => state.utils.toggleFilter);
   const theme = useAppSelector((state) => state.utils.theme);
   const [searchParams, setSearchParams] = useSearchParams();
-
-  function chooseSVGFill() {
-    return theme && theme in themesDictionary
-      ? themesDictionary[theme as keyof typeof themesDictionary].svgFill
-      : undefined;
-  }
 
   return (
     <StyledFilter className={isToggledFilter ? "showFilter" : "hideFilter"}>
@@ -32,7 +27,9 @@ function FilterComponent(): JSX.Element {
         <FilterItem name="Важные" svg={importantIcon} query={["important", "true"]} />
         <FilterItem
           name="С вложениями"
-          svgComponent={<StapleSVG svgFill={chooseSVGFill()} />}
+          svgComponent={
+            <StapleSVG svgFill={chooseSVGFill({ theme, dictionary: themesDictionary })} />
+          }
           query={["doc", "true"]}
         />
         {!(searchParams.get("letters") || String(searchParams) === "") ? (

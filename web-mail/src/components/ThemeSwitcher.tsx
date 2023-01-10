@@ -5,17 +5,12 @@ import { changeThemeState, changeSettingsOpen } from "@/store/utilsSlice";
 import StyledThemeSwitcher from "./styles/StyledThemeSwitcher";
 import LogoSVG from "./styles/svgs/LogoSVG";
 
+import { changeTheme } from "@/utils/functions/utilsFunctions";
+
 function ThemeSwitcher(): JSX.Element {
   const themeSwitcher = useAppSelector((state) => state.utils.themeSwitcher);
   const theme = useAppSelector((state) => state.utils.theme);
   const dispatch = useAppDispatch();
-
-  function changeTheme(themeStyle: string) {
-    localStorage.setItem("theme", themeStyle);
-    dispatch(changeSettingsOpen(false));
-    dispatch(changeThemeState(themeStyle));
-    return;
-  }
 
   return (
     <StyledThemeSwitcher
@@ -25,78 +20,207 @@ function ThemeSwitcher(): JSX.Element {
       <div>
         <div
           className={theme === "brown" ? "chosenTheme" : ""}
-          onClick={() => changeTheme("brown")}
+          onClick={() =>
+            changeTheme({
+              themeStyle: "brown",
+              useDispatch: dispatch,
+              changeTheme: changeThemeState,
+              changeSettings: changeSettingsOpen,
+            })
+          }
         ></div>
         <div
           className={theme === "gray" ? "chosenTheme" : ""}
-          onClick={() => changeTheme("gray")}
+          onClick={() =>
+            changeTheme({
+              themeStyle: "gray",
+              useDispatch: dispatch,
+              changeTheme: changeThemeState,
+              changeSettings: changeSettingsOpen,
+            })
+          }
         ></div>
         <div
           className={theme === "violet" ? "chosenTheme" : ""}
-          onClick={() => changeTheme("violet")}
+          onClick={() =>
+            changeTheme({
+              themeStyle: "violet",
+              useDispatch: dispatch,
+              changeTheme: changeThemeState,
+              changeSettings: changeSettingsOpen,
+            })
+          }
         ></div>
         <div
           className={theme === "darkBlue" ? "chosenTheme" : ""}
-          onClick={() => changeTheme("darkBlue")}
+          onClick={() =>
+            changeTheme({
+              themeStyle: "darkBlue",
+              useDispatch: dispatch,
+              changeTheme: changeThemeState,
+              changeSettings: changeSettingsOpen,
+            })
+          }
         ></div>
         <div
           className={theme === "blue" ? "chosenTheme" : ""}
-          onClick={() => changeTheme("blue")}
+          onClick={() =>
+            changeTheme({
+              themeStyle: "blue",
+              useDispatch: dispatch,
+              changeTheme: changeThemeState,
+              changeSettings: changeSettingsOpen,
+            })
+          }
         ></div>
         <div
           className={theme === "pink" ? "chosenTheme" : ""}
-          onClick={() => changeTheme("pink")}
+          onClick={() =>
+            changeTheme({
+              themeStyle: "pink",
+              useDispatch: dispatch,
+              changeTheme: changeThemeState,
+              changeSettings: changeSettingsOpen,
+            })
+          }
         ></div>
         <div
           className={theme === "orange" ? "chosenTheme" : ""}
-          onClick={() => changeTheme("orange")}
+          onClick={() =>
+            changeTheme({
+              themeStyle: "orange",
+              useDispatch: dispatch,
+              changeTheme: changeThemeState,
+              changeSettings: changeSettingsOpen,
+            })
+          }
         ></div>
         <div
           className={theme === "green" ? "chosenTheme" : ""}
-          onClick={() => changeTheme("green")}
+          onClick={() =>
+            changeTheme({
+              themeStyle: "green",
+              useDispatch: dispatch,
+              changeTheme: changeThemeState,
+              changeSettings: changeSettingsOpen,
+            })
+          }
         ></div>
         <div
           className={theme === "teal" ? "chosenTheme" : ""}
-          onClick={() => changeTheme("teal")}
+          onClick={() =>
+            changeTheme({
+              themeStyle: "teal",
+              useDispatch: dispatch,
+              changeTheme: changeThemeState,
+              changeSettings: changeSettingsOpen,
+            })
+          }
         ></div>
         <div
           className={theme === "beige" ? "chosenTheme" : ""}
-          onClick={() => changeTheme("beige")}
+          onClick={() =>
+            changeTheme({
+              themeStyle: "beige",
+              useDispatch: dispatch,
+              changeTheme: changeThemeState,
+              changeSettings: changeSettingsOpen,
+            })
+          }
         ></div>
         <div
           className={theme === "cream" ? "chosenTheme" : ""}
-          onClick={() => changeTheme("cream")}
+          onClick={() =>
+            changeTheme({
+              themeStyle: "cream",
+              useDispatch: dispatch,
+              changeTheme: changeThemeState,
+              changeSettings: changeSettingsOpen,
+            })
+          }
         ></div>
         <div
           className={theme === "celery" ? "chosenTheme" : ""}
-          onClick={() => changeTheme("celery")}
+          onClick={() =>
+            changeTheme({
+              themeStyle: "celery",
+              useDispatch: dispatch,
+              changeTheme: changeThemeState,
+              changeSettings: changeSettingsOpen,
+            })
+          }
         ></div>
         <div
           className={theme === "sea" ? "chosenTheme" : ""}
-          onClick={() => changeTheme("sea")}
+          onClick={() =>
+            changeTheme({
+              themeStyle: "sea",
+              useDispatch: dispatch,
+              changeTheme: changeThemeState,
+              changeSettings: changeSettingsOpen,
+            })
+          }
         ></div>
         <div
           className={theme === "purple" ? "chosenTheme" : ""}
-          onClick={() => changeTheme("purple")}
+          onClick={() =>
+            changeTheme({
+              themeStyle: "purple",
+              useDispatch: dispatch,
+              changeTheme: changeThemeState,
+              changeSettings: changeSettingsOpen,
+            })
+          }
         ></div>
         <div
           className={theme === "lightGray" ? "chosenTheme" : ""}
-          onClick={() => changeTheme("lightGray")}
+          onClick={() =>
+            changeTheme({
+              themeStyle: "lightGray",
+              useDispatch: dispatch,
+              changeTheme: changeThemeState,
+              changeSettings: changeSettingsOpen,
+            })
+          }
         ></div>
       </div>
       <div>
         <div
           className={theme === "white" ? "chosenTheme" : ""}
-          onClick={() => changeTheme("white")}
+          onClick={() =>
+            changeTheme({
+              themeStyle: "white",
+              useDispatch: dispatch,
+              changeTheme: changeThemeState,
+              changeSettings: changeSettingsOpen,
+            })
+          }
         >
           <LogoSVG />
         </div>
-        <div className={theme === "dark" ? "chosenTheme" : ""} onClick={() => changeTheme("dark")}>
+        <div
+          className={theme === "dark" ? "chosenTheme" : ""}
+          onClick={() =>
+            changeTheme({
+              themeStyle: "dark",
+              useDispatch: dispatch,
+              changeTheme: changeThemeState,
+              changeSettings: changeSettingsOpen,
+            })
+          }
+        >
           <LogoSVG />
         </div>
         <div
           className={theme === "anime" ? "chosenTheme" : ""}
-          onClick={() => changeTheme("anime")}
+          onClick={() =>
+            changeTheme({
+              themeStyle: "anime",
+              useDispatch: dispatch,
+              changeTheme: changeThemeState,
+              changeSettings: changeSettingsOpen,
+            })
+          }
         ></div>
       </div>
     </StyledThemeSwitcher>

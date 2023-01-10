@@ -12,6 +12,8 @@ import registrations from "@/assets/images/registrations.svg";
 import travelings from "@/assets/images/travelings.svg";
 import blueDot from "@/assets/images/blueDot.svg";
 
+import { calculateFileSize } from "@/utils/functions/utilsFunctions";
+
 function EmailComponent(email: EmailType): JSX.Element {
   const flagDict = {
     Заказы: orders,
@@ -20,12 +22,6 @@ function EmailComponent(email: EmailType): JSX.Element {
     Путешествия: travelings,
     Билеты: tickets,
     "Штрафы и налоги": billings,
-  };
-
-  const calculateFileSize = (file: string): string => {
-    const base64str = file.split(",")[1];
-    const decodedString = window.atob(base64str);
-    return `(${Math.round(decodedString.length / 1000)}Kb)`;
   };
 
   return (

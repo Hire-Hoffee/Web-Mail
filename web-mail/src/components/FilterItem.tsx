@@ -5,30 +5,15 @@ import StyledFilterItem from "./styles/StyledFilterItem";
 import { FilterItemProp } from "@/types/otherTypes";
 import CheckSVG from "./styles/svgs/CheckSVG";
 
+import { changeSearchParams } from "@/utils/functions/utilsFunctions";
+
 function FilterItem({ name, svg, svgComponent, query }: FilterItemProp): JSX.Element {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  function changeSearchParams(value: [string, string]) {
-    const url = new URL(window.location.href);
-    const params = new URLSearchParams(url.search);
-
-    if (params.get(value[0]) === value[1]) {
-      params.delete(value[0]);
-      return setSearchParams(params.toString());
-    }
-    params.append(...value);
-    if (params.get(value[0]) !== "all") {
-      params.delete("letters");
-      return setSearchParams(params.toString());
-    }
-    if (value[0] === "reset") {
-      return setSearchParams();
-    }
-    return setSearchParams(params.toString());
-  }
-
   return (
-    <StyledFilterItem onClick={() => changeSearchParams(query)}>
+    <StyledFilterItem
+      onClick={() => changeSearchParams({ value: query, setParams: setSearchParams })}
+    >
       <div>
         {svg ? <img src={svg} alt="icon" /> : svgComponent}
         <p>{name}</p>

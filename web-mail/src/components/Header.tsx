@@ -14,7 +14,8 @@ import bookmarkIcon from "@/assets/images/bookmarkIcon.svg";
 import importantIcon from "@/assets/images/importantIcon.svg";
 import blueDot from "@/assets/images/blueDot.svg";
 
-import themesDictionary from "@/themes/themesDictionary";
+import themesDictionary from "@/utils/themes/themesDictionary";
+import { chooseSVGFill } from "@/utils/functions/utilsFunctions";
 
 function Header(): JSX.Element {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -23,17 +24,11 @@ function Header(): JSX.Element {
   const isToggledFilter = useAppSelector((state) => state.utils.toggleFilter);
   const dispatch = useAppDispatch();
 
-  function chooseSVGFill() {
-    return theme && theme in themesDictionary
-      ? themesDictionary[theme as keyof typeof themesDictionary].svgFill
-      : undefined;
-  }
-
   const filterIconDict = {
     read: <img src={blueDot} alt="icon" />,
     bookmark: <img src={bookmarkIcon} alt="icon" />,
     important: <img src={importantIcon} alt="icon" />,
-    doc: <StapleSVG svgFill={chooseSVGFill()} />,
+    doc: <StapleSVG svgFill={chooseSVGFill({ theme, dictionary: themesDictionary })} />,
   };
   const filterItemNameDict = {
     read: "Непрочитанные",

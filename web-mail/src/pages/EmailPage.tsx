@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getOneMail } from "@/services/apiRequests";
+import { getData } from "@/utils/functions/utilsFunctions";
 import EmailType from "@/types/emailType";
 
 import StyledEmailPage from "@/components/styles/StyledEmailPage";
@@ -13,11 +14,9 @@ function EmailPage(): JSX.Element {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    (async () => {
-      const result = await getOneMail("/email?title=" + searchParams.get("title"));
-      email ? (document.title = `WebMail - ${email.title.slice(0, 20)}`) : "WebMail";
-      setEmail(result);
-    })();
+    const url = `/email?title=${searchParams.get("title")}`;
+    getData<EmailType>({ fetchData: getOneMail, urlString: url, functions: [setEmail] });
+    document.title = `WebMail - Письмо`;
   }, []);
 
   return (

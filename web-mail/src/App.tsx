@@ -4,8 +4,8 @@ import { ThemeProvider } from "styled-components";
 
 import GlobalStyles from "@/components/styles/GlobalStyles";
 import StyledContainer from "@/components/styles/StyledContainer";
-import { whiteTheme } from "@/themes/themes";
-import themesDictionary from "./themes/themesDictionary";
+import { whiteTheme } from "@/utils/themes/themes";
+import themesDictionary from "./utils/themes/themesDictionary";
 
 import SettingsButton from "./components/SettingsButton";
 import SettingOptions from "./components/SettingOptions";

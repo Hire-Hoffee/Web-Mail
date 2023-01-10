@@ -9,16 +9,14 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import russianLang from "@/assets/images/russian.svg";
 import englishLang from "@/assets/images/english.svg";
 
+import { eventListener } from "@/utils/functions/utilsFunctions";
+
 function SettingOptions(): JSX.Element {
   const settingsOpen = useAppSelector((state) => state.utils.settingsOpen);
   const themeSwitcher = useAppSelector((state) => state.utils.themeSwitcher);
   const langSwitcher = useAppSelector((state) => state.utils.langSwitcher);
   const dispatch = useAppDispatch();
   const scrollDivRef = useRef<HTMLElement>(null);
-
-  function eventListener(event: Event) {
-    return event.preventDefault();
-  }
 
   return (
     <StyledSettingsOptions

@@ -1,59 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { useAppSelector } from "@/store/hooks";
+import { useParams, useSearchParams } from "react-router-dom";
 
 import StyledEmailsContainer from "@/components/styles/StyledEmailsContainer";
-import EmailCart from "@/components/EmailCart";
-import EmailType from "@/types/emailType";
-import { getEmails } from "@/services/apiRequests";
-import { useParams, useSearchParams } from "react-router-dom";
 import NotFoundEmails from "@/components/NotFoundEmails";
 import LoadingComponent from "@/components/LoadingComponent";
+import EmailCart from "@/components/EmailCart";
+
+import EmailType from "@/types/emailType";
+import { getEmails } from "@/services/apiRequests";
+import { getData, filterResult } from "@/utils/functions/utilsFunctions";
 
 function EmailsListPage() {
-  const [emails, setEmails] = useState<EmailType[] | undefined>(undefined);
-  const [defaultEmails, setDefaultEmails] = useState<EmailType[] | undefined>(undefined);
+  const [emails, setEmails] = useState<EmailType[] | null>(null);
+  const [defaultEmails, setDefaultEmails] = useState<EmailType[] | null>(null);
   const { folder } = useParams();
   const isLoading = useAppSelector((state) => state.utils.isLoading);
   const theme = useAppSelector((state) => state.utils.theme);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  function filterResult() {
-    if (defaultEmails) {
-      const params: string[][] = [];
-      let result = defaultEmails;
-
-      for (let entry of searchParams.entries()) {
-        params.push(entry);
-      }
-      if (params.length === 0) {
-        setSearchParams({ letters: "all" });
-        return setEmails(defaultEmails);
-      }
-      params.forEach((param, index, array) => {
-        if (param[1] === "all") {
-          return setSearchParams({ letters: "all" });
-        }
-        result = result.filter((letter) => {
-          return String(letter[array[index][0] as keyof EmailType]) === array[index][1];
-        });
-      });
-      return setEmails(result);
-    }
-  }
-
   useEffect(() => {
-    filterResult();
+    filterResult({ emails: defaultEmails, searchParams, setEmails, setParams: setSearchParams });
   }, [searchParams]);
 
   useEffect(() => {
+    const url = "/" + folder;
+    getData({ fetchData: getEmails, urlString: url, functions: [setEmails, setDefaultEmails] });
+
     folder
       ? (document.title = `WebMail - ${folder.charAt(0).toUpperCase() + folder.slice(1)}`)
       : "WebMail";
-    (async () => {
-      const result = await getEmails("/" + folder);
-      setEmails(result);
-      setDefaultEmails(result);
-    })();
   }, [folder]);
 
   return (

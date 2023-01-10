@@ -20,6 +20,6 @@ export type FilterItemProp = {
   query: [string, string];
 };
 
-export type svgFillProp = {
+export type SvgFillProp = {
   svgFill?: string;
 };
