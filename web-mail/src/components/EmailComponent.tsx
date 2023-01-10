@@ -38,7 +38,7 @@ function EmailComponent(email: EmailType): JSX.Element {
           ) : (
             false
           )}
-          {email.flag}
+          <p>{email.flag}</p>
         </div>
       </div>
 

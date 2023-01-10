@@ -24,6 +24,9 @@ const StyledEmailPage = styled(StyledEmailsContainer)`
       font-size: 13px;
       display: flex;
       align-items: center;
+      & > p {
+        margin-left: 8px;
+      }
     }
   }
 
