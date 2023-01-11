@@ -8,6 +8,7 @@ const initialState: Utils = {
   settingsOpen: null,
   themeSwitcher: true,
   langSwitcher: false,
+  lang: "ru",
 };
 
 export const utilsSlice = createSlice({
@@ -36,6 +37,9 @@ export const utilsSlice = createSlice({
       state.langSwitcher = action.payload;
       state.themeSwitcher = false;
     },
+    changeSiteLang: (state, action: PayloadAction<string>) => {
+      state.lang = action.payload;
+    },
   },
 });
 
@@ -46,6 +50,7 @@ export const {
   changeSettingsOpen,
   themeSwitchOpened,
   langSwitchOpened,
+  changeSiteLang,
 } = utilsSlice.actions;
 
 export default utilsSlice.reducer;

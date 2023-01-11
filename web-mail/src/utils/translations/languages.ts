@@ -28,6 +28,7 @@ const languages = {
         flag: "С флажком",
         important: "Важные",
         files: "С вложениями",
+        reset: "Сбросить всё",
       },
       flags: {
         Заказы: "Заказы",
@@ -51,7 +52,6 @@ const languages = {
         spam: "Spam",
         trash: "Trash",
         newFolder: "New folder",
-        reset: "Сбросить всё",
       },
       settings: {
         settings: "Settings",

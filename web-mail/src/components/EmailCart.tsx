@@ -2,6 +2,7 @@ import React from "react";
 import StyledEmailsCart from "./styles/StyledEmailCard";
 import EmailType from "@/types/emailType";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "@/store/hooks";
 
 import defaultAvatar from "@/assets/images/defaultAvatar.png";
 import bookmarkIcon from "@/assets/images/bookmarkIcon.svg";
@@ -16,6 +17,8 @@ import blueDot from "@/assets/images/blueDot.svg";
 import StapleSVG from "./styles/svgs/StapleSVG";
 
 function EmailCart(email: EmailType): JSX.Element {
+  const lang = useAppSelector((state) => state.utils.lang);
+
   const flagDict = {
     Заказы: orders,
     Финансы: finances,
@@ -65,12 +68,12 @@ function EmailCart(email: EmailType): JSX.Element {
         <div>
           <span>
             {new Date(email.date).getFullYear() < new Date().getFullYear()
-              ? new Date(email.date).toLocaleDateString("ru-RU", {
+              ? new Date(email.date).toLocaleDateString(lang === "en" ? "en-US" : "ru-RU", {
                   month: "numeric",
                   day: "numeric",
                   year: "numeric",
                 })
-              : new Date(email.date).toLocaleDateString("ru-RU", {
+              : new Date(email.date).toLocaleDateString(lang === "en" ? "en-US" : "ru-RU", {
                   month: "short",
                   day: "numeric",
                 })}

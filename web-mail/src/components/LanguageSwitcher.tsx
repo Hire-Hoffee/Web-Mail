@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import StyledLanguageSwitcher from "./styles/StyledLanguageSwitcher";
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import { useTranslation } from "react-i18next";
-import { changeSettingsOpen } from "@/store/utilsSlice";
+import { changeSettingsOpen, changeSiteLang } from "@/store/utilsSlice";
 
 import russianLang from "@/assets/images/russian.svg";
 import englishLang from "@/assets/images/english.svg";
@@ -58,6 +58,7 @@ function LanguageSwitcher() {
             useDispatch: dispatch,
             changeSettings: changeSettingsOpen,
             changeLang: i18n.changeLanguage,
+            changeSiteLang,
           });
         }}
       >

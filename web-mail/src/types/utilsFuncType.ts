@@ -1,5 +1,5 @@
 import themesDictionary from "@/utils/themes/themesDictionary";
-import { changeThemeState, changeSettingsOpen } from "@/store/utilsSlice";
+import { changeThemeState, changeSettingsOpen, changeSiteLang } from "@/store/utilsSlice";
 
 export type GetDataType<Type> = {
   fetchData: Function;
@@ -36,6 +36,7 @@ export type ChangeLangType = {
   useDispatch: Function;
   changeLang: Function;
   changeSettings: typeof changeSettingsOpen;
+  changeSiteLang: typeof changeSiteLang;
 };
 
 export type SetFilterSearchType = {

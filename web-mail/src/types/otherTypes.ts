@@ -5,6 +5,7 @@ export type Utils = {
   settingsOpen: boolean | null;
   themeSwitcher: boolean;
   langSwitcher: boolean;
+  lang: string;
 };
 
 export type NavProps = {

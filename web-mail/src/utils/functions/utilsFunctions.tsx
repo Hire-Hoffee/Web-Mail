@@ -102,9 +102,16 @@ export function filterResult<Type>({
   }
 }
 
-export function changeLang({ lang, useDispatch, changeSettings, changeLang }: ChangeLangType) {
+export function changeLang({
+  lang,
+  useDispatch,
+  changeSettings,
+  changeLang,
+  changeSiteLang,
+}: ChangeLangType) {
   localStorage.setItem("lang", lang);
   useDispatch(changeSettings(false));
+  useDispatch(changeSiteLang(lang));
   return changeLang(lang);
 }
 
