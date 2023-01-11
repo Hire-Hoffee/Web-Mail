@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import StyledSettingsOptions from "./styles/StyledSettingsOptions";
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
+import { useTranslation } from "react-i18next";
 import { themeSwitchOpened, langSwitchOpened } from "@/store/utilsSlice";
 
 import ThemeSwitcher from "./ThemeSwitcher";
@@ -17,6 +18,7 @@ function SettingOptions(): JSX.Element {
   const langSwitcher = useAppSelector((state) => state.utils.langSwitcher);
   const dispatch = useAppDispatch();
   const scrollDivRef = useRef<HTMLElement>(null);
+  const { t } = useTranslation();
 
   return (
     <StyledSettingsOptions
@@ -32,14 +34,23 @@ function SettingOptions(): JSX.Element {
           onClick={() => dispatch(themeSwitchOpened(true))}
           className={themeSwitcher ? "activeBtn" : ""}
         >
-          Внешний вид
+          {t("settings.themeAppearance")}
         </button>
         <button
           onClick={() => dispatch(langSwitchOpened(true))}
           className={langSwitcher ? "activeBtn" : ""}
         >
-          Язык: Русский
-          <img src={russianLang} alt="lang_icon" />
+          {localStorage.getItem("lang") === "en" ? (
+            <span>
+              {t("settings.changeLangBtnMenu")}: English
+              <img src={englishLang} alt="lang_icon" />
+            </span>
+          ) : (
+            <span>
+              {t("settings.changeLangBtnMenu")}: Русский
+              <img src={russianLang} alt="lang_icon" />
+            </span>
+          )}
         </button>
       </div>
       {themeSwitcher ? <ThemeSwitcher /> : langSwitcher ? <LanguageSwitcher /> : false}

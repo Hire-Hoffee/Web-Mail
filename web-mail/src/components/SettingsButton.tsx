@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
+
 import GearSVG from "./styles/svgs/GearSVG";
 
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
@@ -45,13 +47,14 @@ const StyledSettingsButton = styled.div`
 function SettingsButton(): JSX.Element {
   const settingsOpen = useAppSelector((state) => state.utils.settingsOpen);
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
 
   return (
     <StyledSettingsButton onClick={() => dispatch(changeSettingsOpen(!settingsOpen))}>
       <div className={settingsOpen ? "rotateGearForward" : "rotateGearBackward"}>
         <GearSVG />
       </div>
-      <p>Настройки</p>
+      <p>{t("settings.settings")}</p>
     </StyledSettingsButton>
   );
 }

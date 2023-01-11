@@ -12,14 +12,14 @@ import { changeLang } from "@/utils/functions/utilsFunctions";
 function LanguageSwitcher() {
   const langSwitcher = useAppSelector((state) => state.utils.langSwitcher);
   const [lang, setLang] = useState("ru");
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const dispatch = useAppDispatch();
 
   return (
     <StyledLanguageSwitcher
       className={langSwitcher === true ? "showSettingsSwitcher" : "hideSettingsSwitcher"}
     >
-      <h4>Изменить язык</h4>
+      <h4>{t("settings.changeLang")}</h4>
 
       <div>
         <label>
@@ -61,7 +61,7 @@ function LanguageSwitcher() {
           });
         }}
       >
-        Выбрать язык
+        {t("settings.changeLangBtn")}
       </button>
     </StyledLanguageSwitcher>
   );

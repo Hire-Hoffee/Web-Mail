@@ -1,5 +1,6 @@
 import React from "react";
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
+import { useTranslation } from "react-i18next";
 import { changeThemeState, changeSettingsOpen } from "@/store/utilsSlice";
 
 import StyledThemeSwitcher from "./styles/StyledThemeSwitcher";
@@ -11,12 +12,13 @@ function ThemeSwitcher(): JSX.Element {
   const themeSwitcher = useAppSelector((state) => state.utils.themeSwitcher);
   const theme = useAppSelector((state) => state.utils.theme);
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
 
   return (
     <StyledThemeSwitcher
       className={themeSwitcher === true ? "showSettingsSwitcher" : "hideSettingsSwitcher"}
     >
-      <h4>Настройки внешнего вида вашей почты и темы оформления</h4>
+      <h4>{t("settings.themeChangeDescription")}</h4>
       <div>
         <div
           className={theme === "brown" ? "chosenTheme" : ""}
