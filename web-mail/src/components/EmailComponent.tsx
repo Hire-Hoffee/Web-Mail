@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import EmailType from "@/types/emailType";
 
 import defaultAvatar from "@/assets/images/defaultAvatar.png";
@@ -15,6 +16,8 @@ import blueDot from "@/assets/images/blueDot.svg";
 import { calculateFileSize } from "@/utils/functions/utilsFunctions";
 
 function EmailComponent(email: EmailType): JSX.Element {
+  const { t } = useTranslation();
+
   const flagDict = {
     Заказы: orders,
     Финансы: finances,
@@ -34,7 +37,7 @@ function EmailComponent(email: EmailType): JSX.Element {
           ) : (
             false
           )}
-          <p>{email.flag}</p>
+          <p>{t(`flags.${email.flag}`)}</p>
         </div>
       </div>
 
