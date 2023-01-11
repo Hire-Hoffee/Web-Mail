@@ -54,7 +54,9 @@ function EmailComponent(email: EmailType): JSX.Element {
           <div>
             <span>{email.author.name} </span>
             <span>
-              {Number(new Date()) - Number(new Date(email.date)) < 8.64e7 ? t("other.today") : ""}
+              {Number(new Date()) - Number(new Date(email.date)) < 8.64e7
+                ? `${t("other.today")},`
+                : ""}
               &nbsp;
               {timeDisplay(new Date(email.date), lang)}
             </span>
