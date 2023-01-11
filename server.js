@@ -75,6 +75,12 @@ const controllers = {
       });
       const result = bigFile.find((letter) => letter.title === decodeURI(query));
 
+      if (result.doc && !Array.isArray(result.doc)) {
+        const img = result.doc;
+        result.doc = [];
+        result.doc.push(img);
+      }
+
       const headers = {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET",

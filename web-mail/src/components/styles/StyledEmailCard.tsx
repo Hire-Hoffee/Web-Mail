@@ -9,20 +9,6 @@ const StyledEmailCart = styled.div`
   font-size: 15px;
   transition: 0.4s;
 
-  .kek {
-    position: absolute;
-    right: 0;
-    padding-right: 100px;
-    background-color: ${({ theme }) => theme.container};
-    z-index: 999;
-    span:first-child {
-      padding-left: 16px;
-    }
-    span:last-child {
-      padding-left: 4px;
-    }
-  }
-
   div {
     min-width: 0;
   }
@@ -72,6 +58,7 @@ const StyledEmailCart = styled.div`
     padding-right: 100px;
     background-color: ${({ theme }) => theme.container};
     z-index: 999;
+    transition: 0.4s;
     span:first-child {
       padding-left: 16px;
     }
@@ -88,6 +75,7 @@ const StyledEmailCart = styled.div`
     padding-right: 12px;
     padding-left: 16px;
     z-index: 999;
+    transition: 0.4s;
     span {
       color: ${({ theme }) => theme.text.secondary};
       font-size: 13px;
@@ -110,6 +98,11 @@ const StyledEmailCart = styled.div`
   }
 
   &:hover {
+    div:nth-child(7),
+    div:nth-child(8) {
+      background-color: ${({ theme }) => theme.hoveredItem};
+      transition: 0.4s;
+    }
     background-color: ${({ theme }) => theme.hoveredItem};
     transition: 0.4s;
     border-radius: 12px;

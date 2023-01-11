@@ -39,10 +39,20 @@ export function changeSearchParams({ value, setParams }: ChangeParamsType) {
   return setParams(params.toString());
 }
 
-export function calculateFileSize(file: string): string {
-  const base64str = file.split(",")[1];
-  const decodedString = window.atob(base64str);
-  return `(${Math.round(decodedString.length / 1000)}Kb)`;
+export function calculateFileSize(files: { img: string }[]): string {
+  const arrOfSizes: number[] = [];
+
+  files.forEach((file) => {
+    const base64str = file.img.split(",")[1];
+    const decodedString = window.atob(base64str);
+    return arrOfSizes.push(Math.round(decodedString.length / 1000));
+  });
+
+  const sumOfSizes = arrOfSizes.reduce((acc, curr) => {
+    return acc + curr;
+  }, 0);
+
+  return `(${Math.round(sumOfSizes)}Kb)`;
 }
 
 export function eventListener(event: Event) {

@@ -80,15 +80,26 @@ function EmailComponent(email: EmailType): JSX.Element {
       </div>
 
       <div>
-        {email.doc?.img ? (
+        {email.doc ? (
           <>
-            <img src={email.doc?.img} alt="doc" />
             <div>
-              {Object.keys(email.doc).length} объект{" "}
-              <a href={email.doc?.img} download="doc.png">
-                Скачать{" "}
-              </a>
-              <span>{calculateFileSize(email.doc.img)}</span>
+              {email.doc.map((item) => {
+                return <img src={item.img} alt="doc" key={item.img.slice(0, 10)} />;
+              })}
+            </div>
+
+            <div>
+              {email.doc.length} файл(а){" "}
+              {email.doc.length === 1 ? (
+                <a href={email.doc[0].img} download="doc.png">
+                  Скачать{" "}
+                </a>
+              ) : (
+                <a href={email.doc[0].img} download="doc.png">
+                  Скачать все файлы{" "}
+                </a>
+              )}
+              <span>{calculateFileSize(email.doc)}</span>
             </div>
           </>
         ) : (

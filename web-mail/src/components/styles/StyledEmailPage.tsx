@@ -100,7 +100,15 @@ const StyledEmailPage = styled(StyledEmailsContainer)`
       border-radius: 12px;
     }
 
-    div {
+    & > div:first-child {
+      display: flex;
+      justify-content: flex-start;
+      & > img:first-child {
+        margin-right: 10px;
+      }
+    }
+
+    & > div {
       font-size: 13px;
       margin-top: 8px;
       margin-bottom: 8px;
