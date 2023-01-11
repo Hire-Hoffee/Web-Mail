@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import StyledNavbar from "./styles/StyledNavbar";
 import NavRoute from "./NavRoute";
@@ -14,22 +15,24 @@ import PlusSVG from "./styles/svgs/PlusSVG";
 import writeLetter from "@/assets/images/writeLetter.svg";
 
 function Navbar(): JSX.Element {
+  const { t } = useTranslation();
+
   return (
     <StyledNavbar>
       <button>
         <img src={writeLetter} alt="write_icon" />
-        <span>Написать письмо</span>
+        <span>{t("navbar.writeLetter")}</span>
       </button>
       <ul>
-        <NavRoute to="inbox" svgComponent={<InboxSVG />} name="Входящие" />
-        <NavRoute to="important" svgComponent={<ImportantSVG />} name="Важное" />
-        <NavRoute to="sent" svgComponent={<SentSVG />} name="Отправленные" />
-        <NavRoute to="drafts" svgComponent={<DraftsSVG />} name="Черновики" />
-        <NavRoute to="archive" svgComponent={<ArchiveSVG />} name="Архив" />
-        <NavRoute to="spam" svgComponent={<SpamSVG />} name="Спам" />
-        <NavRoute to="trash" svgComponent={<TrashSVG />} name="Корзина" />
+        <NavRoute to="inbox" svgComponent={<InboxSVG />} name={t("navbar.inbox")} />
+        <NavRoute to="important" svgComponent={<ImportantSVG />} name={t("navbar.important")} />
+        <NavRoute to="sent" svgComponent={<SentSVG />} name={t("navbar.sent")} />
+        <NavRoute to="drafts" svgComponent={<DraftsSVG />} name={t("navbar.drafts")} />
+        <NavRoute to="archive" svgComponent={<ArchiveSVG />} name={t("navbar.archive")} />
+        <NavRoute to="spam" svgComponent={<SpamSVG />} name={t("navbar.spam")} />
+        <NavRoute to="trash" svgComponent={<TrashSVG />} name={t("navbar.trash")} />
         <hr />
-        <NavRoute to="/" svgComponent={<PlusSVG />} name="Новая папка" />
+        <NavRoute to="/" svgComponent={<PlusSVG />} name={t("navbar.newFolder")} />
       </ul>
     </StyledNavbar>
   );

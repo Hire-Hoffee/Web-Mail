@@ -1,12 +1,32 @@
 const languages = {
   ru: {
     translation: {
-      test: "Тест",
+      navbar: {
+        writeLetter: "Написать письмо",
+        inbox: "Входящие",
+        important: "Важное",
+        sent: "Отправленные",
+        drafts: "Черновики",
+        archive: "Архив",
+        spam: "Спам",
+        trash: "Корзина",
+        newFolder: "Новая папка",
+      },
     },
   },
   en: {
     translation: {
-      test: "Test",
+      navbar: {
+        writeLetter: "Write letter",
+        inbox: "Inbox",
+        important: "Important",
+        sent: "Sent",
+        drafts: "Drafts",
+        archive: "Archive",
+        spam: "Spam",
+        trash: "Trash",
+        newFolder: "New folder",
+      },
     },
   },
 };

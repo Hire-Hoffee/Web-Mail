@@ -4,7 +4,7 @@ import languages from "./languages";
 
 i18next.use(initReactI18next).init<i18n>({
   resources: languages,
-  lng: "ru",
+  lng: localStorage.getItem("lang") || "ru",
   interpolation: {
     escapeValue: false,
   },
