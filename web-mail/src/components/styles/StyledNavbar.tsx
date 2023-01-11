@@ -21,6 +21,9 @@ const StyledNavbar = styled.nav`
     font-weight: 700;
     cursor: pointer;
     transition: 0.2s;
+    span {
+      line-height: 20px;
+    }
   }
 
   @media (max-width: 900px) {

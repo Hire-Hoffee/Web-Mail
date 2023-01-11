@@ -37,6 +37,14 @@ const StyledEmailPage = styled(StyledEmailsContainer)`
     display: flex;
     align-items: center;
 
+    & > div:nth-child(3) {
+      & > div:nth-child(1) {
+        & > span:nth-child(2) {
+          color: ${({ theme }) => theme.text.secondary};
+        }
+      }
+    }
+
     div:nth-child(1) {
       display: flex;
       align-items: center;

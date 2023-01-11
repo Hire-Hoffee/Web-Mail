@@ -132,3 +132,24 @@ export function setFilterSearchName({
   }
   return <p>{t("filter.filters")}</p>;
 }
+
+export function timeDisplay(date: Date, lang: string) {
+  const localization = lang === "en" ? "en-US" : "ru-RU";
+  if (Number(new Date()) - Number(new Date(date)) < 8.64e7) {
+    return new Date(date).toLocaleTimeString(localization, {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  }
+  if (new Date(date).getFullYear() < new Date().getFullYear()) {
+    return new Date(date).toLocaleDateString(localization, {
+      month: "numeric",
+      day: "numeric",
+      year: "numeric",
+    });
+  }
+  return new Date(date).toLocaleDateString(localization, {
+    month: "short",
+    day: "numeric",
+  });
+}

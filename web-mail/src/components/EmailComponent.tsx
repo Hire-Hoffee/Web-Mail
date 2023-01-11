@@ -14,7 +14,7 @@ import registrations from "@/assets/images/registrations.svg";
 import travelings from "@/assets/images/travelings.svg";
 import blueDot from "@/assets/images/blueDot.svg";
 
-import { calculateFileSize } from "@/utils/functions/utilsFunctions";
+import { calculateFileSize, timeDisplay } from "@/utils/functions/utilsFunctions";
 
 function EmailComponent(email: EmailType): JSX.Element {
   const { t } = useTranslation();
@@ -54,10 +54,9 @@ function EmailComponent(email: EmailType): JSX.Element {
           <div>
             <span>{email.author.name} </span>
             <span>
-              {new Date(email.date || "").toLocaleDateString(lang === "en" ? "en-US" : "ru-RU", {
-                month: "short",
-                day: "numeric",
-              })}
+              {Number(new Date()) - Number(new Date(email.date)) < 8.64e7 ? t("other.today") : ""}
+              &nbsp;
+              {timeDisplay(new Date(email.date), lang)}
             </span>
             <span>
               {email.bookmark && email.important ? (

@@ -16,6 +16,8 @@ import travelings from "@/assets/images/travelings.svg";
 import blueDot from "@/assets/images/blueDot.svg";
 import StapleSVG from "./styles/svgs/StapleSVG";
 
+import { timeDisplay } from "@/utils/functions/utilsFunctions";
+
 function EmailCart(email: EmailType): JSX.Element {
   const lang = useAppSelector((state) => state.utils.lang);
 
@@ -66,18 +68,7 @@ function EmailCart(email: EmailType): JSX.Element {
           <span>{email.doc ? <StapleSVG /> : false}</span>
         </div>
         <div>
-          <span>
-            {new Date(email.date).getFullYear() < new Date().getFullYear()
-              ? new Date(email.date).toLocaleDateString(lang === "en" ? "en-US" : "ru-RU", {
-                  month: "numeric",
-                  day: "numeric",
-                  year: "numeric",
-                })
-              : new Date(email.date).toLocaleDateString(lang === "en" ? "en-US" : "ru-RU", {
-                  month: "short",
-                  day: "numeric",
-                })}
-          </span>
+          <span>{timeDisplay(new Date(email.date), lang)}</span>
         </div>
         <hr />
       </StyledEmailsCart>
