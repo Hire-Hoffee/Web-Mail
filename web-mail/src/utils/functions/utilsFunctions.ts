@@ -4,6 +4,7 @@ import {
   ChangeParamsType,
   changeThemeType,
   FilterResultType,
+  ChangeLangType,
 } from "@/types/utilsFuncType";
 
 export async function getData<Type>({ fetchData, urlString, functions }: GetDataType<Type>) {
@@ -98,4 +99,10 @@ export function filterResult<Type>({
     });
     return setEmails(result);
   }
+}
+
+export function changeLang({ lang, useDispatch, changeSettings, changeLang }: ChangeLangType) {
+  localStorage.setItem("lang", lang);
+  useDispatch(changeSettings(false));
+  return changeLang(lang);
 }

@@ -7,18 +7,13 @@ import { changeSettingsOpen } from "@/store/utilsSlice";
 import russianLang from "@/assets/images/russian.svg";
 import englishLang from "@/assets/images/english.svg";
 
+import { changeLang } from "@/utils/functions/utilsFunctions";
+
 function LanguageSwitcher() {
   const langSwitcher = useAppSelector((state) => state.utils.langSwitcher);
-  const settingsOpen = useAppSelector((state) => state.utils.settingsOpen);
   const [lang, setLang] = useState("ru");
   const { i18n } = useTranslation();
   const dispatch = useAppDispatch();
-
-  function changeLanguage(lang: string) {
-    localStorage.setItem("lang", lang);
-    dispatch(changeSettingsOpen(false));
-    return i18n.changeLanguage(lang);
-  }
 
   return (
     <StyledLanguageSwitcher
@@ -31,7 +26,6 @@ function LanguageSwitcher() {
           <input
             type="radio"
             name="language"
-            value="ru"
             defaultChecked
             onChange={() => {
               setLang("ru");
@@ -46,7 +40,6 @@ function LanguageSwitcher() {
           <input
             type="radio"
             name="language"
-            value="en"
             onChange={() => {
               setLang("en");
             }}
@@ -60,7 +53,12 @@ function LanguageSwitcher() {
 
       <button
         onClick={() => {
-          changeLanguage(lang);
+          changeLang({
+            lang,
+            useDispatch: dispatch,
+            changeSettings: changeSettingsOpen,
+            changeLang: i18n.changeLanguage,
+          });
         }}
       >
         Выбрать язык

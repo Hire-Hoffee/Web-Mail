@@ -30,3 +30,10 @@ export type FilterResultType<Type> = {
   setParams: Function;
   setEmails: React.Dispatch<React.SetStateAction<Type[] | null>>;
 };
+
+export type ChangeLangType = {
+  lang: string;
+  useDispatch: Function;
+  changeLang: Function;
+  changeSettings: typeof changeSettingsOpen;
+};
