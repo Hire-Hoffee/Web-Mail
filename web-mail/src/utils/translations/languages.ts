@@ -38,6 +38,12 @@ const languages = {
         Билеты: "Билеты",
         "Штрафы и налоги": "Штрафы и налоги",
       },
+      other: {
+        downloadFile: "Скачать",
+        downloadFiles: "Скачать всё",
+        filesQuantity: "файл(а/ов)",
+        backButton: "Вернуться",
+      },
     },
   },
   en: {
@@ -78,6 +84,12 @@ const languages = {
         Путешествия: "Travelings",
         Билеты: "Tickets",
         "Штрафы и налоги": "Fines and taxes",
+      },
+      other: {
+        downloadFile: "Download",
+        downloadFiles: "Download all",
+        filesQuantity: "file(s)",
+        backButton: "Back",
       },
     },
   },

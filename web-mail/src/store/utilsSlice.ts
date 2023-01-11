@@ -8,7 +8,7 @@ const initialState: Utils = {
   settingsOpen: null,
   themeSwitcher: true,
   langSwitcher: false,
-  lang: "ru",
+  lang: localStorage.getItem("lang") || "ru",
 };
 
 export const utilsSlice = createSlice({

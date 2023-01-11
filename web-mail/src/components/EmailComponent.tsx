@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import EmailType from "@/types/emailType";
+import { useAppSelector } from "@/store/hooks";
 
 import defaultAvatar from "@/assets/images/defaultAvatar.png";
 import bookmarkIcon from "@/assets/images/bookmarkIcon.svg";
@@ -17,6 +18,7 @@ import { calculateFileSize } from "@/utils/functions/utilsFunctions";
 
 function EmailComponent(email: EmailType): JSX.Element {
   const { t } = useTranslation();
+  const lang = useAppSelector((state) => state.utils.lang);
 
   const flagDict = {
     Заказы: orders,
@@ -33,11 +35,13 @@ function EmailComponent(email: EmailType): JSX.Element {
         <h1>{email.title}</h1>
         <div>
           {email.flag || "" in flagDict ? (
-            <img src={flagDict[(email.flag as keyof typeof flagDict) || ""]} alt="flag" />
+            <>
+              <img src={flagDict[(email.flag as keyof typeof flagDict) || ""]} alt="flag" />
+              <p>{t(`flags.${email.flag}`)}</p>
+            </>
           ) : (
             false
           )}
-          <p>{t(`flags.${email.flag}`)}</p>
         </div>
       </div>
 
@@ -50,7 +54,7 @@ function EmailComponent(email: EmailType): JSX.Element {
           <div>
             <span>{email.author.name} </span>
             <span>
-              {new Date(email.date || "").toLocaleDateString("ru-RU", {
+              {new Date(email.date || "").toLocaleDateString(lang === "en" ? "en-US" : "ru-RU", {
                 month: "short",
                 day: "numeric",
               })}
@@ -92,14 +96,14 @@ function EmailComponent(email: EmailType): JSX.Element {
             </div>
 
             <div>
-              {email.doc.length} файл(а){" "}
+              {email.doc.length} {t("other.filesQuantity")}{" "}
               {email.doc.length === 1 ? (
                 <a href={email.doc[0].img} download="doc.png">
-                  Скачать{" "}
+                  {t("other.downloadFile")}{" "}
                 </a>
               ) : (
                 <a href={email.doc[0].img} download="doc.png">
-                  Скачать все файлы{" "}
+                  {t("other.downloadFiles")}{" "}
                 </a>
               )}
               <span>{calculateFileSize(email.doc)}</span>

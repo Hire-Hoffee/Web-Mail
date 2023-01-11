@@ -69,7 +69,7 @@ function Header(): JSX.Element {
       ) : (
         <em onClick={() => navigate(-1)}>
           <LeftArrowSVG />
-          <p>Вернуться</p>
+          <p>{t("other.backButton")}</p>
         </em>
       )}
     </StyledHeader>
