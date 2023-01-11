@@ -4,6 +4,7 @@ import { RouterProvider } from "react-router-dom";
 import router from "@/router";
 import { Provider } from "react-redux";
 import { store } from "@/store";
+import "./utils/translations/i18next";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <Provider store={store}>
