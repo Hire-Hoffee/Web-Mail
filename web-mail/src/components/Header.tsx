@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
+import { useTranslation } from "react-i18next";
 import { changeFilterToggle } from "@/store/utilsSlice";
 
 import StyledHeader from "./styles/StyledHeader";
@@ -23,6 +24,7 @@ function Header(): JSX.Element {
   const navigate = useNavigate();
   const isToggledFilter = useAppSelector((state) => state.utils.toggleFilter);
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
 
   const filterIconDict = {
     read: <img src={blueDot} alt="icon" />,
@@ -31,10 +33,10 @@ function Header(): JSX.Element {
     doc: <StapleSVG svgFill={chooseSVGFill({ theme, dictionary: themesDictionary })} />,
   };
   const filterItemNameDict = {
-    read: "Непрочитанные",
-    bookmark: "С флажком",
-    important: "Важные",
-    doc: "С вложениями",
+    read: t("filter.unread"),
+    bookmark: t("filter.flag"),
+    important: t("filter.important"),
+    doc: t("filter.files"),
   };
 
   function setFilterSearchName(): JSX.Element {
@@ -46,9 +48,9 @@ function Header(): JSX.Element {
       return <p>{filterItemNameDict[params[0][0] as keyof typeof filterItemNameDict]}</p>;
     }
     if ((params.length === 1 && params[0][1] === "all") || params.length === 0) {
-      return <p>Фильтр</p>;
+      return <p>{t("filter.filter")}</p>;
     }
-    return <p>Фильтры</p>;
+    return <p>{t("filter.filters")}</p>;
   }
 
   return (

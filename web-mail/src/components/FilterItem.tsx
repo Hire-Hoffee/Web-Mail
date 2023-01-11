@@ -1,5 +1,6 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import StyledFilterItem from "./styles/StyledFilterItem";
 import { FilterItemProp } from "@/types/otherTypes";
@@ -9,6 +10,7 @@ import { changeSearchParams } from "@/utils/functions/utilsFunctions";
 
 function FilterItem({ name, svg, svgComponent, query }: FilterItemProp): JSX.Element {
   const [searchParams, setSearchParams] = useSearchParams();
+  const { t } = useTranslation();
 
   return (
     <StyledFilterItem
@@ -18,7 +20,7 @@ function FilterItem({ name, svg, svgComponent, query }: FilterItemProp): JSX.Ele
         {svg ? <img src={svg} alt="icon" /> : svgComponent}
         <p>{name}</p>
         {searchParams.get(query[0]) === query[1] ||
-        (String(searchParams) === "" && name === "Все письма") ? (
+        (String(searchParams) === "" && name === t("filter.allLetters")) ? (
           <CheckSVG />
         ) : (
           false
