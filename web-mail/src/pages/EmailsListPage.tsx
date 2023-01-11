@@ -26,6 +26,7 @@ function EmailsListPage() {
   useEffect(() => {
     const url = "/" + folder;
     getData({ fetchData: getEmails, urlString: url, functions: [setEmails, setDefaultEmails] });
+    setSearchParams("?letters=all");
 
     folder
       ? (document.title = `WebMail - ${folder.charAt(0).toUpperCase() + folder.slice(1)}`)
