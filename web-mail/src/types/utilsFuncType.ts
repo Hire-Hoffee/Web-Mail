@@ -37,3 +37,9 @@ export type ChangeLangType = {
   changeLang: Function;
   changeSettings: typeof changeSettingsOpen;
 };
+
+export type SetFilterSearchType = {
+  searchParams: URLSearchParams;
+  filterItemNameDict: { read: string; bookmark: string; important: string; doc: string };
+  t: Function;
+};

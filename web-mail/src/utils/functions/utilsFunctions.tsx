@@ -5,6 +5,7 @@ import {
   changeThemeType,
   FilterResultType,
   ChangeLangType,
+  SetFilterSearchType,
 } from "@/types/utilsFuncType";
 
 export async function getData<Type>({ fetchData, urlString, functions }: GetDataType<Type>) {
@@ -105,4 +106,22 @@ export function changeLang({ lang, useDispatch, changeSettings, changeLang }: Ch
   localStorage.setItem("lang", lang);
   useDispatch(changeSettings(false));
   return changeLang(lang);
+}
+
+export function setFilterSearchName({
+  searchParams,
+  filterItemNameDict,
+  t,
+}: SetFilterSearchType): JSX.Element {
+  const params: string[][] = [];
+  for (let entry of searchParams.entries()) {
+    params.push(entry);
+  }
+  if (params.length === 1 && params[0][0] in filterItemNameDict) {
+    return <p>{filterItemNameDict[params[0][0] as keyof typeof filterItemNameDict]}</p>;
+  }
+  if ((params.length === 1 && params[0][1] === "all") || params.length === 0) {
+    return <p>{t("filter.filter")}</p>;
+  }
+  return <p>{t("filter.filters")}</p>;
 }

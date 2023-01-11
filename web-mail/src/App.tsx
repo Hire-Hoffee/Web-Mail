@@ -1,5 +1,5 @@
 import React, { useEffect, Suspense } from "react";
-import { Outlet, useNavigate, useParams } from "react-router-dom";
+import { Outlet, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import GlobalStyles from "@/components/styles/GlobalStyles";
@@ -21,6 +21,11 @@ function App(): JSX.Element {
   const settingsOpen = useAppSelector((state) => state.utils.settingsOpen);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    setSearchParams("?letters=all");
+  }, []);
 
   useEffect(() => {
     if (localStorage.getItem("theme")) {

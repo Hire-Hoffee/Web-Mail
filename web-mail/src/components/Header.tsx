@@ -18,6 +18,8 @@ import blueDot from "@/assets/images/blueDot.svg";
 import themesDictionary from "@/utils/themes/themesDictionary";
 import { chooseSVGFill } from "@/utils/functions/utilsFunctions";
 
+import { setFilterSearchName } from "@/utils/functions/utilsFunctions";
+
 function Header(): JSX.Element {
   const [searchParams, setSearchParams] = useSearchParams();
   const theme = useAppSelector((state) => state.utils.theme);
@@ -39,20 +41,6 @@ function Header(): JSX.Element {
     doc: t("filter.files"),
   };
 
-  function setFilterSearchName(): JSX.Element {
-    const params: string[][] = [];
-    for (let entry of searchParams.entries()) {
-      params.push(entry);
-    }
-    if (params.length === 1 && params[0][0] in filterItemNameDict) {
-      return <p>{filterItemNameDict[params[0][0] as keyof typeof filterItemNameDict]}</p>;
-    }
-    if ((params.length === 1 && params[0][1] === "all") || params.length === 0) {
-      return <p>{t("filter.filter")}</p>;
-    }
-    return <p>{t("filter.filters")}</p>;
-  }
-
   return (
     <StyledHeader>
       {!searchParams.get("title") ? (
@@ -72,7 +60,7 @@ function Header(): JSX.Element {
               onClick={() => dispatch(changeFilterToggle(!isToggledFilter))}
               className={isToggledFilter ? "rotateArrow" : ""}
             >
-              {setFilterSearchName()}
+              {setFilterSearchName({ searchParams, filterItemNameDict, t })}
               <DownArrowSVG />
             </div>
           </div>
