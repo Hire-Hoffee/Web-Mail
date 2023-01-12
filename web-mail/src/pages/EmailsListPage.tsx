@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAppSelector } from "@/store/hooks";
 import { useParams, useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import StyledEmailsContainer from "@/components/styles/StyledEmailsContainer";
 import NotFoundEmails from "@/components/NotFoundEmails";
@@ -18,19 +19,20 @@ function EmailsListPage() {
   const isLoading = useAppSelector((state) => state.utils.isLoading);
   const theme = useAppSelector((state) => state.utils.theme);
   const [searchParams, setSearchParams] = useSearchParams();
+  const { t } = useTranslation();
 
   useEffect(() => {
     filterResult({ emails: defaultEmails, searchParams, setEmails, setParams: setSearchParams });
   }, [searchParams]);
 
   useEffect(() => {
+    folder ? (document.title = `WebMail - ${t(`navbar.${folder}`)}`) : "WebMail";
+  }, [folder, t]);
+
+  useEffect(() => {
     const url = "/" + folder;
     getData({ fetchData: getEmails, urlString: url, functions: [setEmails, setDefaultEmails] });
     setSearchParams("?letters=all");
-
-    folder
-      ? (document.title = `WebMail - ${folder.charAt(0).toUpperCase() + folder.slice(1)}`)
-      : "WebMail";
   }, [folder]);
 
   return (
