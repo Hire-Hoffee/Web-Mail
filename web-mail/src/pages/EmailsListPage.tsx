@@ -36,7 +36,7 @@ function EmailsListPage() {
   return (
     <StyledEmailsContainer className={theme === "anime" ? "animeNotFound" : ""}>
       {isLoading ? (
-        <LoadingComponent />
+        <LoadingComponent svgFill="#ffffff" />
       ) : emails?.length === 0 ? (
         <NotFoundEmails />
       ) : (
