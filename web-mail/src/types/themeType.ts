@@ -14,6 +14,7 @@ type ThemeType = {
     primary: string;
     secondary: string;
   };
+  checkbox?: string;
 };
 
 export default ThemeType;

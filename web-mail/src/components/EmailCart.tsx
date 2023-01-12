@@ -6,6 +6,7 @@ import { useAppSelector } from "@/store/hooks";
 
 import defaultAvatar from "@/assets/images/defaultAvatar.png";
 import bookmarkIcon from "@/assets/images/bookmarkIcon.svg";
+import addBookmarkIcon from "@/assets/images/addBookmark.svg";
 import importantIcon from "@/assets/images/importantIcon.svg";
 import billings from "@/assets/images/billings.svg";
 import finances from "@/assets/images/finances.svg";
@@ -14,6 +15,7 @@ import tickets from "@/assets/images/tickets.svg";
 import registrations from "@/assets/images/registrations.svg";
 import travelings from "@/assets/images/travelings.svg";
 import blueDot from "@/assets/images/blueDot.svg";
+import grayDot from "@/assets/images/grayDot.svg";
 import StapleSVG from "./styles/svgs/StapleSVG";
 
 import { timeDisplay } from "@/utils/functions/utilsFunctions";
@@ -33,26 +35,37 @@ function EmailCart(email: EmailType): JSX.Element {
   return (
     <Link to={"/email?title=" + email.title}>
       <StyledEmailsCart>
-        <div>{email.read === false ? <img src={blueDot} alt="status" /> : ""}</div>
-        <div>
+        <div onClick={(e) => e.preventDefault()}>
+          {email.read === false ? (
+            <img src={blueDot} alt="status" />
+          ) : (
+            <img src={grayDot} alt="status" className="greyDot" />
+          )}
+          <div></div>
+        </div>
+        <div onClick={(e) => e.stopPropagation()}>
           <img src={email.author.avatar || defaultAvatar} alt="avatar" />
+          <input type="checkbox" />
         </div>
         <div>
           <p className={email.read === false ? "unread" : ""}>
             {email.author.name} {email.author.surname}
           </p>
         </div>
-        <div>
+        <div onClick={(e) => e.preventDefault()}>
           {email.bookmark && email.important ? (
-            <>
+            <span>
               <img src={bookmarkIcon} alt="status" /> <img src={importantIcon} alt="status" />
-            </>
+            </span>
           ) : email.bookmark ? (
             <img src={bookmarkIcon} alt="status" />
           ) : email.important ? (
-            <img src={importantIcon} alt="status" />
+            <span>
+              <img src={addBookmarkIcon} alt="add_bookmark" className="addBookmark" />
+              <img src={importantIcon} alt="status" />
+            </span>
           ) : (
-            false
+            <img src={addBookmarkIcon} alt="add_bookmark" className="addBookmark" />
           )}
         </div>
         <div className={email.read === false ? "unread" : ""}>{email.title} &nbsp;</div>

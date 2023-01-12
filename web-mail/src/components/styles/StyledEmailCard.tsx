@@ -13,13 +13,50 @@ const StyledEmailCart = styled.div`
     min-width: 0;
   }
 
+  div:first-child {
+    .greyDot {
+      display: none;
+    }
+  }
+
   div:nth-child(2) {
     img {
       width: 32px;
       height: 32px;
       border-radius: 100%;
+      scale: 1;
+      transition: 0.4s;
+    }
+    input {
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      left: 36.5px;
+      bottom: 15px;
+      scale: 0;
+      transition: 0.4s;
+      appearance: none;
+      cursor: pointer;
+    }
+    input:checked::before {
+      content: "✔";
+      color: ${({ theme }) => theme.text.primary};
+      position: absolute;
+      left: 2.5px;
+      bottom: 0px;
+    }
+    input::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      border: 1px solid ${({ theme }) => theme.checkbox || "#e0e2e8"};
+      border-radius: 4px;
     }
   }
+
   div:nth-child(3) {
     margin-left: 5px;
   }
@@ -27,12 +64,15 @@ const StyledEmailCart = styled.div`
     display: flex;
     justify-content: center;
 
-    img:first-child {
-      margin-right: -18px;
+    .addBookmark {
+      display: none;
     }
-    img:last-child {
-      margin-left: -18px;
+    span {
+      display: flex;
     }
+  }
+  div:nth-child(5) {
+    margin-left: 5px;
   }
 
   div:nth-child(3),
@@ -98,15 +138,36 @@ const StyledEmailCart = styled.div`
   }
 
   &:hover {
+    background-color: ${({ theme }) => theme.hoveredItem};
+    transition: 0.4s;
+    border-radius: 12px;
+    cursor: pointer;
+
+    div:first-child {
+      .greyDot {
+        display: block;
+      }
+    }
+    div:nth-child(2) {
+      img {
+        scale: 0;
+        transition: 0.4s;
+      }
+      input {
+        scale: 1;
+        transition: 0.4s;
+      }
+    }
+    div:nth-child(4) {
+      .addBookmark {
+        display: inline;
+      }
+    }
     div:nth-child(7),
     div:nth-child(8) {
       background-color: ${({ theme }) => theme.hoveredItem};
       transition: 0.4s;
     }
-    background-color: ${({ theme }) => theme.hoveredItem};
-    transition: 0.4s;
-    border-radius: 12px;
-    cursor: pointer;
   }
 
   hr {

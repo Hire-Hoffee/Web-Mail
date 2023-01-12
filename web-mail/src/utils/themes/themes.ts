@@ -33,6 +33,7 @@ const darkTheme: DefaultTheme = {
     primary: "#ffffff",
     secondary: "#8c8e94",
   },
+  checkbox: "#4e4e4f",
 };
 
 const animeTheme: DefaultTheme = {
