@@ -43,9 +43,9 @@ function EmailCart(email: EmailType): JSX.Element {
           )}
           <div></div>
         </div>
-        <div onClick={(e) => e.stopPropagation()}>
+        <div>
           <img src={email.author.avatar || defaultAvatar} alt="avatar" />
-          <input type="checkbox" />
+          <input onClick={(e) => e.stopPropagation()} type="checkbox" />
         </div>
         <div>
           <p className={email.read === false ? "unread" : ""}>
