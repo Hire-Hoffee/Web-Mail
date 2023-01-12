@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import checked from "@/assets/images/checked.svg";
 
 const StyledEmailCart = styled.div`
   background-color: ${({ theme }) => theme.container};
@@ -38,12 +39,26 @@ const StyledEmailCart = styled.div`
       appearance: none;
       cursor: pointer;
     }
-    input:checked::before {
-      content: "✔";
-      color: ${({ theme }) => theme.text.primary};
+    input:checked {
+      scale: 1;
+    }
+    input:checked::after {
+      content: url(${checked});
       position: absolute;
-      left: 2.5px;
-      bottom: 0px;
+      bottom: 100px;
+      border: none;
+    }
+    input:checked::before {
+      content: "";
+      position: absolute;
+      background-color: ${({ theme }) => theme.container};
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: -10px;
+      z-index: 999;
+      transition: 0.4s;
     }
     input::after {
       content: "";
@@ -54,6 +69,7 @@ const StyledEmailCart = styled.div`
       right: 0;
       border: 1px solid ${({ theme }) => theme.checkbox || "#e0e2e8"};
       border-radius: 4px;
+      z-index: 9999;
     }
   }
 
@@ -155,6 +171,10 @@ const StyledEmailCart = styled.div`
       }
       input {
         scale: 1;
+        transition: 0.4s;
+      }
+      input:checked::before {
+        background-color: ${({ theme }) => theme.hoveredItem};
         transition: 0.4s;
       }
     }
