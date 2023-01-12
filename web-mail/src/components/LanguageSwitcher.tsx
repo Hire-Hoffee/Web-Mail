@@ -11,9 +11,13 @@ import { changeLang } from "@/utils/functions/utilsFunctions";
 
 function LanguageSwitcher() {
   const langSwitcher = useAppSelector((state) => state.utils.langSwitcher);
+  const langState = useAppSelector((state) => state.utils.lang);
   const [lang, setLang] = useState("ru");
   const { t, i18n } = useTranslation();
   const dispatch = useAppDispatch();
+
+  const [checkedRU, setCheckedRU] = useState(langState === "ru" ? true : false);
+  const [checkedEN, setCheckedEN] = useState(langState === "en" ? true : false);
 
   return (
     <StyledLanguageSwitcher
@@ -26,9 +30,11 @@ function LanguageSwitcher() {
           <input
             type="radio"
             name="language"
-            defaultChecked
+            checked={checkedRU}
             onChange={() => {
               setLang("ru");
+              setCheckedRU(true);
+              setCheckedEN(false);
             }}
           />
           <span>
@@ -40,8 +46,11 @@ function LanguageSwitcher() {
           <input
             type="radio"
             name="language"
+            checked={checkedEN}
             onChange={() => {
               setLang("en");
+              setCheckedEN(true);
+              setCheckedRU(false);
             }}
           />
           <span>
