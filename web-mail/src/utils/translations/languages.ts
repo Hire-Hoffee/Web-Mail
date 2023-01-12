@@ -74,9 +74,9 @@ const languages = {
         filters: "Filters",
         allLetters: "All emails",
         unread: "Unread",
-        flag: "With flag",
+        flag: "Flagged",
         important: "Important",
-        files: "With files",
+        files: "With attachments",
         reset: "Reset all",
       },
       flags: {
