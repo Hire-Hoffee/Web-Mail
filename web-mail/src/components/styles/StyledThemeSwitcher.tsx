@@ -33,10 +33,7 @@ const StyledThemeSwitcher = styled.div`
       background-repeat: no-repeat;
       background-position: center;
       position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
+      inset: 0;
     }
 
     div:after {
@@ -47,10 +44,7 @@ const StyledThemeSwitcher = styled.div`
       background-repeat: no-repeat;
       background-position: center;
       position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
+      inset: 0;
       transition: 0.2s;
     }
     div:hover:after {
@@ -137,10 +131,7 @@ const StyledThemeSwitcher = styled.div`
       background-repeat: no-repeat;
       background-position: center;
       position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
+      inset: 0;
     }
 
     div:after {
@@ -151,10 +142,7 @@ const StyledThemeSwitcher = styled.div`
       background-repeat: no-repeat;
       background-position: center;
       position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
+      inset: 0;
       transition: 0.2s;
     }
     div:hover:after {

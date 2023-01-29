@@ -52,10 +52,7 @@ const StyledEmailCart = styled.div`
       content: "";
       position: absolute;
       background-color: ${({ theme }) => theme.container};
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
+      inset: 0;
       margin: -10px;
       z-index: 999;
       transition: 0.4s;
@@ -63,10 +60,7 @@ const StyledEmailCart = styled.div`
     input::after {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
+      inset: 0;
       border: 1px solid ${({ theme }) => theme.checkbox || "#e0e2e8"};
       border-radius: 4px;
       z-index: 9999;

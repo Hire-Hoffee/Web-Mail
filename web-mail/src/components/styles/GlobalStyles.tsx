@@ -58,6 +58,13 @@ const GlobalStyles = createGlobalStyle`
       animation-name: scaleDown;
       animation-duration: 0.2s;
       animation-fill-mode: forwards;
+      &::after {
+        content: "";
+        background: transparent;
+        position: absolute;
+        inset: 0;
+        z-index: 9999;
+      }
     }
     .scaleUp {
       animation-name: scaleUp;
