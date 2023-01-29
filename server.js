@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs").promises;
 
 const utils = {
+  bigFile: undefined,
   folderDict: {
     inbox: "Входящие",
     important: "Важное",
@@ -13,9 +14,12 @@ const utils = {
     trash: "Корзина",
   },
   lightData: async () => {
-    const bigFile = JSON.parse(await fs.readFile(path.resolve("./db.json")));
+    if (utils.bigFile) {
+      return utils.bigFile;
+    }
 
-    return bigFile.map((letter) => {
+    utils.bigFile = JSON.parse(await fs.readFile(path.resolve("./db.json")));
+    utils.bigFile = utils.bigFile.map((letter) => {
       if (letter.doc) {
         letter.doc = true;
       }
@@ -24,6 +28,8 @@ const utils = {
       }
       return letter;
     });
+
+    return utils.bigFile;
   },
 };
 
