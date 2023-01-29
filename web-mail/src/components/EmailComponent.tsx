@@ -75,6 +75,7 @@ function EmailComponent(email: EmailType): JSX.Element {
             </span>
           </div>
           <div>
+            <span>{t("other.sentTo") + ": "}</span>
             {email.to.map((item, index, array) => {
               return (
                 <span key={item.email}>
