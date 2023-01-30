@@ -1,6 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
+import { useAppDispatch } from "@/store/hooks";
+import { changeNewLetterPopup } from "@/store/utilsSlice";
+
 import StyledNavbar from "./styles/StyledNavbar";
 import NavRoute from "./NavRoute";
 
@@ -16,10 +19,11 @@ import writeLetter from "@/assets/images/writeLetter.svg";
 
 function Navbar(): JSX.Element {
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
 
   return (
     <StyledNavbar>
-      <button>
+      <button onClick={() => dispatch(changeNewLetterPopup(true))}>
         <img src={writeLetter} alt="write_icon" />
         <span>{t("navbar.writeLetter")}</span>
       </button>

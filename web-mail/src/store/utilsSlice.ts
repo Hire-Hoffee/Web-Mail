@@ -9,6 +9,7 @@ const initialState: Utils = {
   themeSwitcher: true,
   langSwitcher: false,
   lang: localStorage.getItem("lang") || "ru",
+  newLetterPopup: false,
 };
 
 export const utilsSlice = createSlice({
@@ -40,6 +41,9 @@ export const utilsSlice = createSlice({
     changeSiteLang: (state, action: PayloadAction<string>) => {
       state.lang = action.payload;
     },
+    changeNewLetterPopup: (state, action: PayloadAction<boolean>) => {
+      state.newLetterPopup = action.payload;
+    },
   },
 });
 
@@ -51,6 +55,7 @@ export const {
   themeSwitchOpened,
   langSwitchOpened,
   changeSiteLang,
+  changeNewLetterPopup,
 } = utilsSlice.actions;
 
 export default utilsSlice.reducer;

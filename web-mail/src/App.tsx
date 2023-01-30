@@ -11,6 +11,7 @@ import SettingsButton from "./components/SettingsButton";
 import SettingOptions from "./components/SettingOptions";
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
+import CreateEmail from "./components/CreateEmail";
 
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import { changeThemeState, changeFilterToggle, changeSettingsOpen } from "@/store/utilsSlice";
@@ -54,6 +55,7 @@ function App(): JSX.Element {
         </section>
         <SettingsButton />
         <SettingOptions />
+        <CreateEmail />
       </ThemeProvider>
     </Suspense>
   );

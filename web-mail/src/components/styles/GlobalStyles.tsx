@@ -47,6 +47,37 @@ const GlobalStyles = createGlobalStyle`
         height: 0px;
       }
     }
+  
+
+    .showPopup {
+      animation-name: showPopup;
+      animation-duration: 0.1s;
+      animation-fill-mode: forwards;
+    }
+    .hidePopup {
+      visibility: hidden;
+      animation-name: hidePopup;
+      animation-duration: 0.1s;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes showPopup {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    @keyframes hidePopup {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+
 
     div {
       & > section:first-child {

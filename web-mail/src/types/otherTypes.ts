@@ -6,6 +6,7 @@ export type Utils = {
   themeSwitcher: boolean;
   langSwitcher: boolean;
   lang: string;
+  newLetterPopup: boolean;
 };
 
 export type NavProps = {
