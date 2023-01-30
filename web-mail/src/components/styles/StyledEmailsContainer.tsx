@@ -10,6 +10,30 @@ const StyledEmailsContainer = styled.main`
   overflow: hidden;
   overflow-y: auto;
   color: ${({ theme }) => theme.text.primary};
+  .moreEmailsLoader {
+    color: ${({ theme }) => theme.text.secondary};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+    .rotate {
+      width: 30;
+      animation: rotation 1.5s infinite linear;
+    }
+    @keyframes rotation {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(359deg);
+      }
+    }
+  }
 `;
 
 export default StyledEmailsContainer;

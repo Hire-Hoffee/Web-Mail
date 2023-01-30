@@ -34,7 +34,7 @@ const utils = {
 };
 
 const controllers = {
-  getDataController: async (req, res, query) => {
+  getDataController: async (req, res, query, pageNum = 1) => {
     try {
       async function filterData(param) {
         if (param in utils.folderDict) {
@@ -44,12 +44,13 @@ const controllers = {
         return { message: "Not found" };
       }
 
-      const result = await filterData(query);
+      let result = await filterData(query);
       result.sort((a, b) => {
         a = new Date(a.date).getTime();
         b = new Date(b.date).getTime();
         return b - a;
       });
+      result = result.slice((pageNum - 1) * 20, pageNum * 20);
 
       const headers = {
         "Access-Control-Allow-Origin": "*",
@@ -143,9 +144,10 @@ const reqListener = async function (req, res) {
       await controllers.sendStaticController(req, res, req.url);
       return;
     }
-    if (req.url.match(/^\/api\/\w+$/) && req.method === "GET") {
+    if (req.url.match(/^\/api\/\w+\/\d+$/) && req.method === "GET") {
       const folder = req.url.split("/")[2];
-      await controllers.getDataController(req, res, folder);
+      const pageNum = req.url.split("/")[3];
+      await controllers.getDataController(req, res, folder, pageNum);
       return;
     }
     if (req.url.match(/\/api\/email\?title/i) && req.method === "GET") {
