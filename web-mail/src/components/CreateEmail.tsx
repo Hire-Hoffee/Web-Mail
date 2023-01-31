@@ -2,6 +2,7 @@ import React from "react";
 
 import StyledCreateEmail from "./styles/StyledCreateEmail";
 import CloseBtnSVG from "./styles/svgs/CloseBtnSVG";
+import StapleSVG from "./styles/svgs/StapleSVG";
 
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import { changeNewLetterPopup } from "@/store/utilsSlice";
@@ -32,13 +33,19 @@ function CreateEmail() {
             Тема <input type="text" />
           </label>
           <hr />
+          <div>
+            <button>
+              <StapleSVG />
+              <span>Прикрепить файл</span>
+            </button>
+          </div>
         </div>
         <div>
           <textarea name="" id="" cols={30} rows={10}></textarea>
         </div>
         <div>
           <button>Отправить</button>
-          <button>Отменить</button>
+          <button onClick={() => dispatch(changeNewLetterPopup(false))}>Отменить</button>
         </div>
       </div>
     </StyledCreateEmail>

@@ -12,8 +12,8 @@ const StyledCreateEmail = styled(FlexContainer)`
   transition: 0.1s;
 
   & > div {
-    width: 880px;
-    height: 860px;
+    width: 60vw;
+    height: 90vh;
     background-color: ${({ theme }) => theme.popup};
     border-radius: 15px;
     display: grid;
@@ -24,16 +24,18 @@ const StyledCreateEmail = styled(FlexContainer)`
     overflow: hidden;
     position: relative;
 
-    div:first-child {
+    & > div:first-child {
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 10px;
-      svg {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        cursor: pointer;
+      & > span {
+        svg {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          cursor: pointer;
+        }
       }
       label {
         color: ${({ theme }) => theme.text.secondary};
@@ -57,8 +59,34 @@ const StyledCreateEmail = styled(FlexContainer)`
         background: ${({ theme }) => theme.hrNav};
         border: none;
       }
+      button {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px 10px 20px;
+        border: none;
+        font-size: 15px;
+        border-radius: 8px;
+        color: ${({ theme }) => theme.text.primary};
+        background-color: ${({ theme }) => theme.popup};
+        transition: 0.2s;
+        span {
+          margin-left: 20px;
+        }
+        svg {
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      button:hover {
+        background-color: ${({ theme }) => theme.hoveredNav};
+        transition: 0.2s;
+        cursor: pointer;
+      }
     }
-    div:nth-child(2) {
+    & > div:nth-child(2) {
       textarea {
         width: 100%;
         height: 100%;
@@ -73,7 +101,7 @@ const StyledCreateEmail = styled(FlexContainer)`
         outline: none;
       }
     }
-    div:last-child {
+    & > div:last-child {
       padding-left: 10px;
       display: flex;
       justify-content: start;
