@@ -7,13 +7,13 @@ import { changeNewLetterPopup } from "@/store/utilsSlice";
 import StyledNavbar from "./styles/StyledNavbar";
 import NavRoute from "./NavRoute";
 
-import InboxSVG from "./styles/svgs/InboxSVG";
-import ArchiveSVG from "./styles/svgs/ArchiveSVG";
-import ImportantSVG from "./styles/svgs/ImportantSVG";
-import SentSVG from "./styles/svgs/SentSVG";
-import DraftsSVG from "./styles/svgs/DraftsSVG";
-import SpamSVG from "./styles/svgs/SpamSVG";
-import TrashSVG from "./styles/svgs/TrashSVG";
+import InboxSVG from "./styles/svgs/navbar/InboxSVG";
+import ArchiveSVG from "./styles/svgs/navbar/ArchiveSVG";
+import ImportantSVG from "./styles/svgs/navbar/ImportantSVG";
+import SentSVG from "./styles/svgs/navbar/SentSVG";
+import DraftsSVG from "./styles/svgs/navbar/DraftsSVG";
+import SpamSVG from "./styles/svgs/navbar/SpamSVG";
+import TrashSVG from "./styles/svgs/navbar/TrashSVG";
 import PlusSVG from "./styles/svgs/PlusSVG";
 import writeLetter from "@/assets/images/writeLetter.svg";
 

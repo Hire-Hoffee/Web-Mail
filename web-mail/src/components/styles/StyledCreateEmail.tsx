@@ -88,6 +88,7 @@ const StyledCreateEmail = styled(FlexContainer)`
     }
     & > div:nth-child(2) {
       textarea {
+        box-shadow: 0px -1px 15px -5px rgba(34, 60, 80, 0.2) inset;
         width: 100%;
         height: 100%;
         resize: none;
@@ -108,6 +109,7 @@ const StyledCreateEmail = styled(FlexContainer)`
       align-items: center;
       button:first-child {
         background-color: #005ff9;
+        color: #ffffff;
       }
       button:last-child {
         background-color: ${({ theme }) => theme.hoveredNav};

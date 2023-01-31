@@ -1,5 +1,5 @@
 import React from "react";
-import StyledSVG from "../StyledSVG";
+import StyledSVG from "../../StyledSVG";
 
 function InboxSVG(): JSX.Element {
   return (

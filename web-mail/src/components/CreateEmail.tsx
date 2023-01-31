@@ -38,6 +38,7 @@ function CreateEmail() {
               <StapleSVG />
               <span>Прикрепить файл</span>
             </button>
+            <hr />
           </div>
         </div>
         <div>
