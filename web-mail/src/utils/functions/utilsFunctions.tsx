@@ -153,3 +153,59 @@ export function timeDisplay(date: Date, lang: string) {
     day: "numeric",
   });
 }
+
+export function showImages(imageFiles: File[], setImages: Function, setImagesSizeCheck: Function) {
+  const images: (string | ArrayBuffer)[] = [];
+  const fileReaders: FileReader[] = [];
+  const checkImagesSize: { img: string }[] = [];
+  let isCancel = false;
+
+  if (imageFiles.length) {
+    imageFiles.forEach((file) => {
+      const fileReader = new FileReader();
+      fileReaders.push(fileReader);
+      fileReader.onload = (e) => {
+        if (e.target?.result) {
+          images.push(e.target?.result);
+        }
+        if (images.length === imageFiles.length && !isCancel) {
+          setImages(images);
+          images.forEach((img) => {
+            checkImagesSize.push({ img: String(img) });
+          });
+          setImagesSizeCheck(checkImagesSize);
+        }
+      };
+      fileReader.readAsDataURL(file);
+    });
+  }
+  return () => {
+    isCancel = true;
+    fileReaders.forEach((fileReader) => {
+      if (fileReader.readyState === 1) {
+        fileReader.abort();
+      }
+    });
+  };
+}
+
+export function changeHandler(
+  e: React.ChangeEvent<HTMLInputElement>,
+  imageTypeRegex: RegExp,
+  setImageFiles: Function
+) {
+  const { files } = e.target;
+  if (files) {
+    const validImageFiles = [];
+    for (let i = 0; i < files.length; i++) {
+      if (files[i].type.match(imageTypeRegex)) {
+        validImageFiles.push(files[i]);
+      }
+    }
+    if (validImageFiles.length) {
+      setImageFiles(validImageFiles);
+      return;
+    }
+    alert("Selected images are not of valid type!");
+  }
+}

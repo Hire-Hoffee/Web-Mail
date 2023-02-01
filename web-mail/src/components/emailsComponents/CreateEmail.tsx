@@ -2,13 +2,13 @@ import React from "react";
 
 import StyledCreateEmail from "../styles/styledEmails/StyledCreateEmail";
 import CloseBtnSVG from "../styles/svgs/CloseBtnSVG";
-import StapleSVG from "../styles/svgs/StapleSVG";
 
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import { changeNewLetterPopup } from "@/store/utilsSlice";
 import { useTranslation } from "react-i18next";
 
 import TextEditor from "../textEditorComponents/TextEditor";
+import AddFile from "./AddFile";
 
 function CreateEmail() {
   const newLetterPopup = useAppSelector((state) => state.utils.newLetterPopup);
@@ -31,10 +31,7 @@ function CreateEmail() {
           </label>
           <hr />
           <div>
-            <button>
-              <StapleSVG />
-              <span>{t("newEmail.addFile")}</span>
-            </button>
+            <AddFile />
             <hr />
           </div>
         </div>

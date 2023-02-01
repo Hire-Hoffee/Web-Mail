@@ -41,10 +41,12 @@ const languages = {
       newEmail: {
         send: "Отправить",
         cancel: "Отменить",
-        addFile: "Прикрепить файл",
+        addFiles: "Прикрепить файлы",
         sendTo: "Кому",
         title: "Тема",
         writeLetter: "Написать письмо ...",
+        filesSize: "Размер файлов",
+        clear: "Очистить",
       },
       other: {
         downloadFile: "Скачать",
@@ -100,10 +102,12 @@ const languages = {
       newEmail: {
         send: "Send",
         cancel: "Cancel",
-        addFile: "Add file",
+        addFiles: "Add files",
         sendTo: "To",
         title: "Subject",
         writeLetter: "Compose ...",
+        filesSize: "Files size",
+        clear: "Clear",
       },
       other: {
         downloadFile: "Download",
