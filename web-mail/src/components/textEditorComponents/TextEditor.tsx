@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { createEditor, Descendant } from "slate";
 import { Slate, Editable, withReact } from "slate-react";
+import { useTranslation } from "react-i18next";
 
 import Leaf from "./Leaf";
 import editorEventHandlers from "@/utils/functions/textEditorFunctions";
@@ -8,7 +9,6 @@ import { RenderLeafProps } from "@/types/textEditorType";
 
 import BoldTextSVG from "../styles/svgs/createEmail/BoldTextSVG";
 import ItalicTextSVG from "../styles/svgs/createEmail/ItalicTextSVG";
-import AlignTextSVG from "../styles/svgs/createEmail/AlignTextSVG";
 import FontTextSVG from "../styles/svgs/createEmail/FontTextSVG";
 import UnderlineTextSVG from "../styles/svgs/createEmail/UnderlineTextSVG";
 
@@ -17,9 +17,10 @@ function TextEditor() {
   const initialValue: Descendant[] = [
     {
       type: "paragraph",
-      children: [{ text: "A line of text in a paragraph." }],
+      children: [{ text: "" }],
     },
   ];
+  const { t } = useTranslation();
 
   const renderLeaf = useCallback((props: RenderLeafProps) => {
     return <Leaf {...props} />;
@@ -43,13 +44,10 @@ function TextEditor() {
           <UnderlineTextSVG />
         </span>
         <span>
-          <AlignTextSVG />
-        </span>
-        <span>
           <FontTextSVG />
         </span>
       </div>
-      <Editable renderLeaf={renderLeaf} />
+      <Editable renderLeaf={renderLeaf} placeholder={t("newEmail.writeLetter") || ""} />
     </Slate>
   );
 }

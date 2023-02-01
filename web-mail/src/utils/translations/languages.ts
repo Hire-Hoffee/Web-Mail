@@ -38,6 +38,14 @@ const languages = {
         Билеты: "Билеты",
         "Штрафы и налоги": "Штрафы и налоги",
       },
+      newEmail: {
+        send: "Отправить",
+        cancel: "Отменить",
+        addFile: "Прикрепить файл",
+        sendTo: "Кому",
+        title: "Тема",
+        writeLetter: "Написать письмо ...",
+      },
       other: {
         downloadFile: "Скачать",
         downloadFiles: "Скачать всё",
@@ -53,7 +61,7 @@ const languages = {
   en: {
     translation: {
       navbar: {
-        writeLetter: "Write letter",
+        writeLetter: "Compose",
         inbox: "Inbox",
         important: "Important",
         sent: "Sent",
@@ -88,6 +96,14 @@ const languages = {
         Путешествия: "Travelings",
         Билеты: "Tickets",
         "Штрафы и налоги": "Fines and taxes",
+      },
+      newEmail: {
+        send: "Send",
+        cancel: "Cancel",
+        addFile: "Add file",
+        sendTo: "To",
+        title: "Subject",
+        writeLetter: "Compose ...",
       },
       other: {
         downloadFile: "Download",

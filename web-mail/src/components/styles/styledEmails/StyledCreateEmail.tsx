@@ -88,6 +88,9 @@ const StyledCreateEmail = styled(FlexContainer)`
     }
     & > div:nth-child(2) {
       background-color: #ffffff;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.1fr 2fr;
       font-size: 15px;
       font-family: Arial, Helvetica, sans-serif;
       color: #000000;
@@ -120,8 +123,8 @@ const StyledCreateEmail = styled(FlexContainer)`
         }
       }
       & > div:last-child {
-        height: 49.1vmin;
-        padding: 10px;
+        max-height: 49.1vmin;
+        padding: 15px;
         background-color: #ffffff;
         overflow: hidden;
         overflow-y: auto;
