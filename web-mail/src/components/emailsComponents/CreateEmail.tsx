@@ -14,15 +14,8 @@ function CreateEmail() {
   const dispatch = useAppDispatch();
 
   return (
-    <StyledCreateEmail
-      className={newLetterPopup ? "showPopup" : "hidePopup"}
-      onClick={() => dispatch(changeNewLetterPopup(false))}
-    >
-      <div
-        onClick={(e) => {
-          return e.stopPropagation();
-        }}
-      >
+    <StyledCreateEmail className={newLetterPopup ? "showPopup" : "hidePopup"}>
+      <div>
         <div>
           <span onClick={() => dispatch(changeNewLetterPopup(false))}>
             <CloseBtnSVG />

@@ -87,9 +87,45 @@ const StyledCreateEmail = styled(FlexContainer)`
       }
     }
     & > div:nth-child(2) {
-      div:first-child {
-        width: 100%;
-        height: 100%;
+      background-color: #ffffff;
+      font-size: 15px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #000000;
+      & > div:first-child {
+        background-color: ${({ theme }) => theme.popup};
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        padding-bottom: 10px;
+        padding-left: 5px;
+        svg {
+          opacity: 0.7;
+          transition: 0.2s;
+          width: 14px;
+          margin: 0px 5px 0px 5px;
+          padding: 5px 10px 5px 10px;
+          border-radius: 5px;
+          path {
+            transition: 0.2s;
+          }
+        }
+        svg:hover {
+          background-color: ${({ theme }) => theme.hoveredNav};
+          transition: 0.2s;
+          cursor: pointer;
+          path {
+            opacity: 0.7;
+            transition: 0.2s;
+          }
+        }
+      }
+      & > div:last-child {
+        height: 49.1vmin;
+        padding: 10px;
+        background-color: #ffffff;
+        overflow: hidden;
+        overflow-y: auto;
+        box-shadow: 0px 0px 10px 0px rgba(34, 60, 80, 0.12) inset;
       }
     }
     & > div:last-child {
