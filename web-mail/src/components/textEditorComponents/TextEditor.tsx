@@ -9,7 +9,6 @@ import { RenderLeafProps } from "@/types/textEditorType";
 
 import BoldTextSVG from "../styles/svgs/createEmail/BoldTextSVG";
 import ItalicTextSVG from "../styles/svgs/createEmail/ItalicTextSVG";
-import FontTextSVG from "../styles/svgs/createEmail/FontTextSVG";
 import UnderlineTextSVG from "../styles/svgs/createEmail/UnderlineTextSVG";
 
 function TextEditor() {
@@ -42,9 +41,6 @@ function TextEditor() {
         </span>
         <span onClick={(event) => handleEvent(event, "underline")}>
           <UnderlineTextSVG />
-        </span>
-        <span>
-          <FontTextSVG />
         </span>
       </div>
       <Editable renderLeaf={renderLeaf} placeholder={t("newEmail.writeLetter") || ""} />

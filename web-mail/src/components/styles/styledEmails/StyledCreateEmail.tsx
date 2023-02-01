@@ -145,7 +145,7 @@ const StyledCreateEmail = styled(FlexContainer)`
           transition: 0.2s;
           width: 14px;
           margin: 0px 5px 0px 5px;
-          padding: 5px 10px 5px 10px;
+          padding: 5px 5px 5px 5px;
           border-radius: 5px;
           path {
             transition: 0.2s;
