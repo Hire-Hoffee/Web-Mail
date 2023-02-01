@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import FlexContainer from "./FlexContainer";
+import FlexContainer from "../styledContainers/FlexContainer";
 
 const StyledHeader = styled(FlexContainer)`
   width: 100%;

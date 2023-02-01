@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import FlexContainer from "./FlexContainer";
+import FlexContainer from "../styledContainers/FlexContainer";
 
 const StyledCreateEmail = styled(FlexContainer)`
   background: rgba(0, 0, 0, 0.3);
@@ -87,19 +87,9 @@ const StyledCreateEmail = styled(FlexContainer)`
       }
     }
     & > div:nth-child(2) {
-      textarea {
-        box-shadow: 0px -1px 15px -5px rgba(34, 60, 80, 0.2) inset;
+      div:first-child {
         width: 100%;
         height: 100%;
-        resize: none;
-        border: none;
-        box-sizing: border-box;
-        font-size: 15px;
-        font-family: Arial, Helvetica, sans-serif;
-        padding: 10px;
-      }
-      textarea:focus {
-        outline: none;
       }
     }
     & > div:last-child {

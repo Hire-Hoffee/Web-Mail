@@ -4,13 +4,13 @@ import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import { useTranslation } from "react-i18next";
 import { changeFilterToggle } from "@/store/utilsSlice";
 
-import StyledHeader from "./styles/StyledHeader";
+import StyledHeader from "../styles/styledHeader/StyledHeader";
 import FilterComponent from "./FilterComponent";
 
-import LogoSVG from "./styles/svgs/LogoSVG";
-import LeftArrowSVG from "./styles/svgs/LeftArrowSVG";
-import DownArrowSVG from "./styles/svgs/DownArrowSVG";
-import StapleSVG from "./styles/svgs/StapleSVG";
+import LogoSVG from "../styles/svgs/LogoSVG";
+import LeftArrowSVG from "../styles/svgs/LeftArrowSVG";
+import DownArrowSVG from "../styles/svgs/DownArrowSVG";
+import StapleSVG from "../styles/svgs/StapleSVG";
 import bookmarkIcon from "@/assets/images/bookmarkIcon.svg";
 import importantIcon from "@/assets/images/importantIcon.svg";
 import blueDot from "@/assets/images/blueDot.svg";

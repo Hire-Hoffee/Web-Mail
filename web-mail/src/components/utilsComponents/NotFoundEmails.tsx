@@ -1,5 +1,5 @@
 import React from "react";
-import NotFoundStyles from "./styles/StyledNotFound";
+import NotFoundStyles from "../styles/styledUtils/StyledNotFound";
 import noLetters from "@/assets/images/noLetters.png";
 import noLettersDark from "@/assets/images/noLettersDark.png";
 import notFound from "@/assets/images/notFound.svg";

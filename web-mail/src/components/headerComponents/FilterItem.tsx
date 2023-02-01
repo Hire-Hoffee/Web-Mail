@@ -2,9 +2,9 @@ import React from "react";
 import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import StyledFilterItem from "./styles/StyledFilterItem";
+import StyledFilterItem from "../styles/styledHeader/StyledFilterItem";
 import { FilterItemProp } from "@/types/otherTypes";
-import CheckSVG from "./styles/svgs/CheckSVG";
+import CheckSVG from "../styles/svgs/CheckSVG";
 
 import { changeSearchParams } from "@/utils/functions/utilsFunctions";
 

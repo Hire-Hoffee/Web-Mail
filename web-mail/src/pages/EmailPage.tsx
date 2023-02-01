@@ -4,10 +4,10 @@ import { getOneMail } from "@/services/apiRequests";
 import { getData } from "@/utils/functions/utilsFunctions";
 import EmailType from "@/types/emailType";
 
-import StyledEmailPage from "@/components/styles/StyledEmailPage";
+import StyledEmailPage from "@/components/styles/styledEmails/StyledEmailPage";
 
-import EmailComponent from "@/components/EmailComponent";
-import LoadingComponent from "@/components/LoadingComponent";
+import EmailComponent from "@/components/emailsComponents/EmailComponent";
+import LoadingComponent from "@/components/utilsComponents/LoadingComponent";
 
 function EmailPage(): JSX.Element {
   const [email, setEmail] = useState<EmailType | null>(null);

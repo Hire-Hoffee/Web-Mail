@@ -3,15 +3,15 @@ import { Outlet, useNavigate, useParams } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import GlobalStyles from "@/components/styles/GlobalStyles";
-import StyledContainer from "@/components/styles/StyledContainer";
+import StyledContainer from "@/components/styles/styledContainers/StyledContainer";
 import { whiteTheme } from "@/utils/themes/themes";
 import themesDictionary from "./utils/themes/themesDictionary";
 
-import SettingsButton from "./components/SettingsButton";
-import SettingOptions from "./components/SettingOptions";
-import Header from "@/components/Header";
-import Navbar from "@/components/Navbar";
-import CreateEmail from "./components/CreateEmail";
+import SettingsButton from "./components/settingsComponents/SettingsButton";
+import SettingOptions from "./components/settingsComponents/SettingOptions";
+import Header from "@/components/headerComponents/Header";
+import Navbar from "@/components/navbarComponents/Navbar";
+import CreateEmail from "./components/emailsComponents/CreateEmail";
 
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import { changeThemeState, changeFilterToggle, changeSettingsOpen } from "@/store/utilsSlice";

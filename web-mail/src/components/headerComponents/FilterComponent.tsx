@@ -3,13 +3,13 @@ import { useSearchParams } from "react-router-dom";
 import { useAppSelector } from "@/store/hooks";
 import { useTranslation } from "react-i18next";
 
-import StyledFilter from "./styles/StyledFilter";
+import StyledFilter from "../styles/styledHeader/StyledFilter";
 import FilterItem from "./FilterItem";
 
 import bookmarkIcon from "@/assets/images/bookmarkIcon.svg";
 import importantIcon from "@/assets/images/importantIcon.svg";
 import blueDot from "@/assets/images/blueDot.svg";
-import StapleSVG from "./styles/svgs/StapleSVG";
+import StapleSVG from "../styles/svgs/StapleSVG";
 
 import themesDictionary from "@/utils/themes/themesDictionary";
 import { chooseSVGFill } from "@/utils/functions/utilsFunctions";

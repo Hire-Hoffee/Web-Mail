@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import StyledLanguageSwitcher from "./styles/StyledLanguageSwitcher";
+import StyledLanguageSwitcher from "../styles/styledSettings/StyledLanguageSwitcher";
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import { useTranslation } from "react-i18next";
 import { changeSettingsOpen, changeSiteLang } from "@/store/utilsSlice";

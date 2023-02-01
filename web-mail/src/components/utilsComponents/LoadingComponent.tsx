@@ -1,6 +1,6 @@
 import React from "react";
-import SpinnerSVG from "./styles/svgs/SpinnerSVG";
-import StyledLoading from "./styles/StyledLoading";
+import SpinnerSVG from "../styles/svgs/SpinnerSVG";
+import StyledLoading from "../styles/styledUtils/StyledLoading";
 import { useAppSelector } from "@/store/hooks";
 
 function LoadingComponent(props: { svgFill?: string }): JSX.Element {

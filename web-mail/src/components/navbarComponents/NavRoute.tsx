@@ -1,5 +1,5 @@
 import React from "react";
-import StyledNav from "./styles/StyledNav";
+import StyledNav from "../styles/styledNavbar/StyledNav";
 import { NavProps } from "@/types/otherTypes";
 
 function NavRoute({ to, svgComponent, name }: NavProps): JSX.Element {

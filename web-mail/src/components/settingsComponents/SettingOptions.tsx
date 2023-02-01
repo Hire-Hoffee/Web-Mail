@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import StyledSettingsOptions from "./styles/StyledSettingsOptions";
+import StyledSettingsOptions from "../styles/styledSettings/StyledSettingsOptions";
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import { useTranslation } from "react-i18next";
 import { themeSwitchOpened, langSwitchOpened } from "@/store/utilsSlice";

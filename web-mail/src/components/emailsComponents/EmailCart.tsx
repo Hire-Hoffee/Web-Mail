@@ -1,5 +1,5 @@
 import React from "react";
-import StyledEmailsCart from "./styles/StyledEmailCard";
+import StyledEmailsCart from "../styles/styledEmails/StyledEmailCard";
 import EmailType from "@/types/emailType";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "@/store/hooks";
@@ -16,7 +16,7 @@ import registrations from "@/assets/images/registrations.svg";
 import travelings from "@/assets/images/travelings.svg";
 import blueDot from "@/assets/images/blueDot.svg";
 import grayDot from "@/assets/images/grayDot.svg";
-import StapleSVG from "./styles/svgs/StapleSVG";
+import StapleSVG from "../styles/svgs/StapleSVG";
 
 import { timeDisplay } from "@/utils/functions/utilsFunctions";
 

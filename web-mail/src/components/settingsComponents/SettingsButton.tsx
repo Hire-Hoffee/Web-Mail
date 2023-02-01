@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
-import GearSVG from "./styles/svgs/GearSVG";
+import GearSVG from "../styles/svgs/GearSVG";
 
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import { changeSettingsOpen } from "@/store/utilsSlice";

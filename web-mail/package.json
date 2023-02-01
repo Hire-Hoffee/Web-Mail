@@ -18,6 +18,8 @@
     "react-intersection-observer": "^9.4.1",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.5",
+    "slate": "^0.88.1",
+    "slate-react": "^0.89.0",
     "styled-components": "^5.3.6",
     "styled-reset": "^4.4.4"
   },

@@ -1,11 +1,13 @@
 import React from "react";
 
-import StyledCreateEmail from "./styles/StyledCreateEmail";
-import CloseBtnSVG from "./styles/svgs/CloseBtnSVG";
-import StapleSVG from "./styles/svgs/StapleSVG";
+import StyledCreateEmail from "../styles/styledEmails/StyledCreateEmail";
+import CloseBtnSVG from "../styles/svgs/CloseBtnSVG";
+import StapleSVG from "../styles/svgs/StapleSVG";
 
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import { changeNewLetterPopup } from "@/store/utilsSlice";
+
+import TextEditor from "../textEditorComponents/TextEditor";
 
 function CreateEmail() {
   const newLetterPopup = useAppSelector((state) => state.utils.newLetterPopup);
@@ -42,7 +44,7 @@ function CreateEmail() {
           </div>
         </div>
         <div>
-          <textarea name="" id="" cols={30} rows={10}></textarea>
+          <TextEditor />
         </div>
         <div>
           <button>Отправить</button>

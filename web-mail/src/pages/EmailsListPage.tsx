@@ -4,10 +4,10 @@ import { useParams, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 
-import StyledEmailsContainer from "@/components/styles/StyledEmailsContainer";
-import NotFoundEmails from "@/components/NotFoundEmails";
-import LoadingComponent from "@/components/LoadingComponent";
-import EmailCart from "@/components/EmailCart";
+import StyledEmailsContainer from "@/components/styles/styledEmails/StyledEmailsContainer";
+import NotFoundEmails from "@/components/utilsComponents/NotFoundEmails";
+import LoadingComponent from "@/components/utilsComponents/LoadingComponent";
+import EmailCart from "@/components/emailsComponents/EmailCart";
 import SpinnerSVG from "@/components/styles/svgs/SpinnerSVG";
 
 import EmailType from "@/types/emailType";

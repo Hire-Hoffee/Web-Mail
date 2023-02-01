@@ -4,17 +4,17 @@ import { useTranslation } from "react-i18next";
 import { useAppDispatch } from "@/store/hooks";
 import { changeNewLetterPopup } from "@/store/utilsSlice";
 
-import StyledNavbar from "./styles/StyledNavbar";
+import StyledNavbar from "../styles/styledNavbar/StyledNavbar";
 import NavRoute from "./NavRoute";
 
-import InboxSVG from "./styles/svgs/navbar/InboxSVG";
-import ArchiveSVG from "./styles/svgs/navbar/ArchiveSVG";
-import ImportantSVG from "./styles/svgs/navbar/ImportantSVG";
-import SentSVG from "./styles/svgs/navbar/SentSVG";
-import DraftsSVG from "./styles/svgs/navbar/DraftsSVG";
-import SpamSVG from "./styles/svgs/navbar/SpamSVG";
-import TrashSVG from "./styles/svgs/navbar/TrashSVG";
-import PlusSVG from "./styles/svgs/PlusSVG";
+import InboxSVG from "../styles/svgs/navbar/InboxSVG";
+import ArchiveSVG from "../styles/svgs/navbar/ArchiveSVG";
+import ImportantSVG from "../styles/svgs/navbar/ImportantSVG";
+import SentSVG from "../styles/svgs/navbar/SentSVG";
+import DraftsSVG from "../styles/svgs/navbar/DraftsSVG";
+import SpamSVG from "../styles/svgs/navbar/SpamSVG";
+import TrashSVG from "../styles/svgs/navbar/TrashSVG";
+import PlusSVG from "../styles/svgs/PlusSVG";
 import writeLetter from "@/assets/images/writeLetter.svg";
 
 function Navbar(): JSX.Element {

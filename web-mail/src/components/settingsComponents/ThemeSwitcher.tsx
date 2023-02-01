@@ -3,8 +3,8 @@ import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import { useTranslation } from "react-i18next";
 import { changeThemeState, changeSettingsOpen } from "@/store/utilsSlice";
 
-import StyledThemeSwitcher from "./styles/StyledThemeSwitcher";
-import LogoSVG from "./styles/svgs/LogoSVG";
+import StyledThemeSwitcher from "../styles/styledSettings/StyledThemeSwitcher";
+import LogoSVG from "../styles/svgs/LogoSVG";
 
 import { changeTheme } from "@/utils/functions/utilsFunctions";
 
