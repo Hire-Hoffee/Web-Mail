@@ -15,7 +15,7 @@ const StyledEmailPage = styled(StyledEmailsContainer)`
     height: 60px;
 
     h1 {
-      font-size: 24px;
+      font-size: 20px;
       font-weight: bold;
       margin-top: 16px;
       margin-bottom: 16px;
