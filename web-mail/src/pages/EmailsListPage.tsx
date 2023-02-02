@@ -44,7 +44,7 @@ function EmailsListPage() {
 
   useEffect(() => {
     filterResult({ emails: defaultEmails, searchParams, setEmails, setParams: setSearchParams });
-  }, [searchParams]);
+  }, [searchParams, defaultEmails]);
 
   useEffect(() => {
     folder ? (document.title = `WebMail - ${t(`navbar.${folder}`)}`) : "WebMail";
