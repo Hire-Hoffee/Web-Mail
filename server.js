@@ -74,13 +74,7 @@ const controllers = {
   },
   getOneMailController: async (req, res, query) => {
     try {
-      const bigFile = JSON.parse(await fs.readFile(path.resolve("./db.json"))).map((letter) => {
-        if (letter.flag === "Путешевствия") {
-          letter.flag = "Путешествия";
-        }
-        return letter;
-      });
-      const result = bigFile.find((letter) => letter.title === decodeURI(query));
+      const result = utils.bigFile.find((letter) => letter.title === decodeURI(query));
 
       if (result.doc && !Array.isArray(result.doc)) {
         const img = result.doc;
@@ -97,6 +91,38 @@ const controllers = {
       if (result) {
         res.writeHead(200, headers);
         res.end(JSON.stringify(result));
+        return;
+      }
+
+      res.writeHead(404, headers);
+      res.end(JSON.stringify({ message: "Not found" }));
+      return;
+    } catch (error) {
+      console.log(error);
+      throw new Error("Unexpected error occurred");
+    }
+  },
+  getEmailImages: async (req, res, query) => {
+    try {
+      const bigFile = JSON.parse(await fs.readFile(path.resolve("./db.json")));
+      const result = bigFile.find((letter) => letter.title === decodeURI(query));
+
+      if (result.doc && !Array.isArray(result.doc)) {
+        const img = result.doc;
+        result.doc = [];
+        result.doc.push(img);
+      }
+      const images = result.doc;
+
+      const headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET",
+        "Content-Type": "application/json",
+      };
+
+      if (images) {
+        res.writeHead(200, headers);
+        res.end(JSON.stringify(images));
         return;
       }
 
@@ -148,6 +174,11 @@ const reqListener = async function (req, res) {
       const folder = req.url.split("/")[2];
       const pageNum = req.url.split("/")[3];
       await controllers.getDataController(req, res, folder, pageNum);
+      return;
+    }
+    if (req.url.match(/\/api\/email\?title=[\W\w+а-яёА-ЯЁ ]+&imgs=true/i) && req.method === "GET") {
+      const email = req.url.split("=")[1].split("&")[0];
+      await controllers.getEmailImages(req, res, email);
       return;
     }
     if (req.url.match(/\/api\/email\?title/i) && req.method === "GET") {

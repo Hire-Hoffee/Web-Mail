@@ -7,6 +7,7 @@ export type Utils = {
   langSwitcher: boolean;
   lang: string;
   newLetterPopup: boolean;
+  isImages: any;
 };
 
 export type NavProps = {

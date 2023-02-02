@@ -10,6 +10,7 @@ const initialState: Utils = {
   langSwitcher: false,
   lang: localStorage.getItem("lang") || "ru",
   newLetterPopup: false,
+  isImages: undefined,
 };
 
 export const utilsSlice = createSlice({
@@ -44,6 +45,9 @@ export const utilsSlice = createSlice({
     changeNewLetterPopup: (state, action: PayloadAction<boolean>) => {
       state.newLetterPopup = action.payload;
     },
+    changeIsImages: (state, action: PayloadAction<any>) => {
+      state.isImages = action.payload;
+    },
   },
 });
 
@@ -56,6 +60,7 @@ export const {
   langSwitchOpened,
   changeSiteLang,
   changeNewLetterPopup,
+  changeIsImages,
 } = utilsSlice.actions;
 
 export default utilsSlice.reducer;

@@ -131,6 +131,19 @@ const StyledEmailPage = styled(StyledEmailsContainer)`
       }
     }
   }
+  .imgLoader {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    span {
+      justify-content: start;
+      margin-left: 150px;
+    }
+    svg {
+      width: 50px;
+      height: 50px;
+    }
+  }
 `;
 
 export default StyledEmailPage;

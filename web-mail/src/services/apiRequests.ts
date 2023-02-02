@@ -16,3 +16,11 @@ export const getOneMail = async (path: string): Promise<EmailType> => {
     throw error;
   }
 };
+
+export const getEmailImages = async (path: string): Promise<{ img: string }[]> => {
+  try {
+    return (await instance.get(path)).data;
+  } catch (error) {
+    throw error;
+  }
+};

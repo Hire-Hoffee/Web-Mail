@@ -2,7 +2,8 @@ import React from "react";
 import StyledEmailsCart from "../styles/styledEmails/StyledEmailCard";
 import EmailType from "@/types/emailType";
 import { Link } from "react-router-dom";
-import { useAppSelector } from "@/store/hooks";
+import { useAppSelector, useAppDispatch } from "@/store/hooks";
+import { changeIsImages } from "@/store/utilsSlice";
 
 import defaultAvatar from "@/assets/images/defaultAvatar.png";
 import bookmarkIcon from "@/assets/images/bookmarkIcon.svg";
@@ -22,6 +23,7 @@ import { timeDisplay } from "@/utils/functions/utilsFunctions";
 
 function EmailCart(email: EmailType): JSX.Element {
   const lang = useAppSelector((state) => state.utils.lang);
+  const dispatch = useAppDispatch();
 
   const flagDict = {
     Заказы: orders,
@@ -34,7 +36,7 @@ function EmailCart(email: EmailType): JSX.Element {
 
   return (
     <Link to={"/email?title=" + email.title}>
-      <StyledEmailsCart>
+      <StyledEmailsCart onClick={() => dispatch(changeIsImages(email.doc))}>
         <div onClick={(e) => e.preventDefault()}>
           {email.read === false ? (
             <img src={blueDot} alt="status" />

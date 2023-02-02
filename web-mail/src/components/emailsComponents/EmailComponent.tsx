@@ -14,6 +14,8 @@ import registrations from "@/assets/images/registrations.svg";
 import travelings from "@/assets/images/travelings.svg";
 import blueDot from "@/assets/images/blueDot.svg";
 
+import LoadingComponent from "@/components/utilsComponents/LoadingComponent";
+
 import { calculateFileSize, timeDisplay } from "@/utils/functions/utilsFunctions";
 
 function EmailComponent(email: EmailType): JSX.Element {
@@ -89,7 +91,7 @@ function EmailComponent(email: EmailType): JSX.Element {
       </div>
 
       <div>
-        {email.doc ? (
+        {email.doc && email.doc[0].img ? (
           <>
             <div>
               {email.doc.map((item) => {
@@ -111,6 +113,10 @@ function EmailComponent(email: EmailType): JSX.Element {
               <span>{calculateFileSize(email.doc)}</span>
             </div>
           </>
+        ) : email.img && email.img[0] === true ? (
+          <div className="imgLoader">
+            <LoadingComponent />
+          </div>
         ) : (
           ""
         )}
