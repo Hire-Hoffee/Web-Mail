@@ -26,21 +26,20 @@ function EmailsListPage() {
 
   const { folder } = useParams();
   const { t } = useTranslation();
-  const { ref, inView } = useInView();
+  const { ref, inView, entry } = useInView();
   const scrollEl = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (inView && nextEmailsLength === 20) {
       (async () => {
         setPage(page + 1);
-
         const nextEmails = await getEmails(`/${folder}/${page}`);
         setNextEmailsLength(nextEmails.length);
         setEmails((prevEmails) => [...(prevEmails as EmailType[]), ...nextEmails]);
         setDefaultEmails((prevEmails) => [...(prevEmails as EmailType[]), ...nextEmails]);
       })();
     }
-  }, [inView]);
+  }, [inView, entry]);
 
   useEffect(() => {
     filterResult({ emails: defaultEmails, searchParams, setEmails, setParams: setSearchParams });
