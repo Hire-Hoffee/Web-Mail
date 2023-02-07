@@ -91,11 +91,11 @@ function EmailComponent(email: EmailType): JSX.Element {
       </div>
 
       <div>
-        {email.doc && email.doc[0].img ? (
+        {email.doc ? (
           <>
             <div>
               {email.doc.map((item) => {
-                return <img src={item.img} alt="doc" key={item.img.slice(0, 10)} />;
+                return <img src={item.img} alt="doc" key={item.img} />;
               })}
             </div>
 
@@ -110,13 +110,9 @@ function EmailComponent(email: EmailType): JSX.Element {
                   {t("other.downloadFiles")}{" "}
                 </a>
               )}
-              <span>{calculateFileSize(email.doc)}</span>
+              <span>{email.doc[0].size}</span>
             </div>
           </>
-        ) : email.img && email.img[0] === true ? (
-          <div className="imgLoader">
-            <LoadingComponent />
-          </div>
         ) : (
           ""
         )}

@@ -9,6 +9,11 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    proxy: {
+      "/attachments": "http://localhost:3000",
+    },
+  },
   build: {
     outDir: "../dist",
     emptyOutDir: true,

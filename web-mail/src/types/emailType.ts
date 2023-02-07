@@ -16,8 +16,7 @@ type EmailType = {
   folder: string;
   date: string;
   flag: string;
-  doc?: { img: string }[];
-  img?: any;
+  doc?: { img: string; size: string }[];
 };
 
 export default EmailType;

@@ -1,6 +1,7 @@
 const http = require("http");
 const path = require("path");
 const fs = require("fs").promises;
+const fs2 = require("fs");
 
 const utils = {
   bigFile: undefined,
@@ -13,19 +14,44 @@ const utils = {
     spam: "Спам",
     trash: "Корзина",
   },
-  lightData: async () => {
+  calculateFileSize: (file) => {
+    const base64str = file.split(",")[1];
+    const decodedString = base64str.toString("base64");
+    const size = Math.round(decodedString.length / 1000);
+    return size > 1000 ? `${Math.round(size / 1000)}Mb` : `${size}Kb`;
+  },
+  saveAsJpg: async (base64, dir, id) => {
+    const image = Buffer.from(base64.split(";base64,").pop(), "base64");
+    const buffer = Buffer.from(image, "base64");
+    return await fs.writeFile(path.resolve(dir, `${id}.jpg`), buffer);
+  },
+  lightData: async (dir) => {
     if (utils.bigFile) {
       return utils.bigFile;
     }
 
+    if (fs2.existsSync(dir)) {
+      await fs.rm(dir, { recursive: true });
+    }
+
+    await fs.mkdir(dir);
+
     utils.bigFile = JSON.parse(await fs.readFile(path.resolve("./db.json")));
     utils.bigFile = utils.bigFile.map((letter) => {
+      letter.id = Math.random().toString(36).substring(2) + Date.now().toString(36);
+
       if (letter.doc) {
-        letter.doc = true;
+        utils.saveAsJpg(letter.doc.img, dir, letter.id);
+        letter.doc.size = utils.calculateFileSize(letter.doc.img);
+        letter.doc.img = `/${dir}/${letter.id}.jpg`;
+      }
+      if (letter.folder === undefined) {
+        letter.folder = "Входящие";
       }
       if (letter.flag === "Путешевствия") {
         letter.flag = "Путешествия";
       }
+
       return letter;
     });
 
@@ -38,7 +64,7 @@ const controllers = {
     try {
       async function filterData(param) {
         if (param in utils.folderDict) {
-          const result = await utils.lightData();
+          const result = await utils.lightData("attachments");
           return result.filter((letter) => letter.folder === utils.folderDict[param]);
         }
         return { message: "Not found" };
@@ -135,10 +161,10 @@ const controllers = {
     }
   },
   sendStaticController: async (req, res, filePath) => {
-    if (filePath == "/" || !filePath.match(/\/assets\//)) {
-      filePath = "./dist/index.html";
+    if (filePath == "/" || !filePath.match(/\/assets\/|\/attachments\//)) {
+      filePath = path.join(__dirname, "index.html");
     } else {
-      filePath = "./dist" + req.url;
+      filePath = path.join(__dirname, req.url);
     }
 
     let extname = String(path.extname(filePath)).toLowerCase();
@@ -200,6 +226,7 @@ const server = http.createServer(reqListener);
 const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, async () => {
-  await utils.lightData();
+  console.log("Starting ...");
+  await utils.lightData("attachments");
   console.log("Server is running on port " + PORT);
 });
