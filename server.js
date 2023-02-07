@@ -34,7 +34,7 @@ const utils = {
     if (fs2.existsSync(dir)) {
       await fs.rm(dir, { recursive: true });
     }
-    await fs.mkdir(dir);
+    await fs.mkdir(dir, { recursive: true });
 
     utils.bigFile = JSON.parse(await fs.readFile(path.resolve("./db.json")));
     utils.bigFile = utils.bigFile.map((letter) => {
@@ -43,12 +43,12 @@ const utils = {
 
       if (letter.author.avatar) {
         utils.saveAsJpg(letter.author.avatar, dir, avatarID);
-        letter.author.avatar = `/${dir}/${avatarID}.jpg`;
+        letter.author.avatar = `/${dir.split("/")[1]}/${avatarID}.jpg`;
       }
       if (letter.doc) {
         utils.saveAsJpg(letter.doc.img, dir, imgID);
         letter.doc.size = utils.calculateFileSize(letter.doc.img);
-        letter.doc.img = `/${dir}/${imgID}.jpg`;
+        letter.doc.img = `/${dir.split("/")[1]}/${imgID}.jpg`;
       }
       if (letter.folder === undefined) {
         letter.folder = "Входящие";
@@ -68,7 +68,7 @@ const controllers = {
     try {
       let result = [];
 
-      result = await utils.lightData("attachments");
+      result = await utils.lightData("dist/attachments");
       result = result
         .filter((letter) => letter.folder === utils.folderDict[query])
         .sort((a, b) => {
@@ -135,10 +135,10 @@ const controllers = {
     }
   },
   sendStaticController: async (req, res, filePath) => {
-    if (filePath == "/" || !filePath.match(/\/assets\/|\/attachments\//)) {
-      filePath = path.join(__dirname, "index.html");
+    if (filePath === "/" || !filePath.match(/\/assets\/|\/attachments\//)) {
+      filePath = path.join(__dirname, "dist", "index.html");
     } else {
-      filePath = path.join(__dirname, req.url);
+      filePath = path.join(__dirname, "dist", req.url);
     }
 
     const extname = String(path.extname(filePath)).toLowerCase();
@@ -192,6 +192,6 @@ const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, async () => {
   console.log("Starting ...");
-  await utils.lightData("attachments");
+  await utils.lightData("dist/attachments");
   console.log("Server is running on port " + PORT);
 });
