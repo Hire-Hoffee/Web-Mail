@@ -18,32 +18,37 @@ const utils = {
     const base64str = file.split(",")[1];
     const decodedString = base64str.toString("base64");
     const size = Math.round(decodedString.length / 1000);
+
     return size > 1000 ? `${Math.round(size / 1000)}Mb` : `${size}Kb`;
   },
   saveAsJpg: async (base64, dir, id) => {
     const image = Buffer.from(base64.split(";base64,").pop(), "base64");
     const buffer = Buffer.from(image, "base64");
+
     return await fs.writeFile(path.resolve(dir, `${id}.jpg`), buffer);
   },
   lightData: async (dir) => {
     if (utils.bigFile) {
       return utils.bigFile;
     }
-
     if (fs2.existsSync(dir)) {
       await fs.rm(dir, { recursive: true });
     }
-
     await fs.mkdir(dir);
 
     utils.bigFile = JSON.parse(await fs.readFile(path.resolve("./db.json")));
     utils.bigFile = utils.bigFile.map((letter) => {
-      letter.id = Math.random().toString(36).substring(2) + Date.now().toString(36);
+      const imgID = Math.random().toString(36).substring(2) + Date.now().toString(36);
+      const avatarID = Math.random().toString(30).substring(2) + Date.now().toString(30);
 
+      if (letter.author.avatar) {
+        utils.saveAsJpg(letter.author.avatar, dir, avatarID);
+        letter.author.avatar = `/${dir}/${avatarID}.jpg`;
+      }
       if (letter.doc) {
-        utils.saveAsJpg(letter.doc.img, dir, letter.id);
+        utils.saveAsJpg(letter.doc.img, dir, imgID);
         letter.doc.size = utils.calculateFileSize(letter.doc.img);
-        letter.doc.img = `/${dir}/${letter.id}.jpg`;
+        letter.doc.img = `/${dir}/${imgID}.jpg`;
       }
       if (letter.folder === undefined) {
         letter.folder = "Входящие";
@@ -51,7 +56,6 @@ const utils = {
       if (letter.flag === "Путешевствия") {
         letter.flag = "Путешествия";
       }
-
       return letter;
     });
 
@@ -62,25 +66,20 @@ const utils = {
 const controllers = {
   getDataController: async (req, res, query, pageNum = 1) => {
     try {
-      async function filterData(param) {
-        if (param in utils.folderDict) {
-          const result = await utils.lightData("attachments");
-          return result.filter((letter) => letter.folder === utils.folderDict[param]);
-        }
-        return { message: "Not found" };
-      }
+      let result = [];
 
-      let result = await filterData(query);
-      result.sort((a, b) => {
-        a = new Date(a.date).getTime();
-        b = new Date(b.date).getTime();
-        return b - a;
-      });
-      result = result.slice((pageNum - 1) * 20, pageNum * 20);
+      result = await utils.lightData("attachments");
+      result = result
+        .filter((letter) => letter.folder === utils.folderDict[query])
+        .sort((a, b) => {
+          a = new Date(a.date).getTime();
+          b = new Date(b.date).getTime();
+          return b - a;
+        })
+        .slice((pageNum - 1) * 20, pageNum * 20);
 
       const headers = {
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET",
         "Content-Type": "application/json",
       };
 
@@ -110,45 +109,12 @@ const controllers = {
 
       const headers = {
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET",
         "Content-Type": "application/json",
       };
 
       if (result) {
         res.writeHead(200, headers);
         res.end(JSON.stringify(result));
-        return;
-      }
-
-      res.writeHead(404, headers);
-      res.end(JSON.stringify({ message: "Not found" }));
-      return;
-    } catch (error) {
-      console.log(error);
-      throw new Error("Unexpected error occurred");
-    }
-  },
-  getEmailImages: async (req, res, query) => {
-    try {
-      const bigFile = JSON.parse(await fs.readFile(path.resolve("./db.json")));
-      const result = bigFile.find((letter) => letter.title === decodeURI(query));
-
-      if (result.doc && !Array.isArray(result.doc)) {
-        const img = result.doc;
-        result.doc = [];
-        result.doc.push(img);
-      }
-      const images = result.doc;
-
-      const headers = {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET",
-        "Content-Type": "application/json",
-      };
-
-      if (images) {
-        res.writeHead(200, headers);
-        res.end(JSON.stringify(images));
         return;
       }
 
@@ -167,20 +133,16 @@ const controllers = {
       filePath = path.join(__dirname, req.url);
     }
 
-    let extname = String(path.extname(filePath)).toLowerCase();
-    let mimeTypes = {
+    const extname = String(path.extname(filePath)).toLowerCase();
+    const mimeTypes = {
       ".html": "text/html",
       ".js": "text/javascript",
-      ".css": "text/css",
       ".json": "application/json",
-      ".png": "image/png",
       ".jpg": "image/jpg",
       ".svg": "image/svg+xml",
-      ".ttf": "application/font-ttf",
       ".ico": "image/x-icon",
     };
-    let contentType = mimeTypes[extname] || "application/octet-stream";
-
+    const contentType = mimeTypes[extname] || "application/octet-stream";
     const result = await fs.readFile(filePath);
 
     res.writeHead(200, { "Content-Type": contentType });
@@ -200,11 +162,6 @@ const reqListener = async function (req, res) {
       const folder = req.url.split("/")[2];
       const pageNum = req.url.split("/")[3];
       await controllers.getDataController(req, res, folder, pageNum);
-      return;
-    }
-    if (req.url.match(/\/api\/email\?title=[\W\w+а-яёА-ЯЁ ]+&imgs=true/i) && req.method === "GET") {
-      const email = req.url.split("=")[1].split("&")[0];
-      await controllers.getEmailImages(req, res, email);
       return;
     }
     if (req.url.match(/\/api\/email\?title/i) && req.method === "GET") {
@@ -229,4 +186,5 @@ server.listen(PORT, async () => {
   console.log("Starting ...");
   await utils.lightData("attachments");
   console.log("Server is running on port " + PORT);
+  console.log(utils.bigFile);
 });
