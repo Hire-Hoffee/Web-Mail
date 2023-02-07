@@ -78,6 +78,14 @@ const controllers = {
         })
         .slice((pageNum - 1) * 20, pageNum * 20);
 
+      result.forEach((item) => {
+        if (item.doc && !Array.isArray(item.doc)) {
+          const img = item.doc;
+          item.doc = [];
+          item.doc.push(img);
+        }
+      });
+
       const headers = {
         "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
@@ -186,5 +194,4 @@ server.listen(PORT, async () => {
   console.log("Starting ...");
   await utils.lightData("attachments");
   console.log("Server is running on port " + PORT);
-  console.log(utils.bigFile);
 });

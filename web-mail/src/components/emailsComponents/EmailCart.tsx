@@ -16,7 +16,8 @@ import registrations from "@/assets/images/registrations.svg";
 import travelings from "@/assets/images/travelings.svg";
 import blueDot from "@/assets/images/blueDot.svg";
 import grayDot from "@/assets/images/grayDot.svg";
-import StapleSVG from "../styles/svgs/StapleSVG";
+
+import ImagesPopup from "./ImagesPopup";
 
 import { timeDisplay } from "@/utils/functions/utilsFunctions";
 
@@ -78,7 +79,7 @@ function EmailCart(email: EmailType): JSX.Element {
           ) : (
             false
           )}
-          <span>{email.doc ? <StapleSVG /> : false}</span>
+          {email.doc ? <ImagesPopup img={email.doc[0].img} size={email.doc[0].size} /> : false}
         </div>
         <div>
           <span>{timeDisplay(new Date(email.date), lang)}</span>
