@@ -24,5 +24,9 @@
   "bugs": {
     "url": "https://github.com/Hire-Hoffee/Web-Mail/issues"
   },
-  "homepage": "https://github.com/Hire-Hoffee/Web-Mail#readme"
+  "homepage": "https://github.com/Hire-Hoffee/Web-Mail#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mongodb": "^5.0.1"
+  }
 }

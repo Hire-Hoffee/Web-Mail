@@ -2,6 +2,8 @@ const http = require("http");
 const path = require("path");
 const fs = require("fs").promises;
 const fs2 = require("fs");
+const { MongoClient } = require("mongodb");
+require("dotenv").config();
 
 const utils = {
   bigFile: undefined,
@@ -13,6 +15,19 @@ const utils = {
     archive: "Архив",
     spam: "Спам",
     trash: "Корзина",
+  },
+  mongoDBService: async (config) => {
+    const url = config.url;
+    const dbName = config.db;
+
+    const client = new MongoClient(url);
+    await client.connect();
+    console.log("Connected successfully to MongoDB");
+
+    const db = client.db(dbName);
+    const collection = db.collection(config.collection);
+
+    return await collection.find().toArray();
   },
   calculateFileSize: (file) => {
     const base64str = file.split(",")[1];
@@ -36,7 +51,13 @@ const utils = {
     }
     await fs.mkdir(dir, { recursive: true });
 
-    utils.bigFile = JSON.parse(await fs.readFile(path.resolve("./db.json")));
+    const config = {
+      url: process.env.CONNECT_URL,
+      db: process.env.DB_NAME,
+      collection: process.env.COLLECTION,
+    };
+
+    utils.bigFile = await utils.mongoDBService(config);
     utils.bigFile = utils.bigFile.map((letter) => {
       const imgID = Math.random().toString(36).substring(2) + Date.now().toString(36);
       const avatarID = Math.random().toString(30).substring(2) + Date.now().toString(30);
