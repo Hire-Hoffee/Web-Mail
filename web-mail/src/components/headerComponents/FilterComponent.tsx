@@ -36,7 +36,7 @@ function FilterComponent(): JSX.Element {
           svgComponent={
             <StapleSVG svgFill={chooseSVGFill({ theme, dictionary: themesDictionary })} />
           }
-          query={["doc", "true"]}
+          query={["files", "true"]}
         />
         {!(searchParams.get("letters") || String(searchParams) === "") ? (
           <div>

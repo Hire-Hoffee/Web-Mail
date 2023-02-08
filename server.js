@@ -70,6 +70,7 @@ const utils = {
         utils.saveAsJpg(letter.doc.img, dir, imgID);
         letter.doc.size = utils.calculateFileSize(letter.doc.img);
         letter.doc.img = `/${dir.split("/")[1]}/${imgID}.jpg`;
+        letter.files = true;
       }
       if (letter.folder === undefined) {
         letter.folder = "Входящие";
