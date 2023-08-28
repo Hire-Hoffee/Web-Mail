@@ -7,6 +7,13 @@
 - ### Дизайн [figma](<https://www.figma.com/file/TUIFDmBXvhjeqHdIv3KW7f/VK-Cup-2022-(2)>).
 - ### [Презентация проекта](https://docs.google.com/presentation/d/1EKmwgqBBrcyU9DvVRfKy7KlfONIlUulJS9pQHHUdUOs/edit?usp=sharing)
 
+<br/>
+
+![Dark theme](https://i.imgur.com/Xu98oZY.png "Dark theme")
+![Message](https://i.imgur.com/y7I8ZXK.png "Message")
+![Light theme](https://i.imgur.com/DVg21s4.png "Light theme")
+![Colored theme](https://i.imgur.com/KHASe2n.png "Colored theme")
+
 ## Задание:
 
 ### JS квалификация
