@@ -42,7 +42,7 @@ const utils = {
 
     return await fs.writeFile(path.resolve(dir, `${id}.jpg`), buffer);
   },
-  lightData: async (dir) => {
+  lightData: async (dir, db) => {
     if (utils.bigFile) {
       return utils.bigFile;
     }
@@ -57,7 +57,9 @@ const utils = {
       collection: process.env.COLLECTION,
     };
 
-    utils.bigFile = await utils.mongoDBService(config);
+    utils.bigFile = fs2.existsSync(db)
+      ? JSON.parse(await fs.readFile(db))
+      : await utils.mongoDBService(config);
     utils.bigFile = utils.bigFile.map((letter) => {
       const imgID = Math.random().toString(36).substring(2) + Date.now().toString(36);
       const avatarID = Math.random().toString(30).substring(2) + Date.now().toString(30);
@@ -214,6 +216,6 @@ const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, async () => {
   console.log("Starting ...");
-  await utils.lightData("dist/attachments");
+  await utils.lightData("dist/attachments", "db.json");
   console.log("Server is running on port " + PORT);
 });
