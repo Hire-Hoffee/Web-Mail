@@ -3,10 +3,11 @@ const path = require("path");
 const fs = require("fs").promises;
 const fs2 = require("fs");
 const { MongoClient } = require("mongodb");
+const StreamArray = require("stream-json/streamers/StreamArray");
 require("dotenv").config();
 
 const utils = {
-  bigFile: undefined,
+  bigFile: [],
   folderDict: {
     inbox: "Входящие",
     important: "Важное",
@@ -43,7 +44,7 @@ const utils = {
     return await fs.writeFile(path.resolve(dir, `${id}.jpg`), buffer);
   },
   lightData: async (dir, db) => {
-    if (utils.bigFile) {
+    if (utils.bigFile.length !== 0) {
       return utils.bigFile;
     }
     if (fs2.existsSync(dir)) {
@@ -57,10 +58,15 @@ const utils = {
       collection: process.env.COLLECTION,
     };
 
-    utils.bigFile = fs2.existsSync(db)
-      ? JSON.parse(await fs.readFile(db))
-      : await utils.mongoDBService(config);
-    utils.bigFile = utils.bigFile.map((letter) => {
+    if (!fs2.existsSync(db)) {
+      const data = await utils.mongoDBService(config);
+      fs2.writeFileSync(db, JSON.stringify(data));
+    }
+
+    const jsonStream = StreamArray.withParser();
+    fs2.createReadStream("db.json").pipe(jsonStream.input);
+
+    jsonStream.on("data", ({ value: letter }) => {
       const imgID = Math.random().toString(36).substring(2) + Date.now().toString(36);
       const avatarID = Math.random().toString(30).substring(2) + Date.now().toString(30);
 
@@ -80,7 +86,12 @@ const utils = {
       if (letter.flag === "Путешевствия") {
         letter.flag = "Путешествия";
       }
-      return letter;
+
+      utils.bigFile.push(letter);
+    });
+
+    jsonStream.on("end", () => {
+      console.log("All data is parsed");
     });
 
     return utils.bigFile;
