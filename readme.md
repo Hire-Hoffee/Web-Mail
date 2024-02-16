@@ -1,8 +1,8 @@
-# VK Cup 2022
+# VK Cup 22/23
 
 ## Упрощённая веб-версия почты
 
-- ### Ссылка на [приложение](https://webmail-erit.onrender.com) или http://178.57.218.89:7003.
+- ### Ссылка на [приложение](http://petwebmail.freemyip.com).
 - ### [Комплект тестовых данных](https://cloud.mail.ru/public/kLv4/mYrohjF9k).
 - ### Дизайн [figma](<https://www.figma.com/file/TUIFDmBXvhjeqHdIv3KW7f/VK-Cup-2022-(2)>).
 - ### [Презентация проекта](https://docs.google.com/presentation/d/1EKmwgqBBrcyU9DvVRfKy7KlfONIlUulJS9pQHHUdUOs/edit?usp=sharing)
