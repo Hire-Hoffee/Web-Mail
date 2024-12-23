@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  front:
+    image: mail-front
+    container_name: mail-front-container
+    build:
+      context: ./web-mail
+    volumes:
+      - frontend-build:/build
+
+  back:
+    image: mail-back
+    container_name: mail-back-container
+    build:
+      context: .
+    volumes:
+      - frontend-build:/build
+      - ./:/server
+      - /server/web-mail/node_modules/
+    ports:
+      - "7003:7003"
+    depends_on:
+      - front
+    deploy:
+      resources:
+        limits:
+          memory: 300M
+    restart: on-failure
+
+volumes:
+  frontend-build:

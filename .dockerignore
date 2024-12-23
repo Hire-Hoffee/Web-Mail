@@ -1,0 +1,5 @@
+node_modules
+web-mail
+db.json
+.git
+dist
