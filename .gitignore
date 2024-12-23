@@ -11,7 +11,7 @@ db.json
 node_modules
 attachments
 .ENV
-dist/attachments
+dist
 dist-ssr
 *.local
 
