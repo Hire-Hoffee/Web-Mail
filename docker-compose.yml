@@ -27,6 +27,12 @@ services:
         limits:
           memory: 300M
     restart: on-failure
+    networks:
+      - shared-pet
 
 volumes:
   frontend-build:
+
+networks:
+  shared-pet:
+    external: true
