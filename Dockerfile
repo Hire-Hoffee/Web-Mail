@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 7003
 
-CMD rm -rf ./dist && cp -r /build/out ./dist && npm start
+CMD ["/bin/sh", "-c", "rm -rf ./dist && cp -r /build/out ./dist && npm start"]
