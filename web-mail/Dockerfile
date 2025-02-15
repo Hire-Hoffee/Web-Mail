@@ -1,4 +1,4 @@
-FROM node:22-alpine as builder
+FROM node:22-alpine AS builder
 
 WORKDIR /client
 
@@ -12,6 +12,6 @@ RUN npm run build
 
 FROM node:22-alpine
 
-COPY --from=builder ../dist /out
+COPY --from=builder /client/dist /out
 
 CMD ["cp", "-r", "/out", "/build"]

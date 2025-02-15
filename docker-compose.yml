@@ -16,8 +16,8 @@ services:
       context: .
     volumes:
       - frontend-build:/build
-      - ./:/server
-      - /server/web-mail/node_modules/
+      - ./:/server:cached
+      - /server/node_modules
     ports:
       - "7003:7003"
     depends_on:
