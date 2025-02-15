@@ -26,7 +26,7 @@ services:
       resources:
         limits:
           memory: 500M
-    restart: on-failure
+    restart: always
     networks:
       - shared-pet
 
